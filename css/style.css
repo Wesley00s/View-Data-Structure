@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+:root{
+    --black : #333;
+    --light-color : rgb(255, 255, 255);
+    --box-shadow : 0.5rem 1.5rem rgba(0,0,0,.1);
+}
+*
+{
+    font-family : 'Roboto', sans-serif;
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border : none;
+    outline : none;
+    text-transform: capitalize;
+    transition : all .2s linear;
+}
+
+hmtl
+{
+    font-size:  62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background: grey;
+}
+header{
+    position : absolute;
+    top : 0;
+    left : 0;
+    right : 0;
+    background-color: #060429;
+    padding : 0.5rem 2%;
+    display : flex;
+    align-items : center;
+    justify-content: space-between;
+    box-shadow: var(--box-shadow);
+}
+
+header .logo img {
+    height : auto;
+}
+header .navbar a{
+    font-size : 1.2rem;
+    padding: .5rem 1.5rem;
+    color : var(--light-color);
+    border : .1rem solid transparent;
+}
+header .navbar a.active, header .navbar a:hover{
+    color : #fff;
+    border : .1rem solid rgba(205, 170, 124, 0.2);
+}
+header .icons i{
+    cursor : pointer;
+    margin-left: .5rem;
+    line-height: 4.5;
+    background : var(--light-color);
+    text-align: center;
+    font-size: 1.2rem;
+    color : #fff;
+}
+
+header .icons i:hover{
+    color : #fff;
+    background : var(--light-color);
+    transform : rotate(360deg);
+}
+header .icons #menu{
+    display: none;
+}
+
+@media (max-width :991px)
+{
+    html 
+    {
+        font-size: 55%;
+    }
+    header{
+        padding : 1rem, 2rem;
+    }
+    header .logo img{
+        height : 7rem;
+    }
+}
+
+@media (max-width : 778px){
+    header .logo img{
+        height: 7rem;
+    }
+    header .icons #menu {
+        display: inline-block;
+    }
+    header .navbar{
+        position : absolute;
+        top : 100%;
+        left : 0;
+        right: 0;
+        background: #eee;
+        background : .1rem solid rgba(205, 170, 124, 0.2);
+        border-bottom: .1rem solid rgba(205, 170, 124, 0.2);
+        padding: .5rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0, 0);
+    }
+    header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0, 0);
+    }
+    header .navbar a{
+        display: block;
+        padding : 1rem;
+        margin: 1rem;
+        font-size: 2rem;
+        background: var(--black);
+    }
+}
+
+.home .home-slider .slide{
+    display : flex;
+    align-items : center;
+    height: 100vh;
+    justify-content: flex-start;
+}
+
+.home .home-slider .wrapper .slide1{
+    background-image: url(../images/gamer.png);
+    /* background: #2c3f746c; */
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+}
+
+.home .home-slider .slide1
+{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.home .home-slider .slide .content
+{
+    text-align: center;
+    padding-left: 7rem;
+}
+
+.home .home-slider .slide .content h1
+{
+    color: white;
+    font-size: max(30px, 3vw);
+    font-weight: 300;
+}
+.home .home-slider .slide .content h2
+{
+    color : #fff;
+    font-size:  max(40px, 5vw);
+}
+.home .home-slider .slide .content p
+{  
+    color : #e6e7e7;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    padding : .5rem 0;
+    line-height: 1.5;
+    font-weight: 200;
+}
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.7rem;
+    color: #fff;
+    border : .1rem solid rgba(33, 77, 134, 0.2);
+    background: transparent;
+    cursor : pointer;
+    padding: .8rem 3rem;
+    position: relative;
+    overflow : hidden;
+    z-index: 1;
+}
+
+.btn:before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: rgb(59, 2, 45);
+    z-index: -1;
+    position: absolute;
+    top : 0;
+    left: -100%;
+    transition: .5s;
+}
+
+.btn:hover.btn:before{
+    left:0;
+}
+
+section{
+    padding : 8rem 9%;
+}
+
+.heading{
+    text-align: center;
+    color : #000000;
+    font-size : 4.5rem;
+    padding-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing:  1.3px;
+}
+
+.sub-heading{
+    text-align: center;
+    color: white;
+    font-size: 1.3rem;
+    padding: .5rem  2rem;
+    font-weight: 300;
+    margin-bottom: flex;
+    background:rgb(59, 2, 45);
+    display: inline-block;
+    gap : 1.5rem;
+}
+
+.welcome .box-container{
+    display: flex;
+    gap : 1.5rem;
+}
+.welcome .box-container .box{
+    width: 33%;
+    color: white;
+    background: black;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    padding-bottom: 1%;
+}
+.welcome .box-container .box .image{
+    height: 25 rem;
+    width: 100%;
+    overflow : hidden;
+    position : relative;
+}
+.welcome .box-container .box .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.welcome .box-container .box .image:hover img{
+    transform: scale(1.1);
+}
+
+.content
+{
+    background: #060429a4;
+    border-top-right-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+    padding: 1rem 5rem;
+}
