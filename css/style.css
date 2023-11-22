@@ -100,7 +100,7 @@ header .icons #menu{
 
     header .navbar{
         position : fixed;
-        top : 5%;
+        top : 7%;
         right: 0;
         background : .1rem solid rgba(205, 170, 124, 0.2);
         border-bottom: .1rem solid rgba(205, 170, 124, 0.2);
@@ -185,7 +185,6 @@ header .icons #menu{
     line-height: 1.5;
     font-weight: 200;
 }
-
 
 section{
     padding : 8rem 9%;
