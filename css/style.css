@@ -42,14 +42,15 @@ header .logo img {
     height : auto;
 }
 header .navbar a{
-    font-size : 1.2rem;
+    font-size : max(15px, .7vw);
     padding: .5rem 1.5rem;
     color : var(--light-color);
     border : .1rem solid transparent;
 }
 header .navbar a.active, header .navbar a:hover{
-    color : #fff;
-    border : .1rem solid rgba(205, 170, 124, 0.2);
+    color : #b8b6d6;
+    border : .1rem solid #b8b6d6a6;
+    border-radius: 1vw;
 }
 header .icons i{
     cursor : pointer;
@@ -70,49 +71,72 @@ header .icons #menu{
     display: none;
 }
 
-@media (max-width :991px)
+@media (max-width : 1500px)
 {
     html 
     {
         font-size: 55%;
     }
     header{
-        padding : 1rem, 2rem;
+        padding : 1rem;
     }
     header .logo img{
-        height : 7rem;
+        height : 6%;
     }
 }
 
-@media (max-width : 778px){
+@media (max-width : 785px){
+    body
+    {
+        overflow-x: hidden;
+    }
     header .logo img{
-        height: 7rem;
+        height: 6%;
     }
-    header .icons #menu {
-        display: inline-block;
-    }
+
     header .navbar{
         position : absolute;
-        top : 100%;
-        left : 0;
+        top : 90%;
         right: 0;
-        background: #eee;
         background : .1rem solid rgba(205, 170, 124, 0.2);
         border-bottom: .1rem solid rgba(205, 170, 124, 0.2);
         padding: .5rem;
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        background:#060429;
+        height: 100vw;
+        width: 50vw;
+        transition: 1050ms;
     }
-    header .navbar.active{
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0, 0);
+
+    header .navbar a
+    {
+        padding: 3vw;
     }
-    header .navbar a{
+    
+    header .menuIcon
+    {
         display: block;
-        padding : 1rem;
-        margin: 1rem;
-        font-size: 2rem;
-        background: var(--black);
+        box-shadow: rgba(0,0,0,.1);
+    }
+    .hiddenMenu
+    {
+        transform: translateX(400px);
+            transition: 1050ms;
+
     }
 }
+
+.menuIcon
+{
+            top: 20%;
+        right: 4%;
+    position: absolute;
+    display: none;
+    width: 4vw;
+    cursor: pointer;
+}
+
 
 .home .home-slider .slide{
     display : flex;
@@ -123,7 +147,6 @@ header .icons #menu{
 
 .home .home-slider .wrapper .slide1{
     background-image: url(../images/gamer.png);
-    /* background: #2c3f746c; */
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
