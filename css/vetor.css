@@ -50,7 +50,7 @@ header .menu_side h1{
     margin: 15px 0px 0px 20px;
     font-weight: 500;
     color: #fff;
-    background: linear-gradient(0deg, #e06806, #e06806);
+    color: #4be3ee;
     display: flex;
     padding: center;
 }
@@ -109,18 +109,17 @@ header .menu_side .menu_game li h5 .bi{
 }
 
 
-header .game_side::before{
+header .game_side img{
     content: '';
-    position: absolute;
-    width: 70%;
-    height: 350px;
-    background: url('../images/vetor/rpg.png');
+    position: fixed;
+    width: 60%;
+    height: 280px;
 }
 
 header .game_side nav{
     width: 90%;
     height: 10%;
-    border: 1px solid #fff;
+    /*border: 1px solid #fff;*/
     margin: auto;
     display: flex;
     align-items: center;
@@ -162,15 +161,16 @@ header .game_side nav ul li span{
 header .game_side nav .search{
     position: relative;
     width: 40%;
+    height: 40%;
     padding: 1px 10px;
     border-radius: 20px;
     border: 1px solid #fff;
     color: gray;
 }
-/*
+
 header .game_side nav .search::before{
     content: '';
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 100%;
     background: rgb(184, 184, 184, .1);
@@ -191,4 +191,80 @@ header .game_side nav .search input{
     color: #fff;
     font-size: 12px;
 }
-*/
+
+header .game_side .content{
+    width: 90%;
+    height: 30%;
+    /*border: 1px solid #fff;*/
+}
+
+header .game_side .content h1{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+header .game_side .content p{
+    font-size: 11px;
+    font-weight: 400;
+}
+
+header .game_side .vetores{
+    width: 90%;
+    height: auto;
+    margin: auto;
+    margin-top: 20px;
+    /*border: 1px solid #fff;*/
+}
+header .game_side .vetores .h4{
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .game_side .pop_game{
+    width: 100%;
+    height: 150px;
+    margin-top: 15px;
+    display: flex;
+    /*border: 1px solid #fff;*/
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+
+header .game_side .pop_game li{
+    min-width: 100px;
+    height: 140px;
+    font-size: 17px;
+    align-items: center;
+    list-style-type: none;
+    margin-right: 10px;
+    transition: .3s linear;
+}
+
+
+header .game_side .pop_game li:hover {
+    background: rgb(105, 105, 170, .1);
+}
+
+header .game_side .pop_game li .img_play{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .game_side .pop_game li .img_play img{
+    width: 7%;
+    height: 15%;
+}
+
+
+
+
+
+
+
+
