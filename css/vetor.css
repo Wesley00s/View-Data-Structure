@@ -191,6 +191,9 @@ header .game_side nav .search input{
     color: #fff;
     font-size: 12px;
 }
+header .game_side .h{
+    background: #ffd900;
+}
 
 header .game_side .content{
     width: 90%;
@@ -206,6 +209,20 @@ header .game_side .content h1{
 header .game_side .content p{
     font-size: 11px;
     font-weight: 400;
+}
+
+header .game_side .buttons{
+    margin-top: 15px;
+}
+
+header .game_side .buttons button{
+    width: 130px;
+    height: 30px;
+    font-size: 15px;
+    border: 2px solid #36e2ec;
+    outline: none;
+    border-radius: 20px;
+    background: #5adae0;
 }
 
 header .game_side .vetores{
