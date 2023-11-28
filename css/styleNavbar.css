@@ -18,14 +18,14 @@ header {
 }
 
 header .navbar a{
-    font-size : max(15px, .7vw);
+    font-size : max(20px, .6vw);
     padding: .5rem 1.5rem;
     color : #fff;
-    border : .1rem solid transparent;
+    border : .2rem solid transparent;
 }
 header .navbar a.active, header .navbar a:hover{
     color : #b8b6d6;
-    border : .1rem solid #b8b6d6a6;
+    border : .2rem solid #b8b6d6a6;
     border-radius: 1vw;
 }
 
