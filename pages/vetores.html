@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vetores</title>
+    <title>Vetor</title>
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/styleNavbar.css">
     <link rel="stylesheet" href="../css/styleFooter.css">
-    <script defer src="../js/jsNavbar.js"></script>
+    <link rel="stylesheet" href="../css/styleVetores.css">
+    <script src="../js/jsNavbar.js" defer></script>
+    <script src="../js/jsVetores.js" defer></script>
 </head>
 
 <body>
@@ -28,11 +30,221 @@
             <a href="../pages/heaps.html">Heaps</a>
             <a href="../pages/arvores.html">Arvores</a>
             <a href="../pages/hash.html">Hash Tabels</a>
-            <a href="../pages/grafos.html" active>Grafos</a>
+            <a href="../pages/grafos.html">Grafos</a>
         </nav>
         <img src="../images/menu.png" alt="menu" class="menuIcon">
     </header>
 
+    <section class="content">
+        <div class="section1">
+            <div class="leftSide">
+                <h1 class="pageTitle">
+                    VETORES
+                </h1>
+                <p class="msgInicial">
+                    Um vetor é uma coleção ordenada de elementos, onde cada elemento possui um índice único. Esses índices geralmente
+                    começam em zero, e os elementos podem ser de qualquer tipo de dado, porém todos devem ser do mesmo tipo.
+                    Podemos usar de exemplo os jogos de RPG. Todos são jogos diferentes, mas pertencem a um mesmo tipo
+                </p>
+
+            </div>
+            <div class="rightSide">
+                <div class="sliderList">
+                    <div class="container" id="img">
+                        <input type="text" placeholder="Procurar jogo" class="searchGame">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section2">
+            <div class="contentSides">
+
+                    
+                <div class="rightSide2">
+                    <div class="listContent">
+        
+                        <div class="listBox">
+                            <div class="itemBox">
+                                <span class="name">1</span>
+                                <img src="../images/imgVetores/diablo.jpg" alt="img list" class="itemList">
+                                <h2>
+                                    El Diablo
+                                </h2>
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">2</span>
+                                <img src="../images/imgVetores/divinity.jpg" alt="img list" class="itemList">
+                                <h2>
+                                    Divinity
+                                </h2>
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">3</span>
+                                <img src="../images/imgVetores/stardew.jpg" alt="img list" class="itemList">
+                                <h2>
+                                    Stardew Valey
+                                </h2>
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">4</span>
+                                <img src="../images/imgVetores/theElder.jpg" alt="img list" class="itemList">
+                                <h2>
+                                    Elder Ring
+                                </h2>
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">5</span>
+                                <img src="../images/imgVetores/warcraft.jpg" alt="img list" class="itemList">
+                                <h2>
+                                    Warcraft
+                                </h2>
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">6</span>
+                                <img src="../images/imgVetores/witcher.jpg" alt="img list" class="itemList">
+                                <h2>
+                                    The Witcher
+                                </h2>
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">7</span>
+                                <img src="../images/imgVetores/dark.jpg" alt="img list" class="itemList">
+                                <h2>
+                                    Dark Souls
+                                </h2>
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">8</span>
+                                <img src="../images/imgVetores/disco.jpg" alt="img list" class="itemList">
+                                <h2>
+                                    Disco Elysium
+                                </h2>
+                            </div>
+        
+<!--         
+                            <div class="itemBox">
+                                <span class="name">3</span>
+                                <img src="../images/imgVetores/horizon.jpg" alt="img list" class="itemList">
+                                <h1>
+                                    Horizon Zero
+                                </h1>
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">4</span>
+                                <img src="../images/imgListas/list/Aniquilacao.png" alt="img list" class="itemList">
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">5</span>
+                                <img src="../images/imgListas/list/Arrival.png" alt="img list" class="itemList">
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">6</span>
+                                <img src="../images/imgListas/list/ASO.png" alt="img list" class="itemList">
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">7</span>
+                                <img src="../images/imgListas/list/IA.png" alt="img list" class="itemList">
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">8</span>
+                                <img src="../images/imgListas/list/Inception.png" alt="img list" class="itemList">
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">9</span>
+                                <img src="../images/imgListas/list/TTT.png" alt="img list" class="itemList">
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">10</span>
+                                <img src="../images/imgListas/list/Ad-Astra.png" alt="img list" class="itemList">
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">11</span>
+                                <img src="../images/imgListas/list/Akira.png" alt="img list" class="itemList">
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">12</span>
+                                <img src="../images/imgListas/list/Alien.png" alt="img list" class="itemList">
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">13</span>
+                                <img src="../images/imgListas/list/Aniquilacao.png" alt="img list" class="itemList">
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">14</span>
+                                <img src="../images/imgListas/list/Arrival.png" alt="img list" class="itemList">
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">15</span>
+                                <img src="../images/imgListas/list/ASO.png" alt="img list" class="itemList">
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">16</span>
+                                <img src="../images/imgListas/list/IA.png" alt="img list" class="itemList">
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">17</span>
+                                <img src="../images/imgListas/list/Inception.png" alt="img list" class="itemList">
+                            </div>
+        
+                            <div class="itemBox">
+                                <span class="name">18</span>
+                                <img src="../images/imgListas/list/TTT.png" alt="img list" class="itemList">
+                            </div> -->
+        
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="leftSide2">
+                <h1>
+                    Geralt de Rívia
+                </h1>
+                <p>
+                    “O medo é uma doença.
+                    Se você pegá-lo, e deixá-lo sem tratamento, ele pode consumir você.”
+                </p>
+            </div>
+
+            <div class="listBox2">
+                <img src="../images/imgVetores/horizon.jpg" alt="">
+                <img src="../images/imgVetores/horizon.jpg" alt="">
+                <img src="../images/imgVetores/horizon.jpg" alt="">
+                <img src="../images/imgVetores/horizon.jpg" alt="">
+                <img src="../images/imgVetores/horizon.jpg" alt="">
+                <img src="../images/imgVetores/horizon.jpg" alt="">
+                <img src="../images/imgVetores/horizon.jpg" alt="">
+
+            </div>
+            <div class="geralt">
+
+                <img src="../images/imgVetores/Geralt_of_Rivia.png" alt="" class="bgGeralt">
+            </div>
+        </div>
+
+    </section>
 
     <footer>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="wave">

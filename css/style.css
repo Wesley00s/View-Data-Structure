@@ -4,74 +4,55 @@
     --box-shadow : 0.5rem 1.5rem rgba(0,0,0,.1);
 }
 
-.home .home-slider .slide{
+.home {
     display : flex;
     align-items : center;
     height: 100vh;
     justify-content: flex-start;
 }
 
-.home .home-slider .wrapper .slide1{
+.home {
+    display: flex;
     background-image: url(../images/gamer.png);
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-}
-
-.home .home-slider .slide1
-{
     background-size: cover;
-    background-repeat: no-repeat;
-}
-.home .home-slider .slide .content
-{
     text-align: center;
-    padding-left: 7rem;
 }
 
-.home .home-slider .slide .content .title-top
+.home h1
 {
     color: white;
-    font-size: max(25px, 3vw);
+    font-size: max(20px, 3vw);
     font-weight: 400;
-    letter-spacing: .5vh;
+        letter-spacing: .5vh;
+        padding: 1vh;
 }
-.home .home-slider .slide .content .title-center
+.home h2
 {
     color : #fff;
     font-size:  max(35px, 5vw);
     letter-spacing: .5vh;
+    padding: 1vh;
 }
-.home .home-slider .slide .content .title-sub
+.home p
 {  
     color : #ffffff;
-    font-size: max(20px, 1.5vw);
+    font-size: max(15px, 1.5vw);
     /* letter-spacing: 1px; */
-    padding : .5rem 0;
-    line-height: 1.5;
+    padding : 5vh;
+    margin-top: 1vh;
     letter-spacing: .5vh;
-}
-
-section{
-    padding : 8rem 9%;
-}
-
-.heading{
-    text-align: center;
-    color : #000000;
-    font-size : 4.5rem;
-    padding-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing:  1.3px;
 }
 
 .content
 {
-    background: #06042ad0;
+    background: #060429a4;
     border-top-right-radius: 5rem;
     border-bottom-right-radius: 5rem;
     padding: 1rem 5rem;
-    box-shadow: 3px 2px 5px rgba(0,0,0,.5);
+    box-shadow: 3px 2px 5px rgba(0,0,0,.4);
 }
 
 hr
@@ -84,15 +65,13 @@ hr
 
 @media (max-width: 413px)
 {
-    .home .home-slider .slide .content h1, 
-    .home .home-slider .slide .content h2,
-    .home .home-slider .slide .content p
+    .home h1, 
+    .home h2,
+    .home p
     {
         letter-spacing: .2vw;
+            padding : .5vh;
+
     }
 
-}
-
-.title-sub{
-    margin-bottom: 0.67em;
 }

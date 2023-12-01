@@ -1,16 +1,19 @@
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */ /* Document ========================================================================== */ /** * 1. Correct the line height in all browsers. * 2. Prevent adjustments of font size after orientation changes in iOS. */
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Inter');
 
 * {
-    font-family : 'Roboto', sans-serif;
+    font-family : 'Inter', sans-serif;
+    line-height: 3vh;
     margin : 0;
     padding : 0;
     box-sizing: border-box;
     text-decoration: none;
     border : none;
     outline : none;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     transition : all .2s linear;
+    list-style: none;
+
 }
 
 html {
@@ -19,7 +22,7 @@ html {
     font-size:  62.5%;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    background: grey;
+    background: #060429;
     overflow-x: hidden;
 
 }
