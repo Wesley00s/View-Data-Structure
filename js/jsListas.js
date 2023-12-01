@@ -71,95 +71,15 @@ console.log(images)
 
 
 const movies = [
-    '../images/imgListas/list/Ad-Astra.png',
-    '../images/imgListas/list/Akira.png',
-    '../images/imgListas/list/Alien.png',
-    '../images/imgListas/list/Aniquilacao.png',
-    '../images/imgListas/list/Arrival.png',
-    '../images/imgListas/list/ASO.png',
-    '../images/imgListas/list/IA.png',
-    '../images/imgListas/list/Inception.png',
-    '../images/imgListas/list/TTT.png',
-    
-    '../images/imgListas/list/Ad-Astra.png',
-    '../images/imgListas/list/Akira.png',
-    '../images/imgListas/list/Alien.png',
-    '../images/imgListas/list/Aniquilacao.png',
-    '../images/imgListas/list/Arrival.png',
-    '../images/imgListas/list/ASO.png',
-    '../images/imgListas/list/IA.png',
-    '../images/imgListas/list/Inception.png',
-    '../images/imgListas/list/TTT.png',
-
-    '../images/imgListas/list/Ad-Astra.png',
-    '../images/imgListas/list/Akira.png',
-    '../images/imgListas/list/Alien.png',
-    '../images/imgListas/list/Aniquilacao.png',
-    '../images/imgListas/list/Arrival.png',
-    '../images/imgListas/list/ASO.png',
-    '../images/imgListas/list/IA.png',
-    '../images/imgListas/list/Inception.png',
-    '../images/imgListas/list/TTT.png',
-
-    '../images/imgListas/list/Ad-Astra.png',
-    '../images/imgListas/list/Akira.png',
-    '../images/imgListas/list/Alien.png',
-    '../images/imgListas/list/Aniquilacao.png',
-    '../images/imgListas/list/Arrival.png',
-    '../images/imgListas/list/ASO.png',
-    '../images/imgListas/list/IA.png',
-    '../images/imgListas/list/Inception.png',
-    '../images/imgListas/list/TTT.png',
-
-    '../images/imgListas/list/Ad-Astra.png',
-    '../images/imgListas/list/Akira.png',
-    '../images/imgListas/list/Alien.png',
-    '../images/imgListas/list/Aniquilacao.png',
-    '../images/imgListas/list/Arrival.png',
-    '../images/imgListas/list/ASO.png',
-    '../images/imgListas/list/IA.png',
-    '../images/imgListas/list/Inception.png',
-    '../images/imgListas/list/TTT.png',
-
-    '../images/imgListas/list/Ad-Astra.png',
-    '../images/imgListas/list/Akira.png',
-    '../images/imgListas/list/Alien.png',
-    '../images/imgListas/list/Aniquilacao.png',
-    '../images/imgListas/list/Arrival.png',
-    '../images/imgListas/list/ASO.png',
-    '../images/imgListas/list/IA.png',
-    '../images/imgListas/list/Inception.png',
-    '../images/imgListas/list/TTT.png',
-
-    '../images/imgListas/list/Ad-Astra.png',
-    '../images/imgListas/list/Akira.png',
-    '../images/imgListas/list/Alien.png',
-    '../images/imgListas/list/Aniquilacao.png',
-    '../images/imgListas/list/Arrival.png',
-    '../images/imgListas/list/ASO.png',
-    '../images/imgListas/list/IA.png',
-    '../images/imgListas/list/Inception.png',
-    '../images/imgListas/list/TTT.png',
-
-    '../images/imgListas/list/Ad-Astra.png',
-    '../images/imgListas/list/Akira.png',
-    '../images/imgListas/list/Alien.png',
-    '../images/imgListas/list/Aniquilacao.png',
-    '../images/imgListas/list/Arrival.png',
-    '../images/imgListas/list/ASO.png',
-    '../images/imgListas/list/IA.png',
-    '../images/imgListas/list/Inception.png',
-    '../images/imgListas/list/TTT.png',
-
-    '../images/imgListas/list/Ad-Astra.png',
-    '../images/imgListas/list/Akira.png',
-    '../images/imgListas/list/Alien.png',
-    '../images/imgListas/list/Aniquilacao.png',
-    '../images/imgListas/list/Arrival.png',
-    '../images/imgListas/list/ASO.png',
-    '../images/imgListas/list/IA.png',
-    '../images/imgListas/list/Inception.png',
-    '../images/imgListas/list/TTT.png',
+    {name: 'Ad Astra', pathFile : '../images/imgListas/list/Ad-Astra.png'},
+    {name: 'Akira', pathFile : '../images/imgListas/list/Akira.png'},
+    {name: 'Alien', pathFile : '../images/imgListas/list/Alien.png'},
+    {name: 'Aniquilação', pathFile : '../images/imgListas/list/Aniquilacao.png'},
+    {name: 'Arrival', pathFile : '../images/imgListas/list/Arrival.png'},
+    {name: 'UOE', pathFile : '../images/imgListas/list/ASO.png'},
+    {name: 'A.I', pathFile : '../images/imgListas/list/IA.png'},
+    {name: 'Inception', pathFile : '../images/imgListas/list/Inception.png'},
+    {name: '13° Andar', pathFile : '../images/imgListas/list/TTT.png'}
 ]
 
 const userList = [];
@@ -178,17 +98,29 @@ const createDynamicElement = (numb, imagePath) =>
     imgElement.src = imagePath;
     imgElement.alt = 'img list';
 
+    const btnRemoveElement = document.createElement('button');
+    btnRemoveElement.className = 'btnRemove';
+    btnRemoveElement.textContent = '-';
+
+    btnRemoveElement.addEventListener('click', () => {
+        const index = userList.indexOf(divElement);
+        removeElement(index);
+    });
+
+
     divElement.appendChild(spanElement);
     divElement.appendChild(imgElement);
+    divElement.appendChild(btnRemoveElement);
 
     document.querySelector('.listBox').appendChild(divElement);
 
     return divElement;
 }
 
+
 let i = 0;
 document.querySelector('.btnAdd').addEventListener('click', () => {
-    const element = createDynamicElement(parseInt(i) + 1, movies[i]);
+    const element = createDynamicElement(parseInt(i) + 1, movies[i].pathFile);
     userList.push(element);
     i++;
     console.log(userList[userList.length - 1]);
@@ -202,19 +134,27 @@ const removeElement = (index) => {
     }
 }
 
-
-document.querySelector('.btnRemove').addEventListener('click', () => {
-    let searchTerm = document.querySelector('.searchMovie').value.trim();
-
-    if (searchTerm !== '') {
-        let index = userList.findIndex(user => user.textContent.includes(searchTerm));
-
-        if (index !== -1) {
-            removeElement(index);
-        } else {
-            console.log('Search term not found.');
-        }
-    } else {
-        console.log('Please enter a search term.');
+document.querySelector('.listBox').addEventListener('click', (event) => {
+    if (event.target.classList.contains('btnRemove')) {
+        const index = userList.indexOf(event.target.closest('.itemBox'));
+        removeElement(index);
     }
+});
+
+const handleClick = () => {
+    document.querySelector('.menuTitulos').classList.toggle('hiddenMenuList');
+};
+
+document.querySelector('.botaoVerTitulos').addEventListener('click', handleClick);
+document.querySelector('.arrowImg').addEventListener('click', handleClick);
+
+document.querySelector('.btnFechar').addEventListener('click', () => {
+    document.querySelector('.hiddenOpcoes').classList.toggle('hiddenInput');
+    
+});
+
+document.querySelectorAll('.listAvailable').forEach(item => {
+    item.addEventListener('click', () => {
+        document.querySelector('.hiddenOpcoes').classList.remove('hiddenInput');
+    });
 });
