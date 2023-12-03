@@ -265,30 +265,53 @@
 {
     position: absolute;
     z-index: -999;
-    bottom: 60%;
+    bottom: 82%;
+    /* box-shadow: 5px 6px 9px rgba(0, 0, 0, 0.7); */
+    transform: translateX(-100%);
+    animation: 1.5s ease-in-out;
+}
+
+.bgListAnimation
+{
+        transform: translateX(0);
+    animation: 1.5s ease-in-out;
+
 }
 
 .boxDesc
 {
-    font-size: 25px;
+    font-size: 30px;
     width: 50%;
-    background: linear-gradient(#00000000, #000000b9);
+    /* background: linear-gradient(#000000b4, #00000000); */
+    background: #000000a6;
     padding: 7vh;
     position: absolute;
     display: flex;
-    align-items: end;
-    justify-content: flex-end;
+    align-items: start;
+    justify-content: center;
     left: 50%;
     bottom: 110%;
     border-radius: 5vh;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+}
+
+.animationBoxDesc
+{
+    transform: translateX(0);
 }
 
 .titleFilm
 {
-    position: absolute;
-    bottom: 100%;
-    right: 50%;
+    position: relative;
+    /* bottom: 100%;
+    right: 50%; */
     display: flex;
+    padding: 1vh;
+    margin-top: -2vh;
+    margin-bottom: 2vh;
+    
 }
 
 .titleFilm h3
