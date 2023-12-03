@@ -1,4 +1,12 @@
 const imgsContainer = document.querySelector('.container');
+const btnAddInicio = document.querySelector('.addInicio');
+const btnAddFim = document.querySelector('.addFim');
+const btnAddMeio = document.querySelector('.addMeio');
+const input = document.querySelector('.sectionSearch');
+const valueInput = document.querySelector('.searchMovie')
+const hiddenOpcoes = document.querySelector('.hiddenOpcoes');
+const btnCancelAddMeio = document.querySelector('.cancelAddMeio');
+const btnConfirmAddMeio = document.querySelector('.confirmAddMeio');
 
 class AddImagesSlider
 {
@@ -167,8 +175,15 @@ class LinkedList {
     size() {
         return this.length;
     }
-}
 
+    forEach(callback) {
+        let current = this.head;
+        while (current) {
+        callback(current);
+        current = current.next;
+        }
+    }
+}
 
 const userList = new LinkedList();
 
@@ -178,7 +193,7 @@ const createDynamicElement = (numb, imagePath) => {
 
     const spanElement = document.createElement('span');
     spanElement.className = 'numb';
-    spanElement.textContent = numb;
+    spanElement.textContent = `ID ${numb}`;
 
     const imgElement = document.createElement('img');
     imgElement.className = 'itemList';
@@ -200,6 +215,10 @@ const createDynamicElement = (numb, imagePath) => {
     return divElement;
 }
 
+// userList.forEach(node => {
+//     createDynamicElement(node);
+// });
+
 const itemBox = document.querySelector('.itemBox');
 const imgItemBoxElement = document.createElement('img');
 const spanItemBoxElement = document.createElement('span');
@@ -210,13 +229,15 @@ let tempImgAddedName;
 
 document.querySelectorAll('.listAvailable').forEach((item, i) => {
     item.addEventListener('click', () => {
-        document.querySelector('.hiddenOpcoes').classList.remove('hiddenInput');
+        hiddenOpcoes.classList.remove('hiddenInput');
 
         index = i;
         const movie = movies[index];
+        movie.id = index;
 
         tempImgAddedName = movie.name
-        // console.log(movie.name);
+        console.log('Nome do filme: ' + movie.name);
+        console.log('ID: ' + movie.id);
 
         imgItemBoxElement.classList.add('itemList');
         imgItemBoxElement.classList.add('listAvailable');
@@ -231,11 +252,12 @@ document.querySelectorAll('.listAvailable').forEach((item, i) => {
 
     });
     
-    console.log('Linked list: ')
-    userList.print();
-
     document.querySelector('.btnFechar').addEventListener('click', () => {
-        document.querySelector('.hiddenOpcoes').classList.toggle('hiddenInput');
+        hiddenOpcoes.classList.add('hiddenInput');
+        input.classList.add('hiddenInput');
+        btnAddInicio.classList.remove('hiddenInput');
+        btnAddFim.classList.remove('hiddenInput');
+        btnAddMeio.classList.remove('hiddenInput');
         imgItemBoxElement.remove();
         spanItemBoxElement.remove();
         index = 0;
@@ -243,18 +265,60 @@ document.querySelectorAll('.listAvailable').forEach((item, i) => {
     
 });
 
-document.querySelector('.addInicio').addEventListener('click', () => {
+const handleButtonClick = (actionType) =>
+{
     if (movies && movies.length > index && movies[index]) {
-        
-        if (imgAddedName.includes(tempImgAddedName))
-        {
-            console.log('Elemento já presente na lista!') 
-        }
-        else
-        {
-            const element = createDynamicElement(index + 1, movies[index].pathFile);
-            userList.insertStart(element);
-            
+        if (imgAddedName.includes(tempImgAddedName)) {
+            console.log('Elemento já presente na lista!');
+        } else {
+            let element, insertMethod;
+
+            switch (actionType) {
+                case 'addInicio':
+                    element = createDynamicElement(index + 1, movies[index].pathFile);
+                    userList.insertStart(element);
+                    insertMethod = 'insertStart';
+                    break;
+                case 'addFim':
+                    element = createDynamicElement(index + 1, movies[index].pathFile);
+                    userList.insertEnd(element);
+                    insertMethod = 'insertEnd';
+                    break;
+                case 'addMeio':
+                    input.classList.toggle('hiddenInput');
+                    btnAddInicio.classList.toggle('hiddenInput');
+                    btnAddFim.classList.toggle('hiddenInput');
+                    btnAddMeio.classList.toggle('hiddenInput');
+
+                    console.log(`Input: ${valueInput.value}`);
+                    if (valueInput.value !== '') {
+                        btnConfirmAddMeio.addEventListener('click', () => {
+                            element = createDynamicElement(index + 1, valueInput[index].pathFile);
+                            userList.insertAfter(parseInt(valueInput.value), element);
+                            insertMethod = 'insertMiddle';
+                            console.log('AddMeioClicked!');
+                        });
+
+                        btnCancelAddMeio.addEventListener('click', () => {
+                        input.classList.toggle('hiddenInput');
+                        btnAddInicio.classList.toggle('hiddenInput');
+                        btnAddFim.classList.toggle('hiddenInput');
+                        btnAddMeio.classList.toggle('hiddenInput');
+                    });
+                }
+                break;
+            default:
+                console.error('Ação não reconhecida.');
+                return;
+            }
+
+            const listBox = document.querySelector('.listBox');
+            listBox.innerHTML = '';
+
+            userList.forEach((node) => {
+                listBox.appendChild(node.data);
+            });
+
             document.querySelector('.listBox').addEventListener('click', (event) => {
                 if (event.target.classList.contains('btnRemove')) {
                     const itemBox = event.target.closest('.itemBox');
@@ -288,157 +352,36 @@ document.querySelector('.addInicio').addEventListener('click', () => {
                             userList.head = current.next;
                         }
 
-                        itemBox.remove();  
+                        itemBox.remove();
                         console.log('Elemento removido:', itemBox);
                     }
                 }
             });
-        }
-        
-        imgAddedName.includes(movies[index].name) ? '' : imgAddedName.push(movies[index].name);
-        
-        console.log('imgAddedName: ' + imgAddedName);
-        console.log('tempImgAddedName: ' + tempImgAddedName);
-    }
-    else
-    {
-        console.error('Movies está indefinido ou movies[index] é undefined.');
-    }
-});
 
-document.querySelector('.addFim').addEventListener('click', () => {
-    if (movies && movies.length > index && movies[index]) {
-        
-        if (imgAddedName.includes(tempImgAddedName))
-        {
-            console.log('Elemento já presente na lista!') 
-        }
-        else
-        {
-            const element = createDynamicElement(index + 1, movies[index].pathFile);
-            userList.insertEnd(element);
-            
-            document.querySelector('.listBox').addEventListener('click', (event) => {
-                if (event.target.classList.contains('btnRemove')) {
-                    const itemBox = event.target.closest('.itemBox');
-
-                    let current = userList.head;
-                    let previous = null;
-                    let found = false;
-
-                    while (current) {
-                        if (current.data === itemBox) {
-                            found = true;
-                            break;
-                        }
-
-                        previous = current;
-                        current = current.next;
-                    }
-
-                    if (found) {
-                        const removedItemName = imgAddedName[index];
-
-                        const indexToRemove = imgAddedName.indexOf(removedItemName);
-                        if (indexToRemove !== -1) {
-                            imgAddedName.splice(indexToRemove, 1);
-                            console.log('Elemento removido de imgAddedName:', removedItemName);
-                        }
-
-                        if (previous) {
-                            previous.next = current.next;
-                        } else {
-                            userList.head = current.next;
-                        }
-
-                        itemBox.remove(); 
-                        console.log('Elemento removido:', itemBox);
-                    }
-                }
-            });
-        }
-        
-        imgAddedName.includes(movies[index].name) ? '' : imgAddedName.push(movies[index].name);
-        
-        console.log('imgAddedName: ' + imgAddedName);
-        console.log('tempImgAddedName: ' + tempImgAddedName);
-    }
-    else
-    {
-        console.error('Movies está indefinido ou movies[index] é undefined.');
-    }
-});
-
-document.querySelector('.addMeio').addEventListener('click', () => {
-    if (movies && movies.length > index && movies[index]) {
-
-        const input = document.querySelector('.sectionSearch').classList.toggle('hiddenInput');
-        console.log(input.value)
-        if (input.value !== '')
-        {
-            if (imgAddedName.includes(tempImgAddedName))
-            {
-                console.log('Elemento já presente na lista!') 
-            }
-            else
-            {
-                const element = createDynamicElement(index + 1, movies[index].pathFile);
-                userList.insertAfter(input.value, element);
-                
-                document.querySelector('.listBox').addEventListener('click', (event) => {
-                    if (event.target.classList.contains('btnRemove')) {
-                        const itemBox = event.target.closest('.itemBox');
-    
-                        let current = userList.head;
-                        let previous = null;
-                        let found = false;
-    
-                        while (current) {
-                            if (current.data === itemBox) {
-                                found = true;
-                                break;
-                            }
-    
-                            previous = current;
-                            current = current.next;
-                        }
-    
-                        if (found) {
-                            // Use the actual name added to imgAddedName
-                            const removedItemName = imgAddedName[index];
-    
-                            // Remove the item from imgAddedName
-                            const indexToRemove = imgAddedName.indexOf(removedItemName);
-                            if (indexToRemove !== -1) {
-                                imgAddedName.splice(indexToRemove, 1);
-                                console.log('Elemento removido de imgAddedName:', removedItemName);
-                            }
-    
-                            if (previous) {
-                                previous.next = current.next;
-                            } else {
-                                userList.head = current.next;
-                            }
-    
-                            itemBox.remove();  // Remove the DOM element
-                            console.log('Elemento removido:', itemBox);
-                        }
-                    }
-                });
-            }
-            
             imgAddedName.includes(movies[index].name) ? '' : imgAddedName.push(movies[index].name);
-            
+
             console.log('imgAddedName: ' + imgAddedName);
             console.log('tempImgAddedName: ' + tempImgAddedName);
         }
-
-    }
-    else
-    {
+    } else {
         console.error('Movies está indefinido ou movies[index] é undefined.');
     }
+    console.log('Linked list: ')
+    userList.print();
+}
+
+
+btnCancelAddMeio.addEventListener('click', () => { 
+    input.classList.toggle('hiddenInput');
+    btnAddInicio.classList.toggle('hiddenInput');
+    btnAddFim.classList.toggle('hiddenInput');
+    btnAddMeio.classList.toggle('hiddenInput');
 });
+
+
+btnAddInicio.addEventListener('click', () => handleButtonClick('addInicio'));
+btnAddFim.addEventListener('click', () => handleButtonClick('addFim'));
+btnAddMeio.addEventListener('click', () => handleButtonClick('addMeio'));
 
 const handleClick = () => {
     document.querySelector('.menuTitulos').classList.toggle('hiddenSideAvailable');
