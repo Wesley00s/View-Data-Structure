@@ -553,6 +553,7 @@ listBox.addEventListener('click', (event) => {
         if (itemBox === selectedElement)
         {
             itemBox.classList.remove('imgSelected');
+            selectedElement = null;
         }
         else
         {
@@ -562,9 +563,7 @@ listBox.addEventListener('click', (event) => {
             }
 
             itemBox.classList.add('imgSelected');
-
             selectedElement = itemBox;
-
         }
 
         for (let i = 0; i < movies.length; i++)
