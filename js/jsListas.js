@@ -12,7 +12,9 @@ const titleSelected = document.querySelector('.titleSelected');
 const yearSelected = document.querySelector('.year');
 const bgList = document.querySelector('.bgList');
 const boxDesc = document.querySelector('.boxDesc');
-            const listBox = document.querySelector('.listBox');
+const listBox = document.querySelector('.listBox');
+const btnFechar = document.querySelector('.btnFechar');
+const menuTitulos = document.querySelector('.menuTitulos');
 
 
 class AddImagesSlider
@@ -86,7 +88,7 @@ startSliderAnimation();
 const movies = [
     {
         id : 1,
-        bg : 'astra-bg.png',
+        bg : '../images/imgListas/list/astra-bg.png',
         completeTitle: 'Ad Astra: Rumo às Estrelas',
         year : '(2019)',
         name : 'Ad Astra',
@@ -99,7 +101,7 @@ const movies = [
                 `
     },
     {
-        id: 2, bg: 'akira-bg.png',
+        id: 2, bg: '../images/imgListas/list/akira-bg.png',
         completeTitle: 'Akira',
         year : '(1988)',
         name: 'Akira',
@@ -122,7 +124,7 @@ const movies = [
     },
     {
         id : 3,
-        bg : 'alien-bg.png',
+        bg : '../images/imgListas/list/alien-bg.png',
         completeTitle: 'Alien - O Oitavo Passageiro',
         year : '(1979)',
         name : 'Alien',
@@ -149,7 +151,7 @@ const movies = [
     },
     {
         id : 4,
-        bg : 'aniquilacao-bg.png',
+        bg : '../images/imgListas/list/aniquilacao-bg.png',
         completeTitle: 'Aniquilação',
         year : '(2019)',
         name : 'Aniquilação',
@@ -167,7 +169,7 @@ const movies = [
     },
     {
         id : 5,
-        bg : 'arrival-bg.png',
+        bg : '../images/imgListas/list/arrival-bg.png',
         completeTitle: 'A chegada',
         year : '(2016)',
         name : 'Arrival',
@@ -185,7 +187,7 @@ const movies = [
     },
     {
         id : 6,
-        bg : 'ASO-bg.png',
+        bg : '../images/imgListas/list/ASO-bg.png',
         completeTitle : '2001: Uma Odisséia no Espaço',
         year : '(1968)',
         name : '2001: UOE',
@@ -204,7 +206,7 @@ const movies = [
     },
     {
         id : 7,
-        bg : 'AI-bg.png',
+        bg : '../images/imgListas/list/AI-bg.png',
         completeTitle : 'A.I.: Inteligência Artificial',
         year : '(2001)',
         name: 'A.I',
@@ -222,7 +224,7 @@ const movies = [
     },
     {
         id : 8,
-        bg : 'inception-bg.png',
+        bg : '../images/imgListas/list/inception-bg.png',
         completeTitle : 'A Origem - Inception',
         year : '(2010)',
         name: 'Inception',
@@ -246,7 +248,7 @@ const movies = [
     },
     {
         id : 9,
-        bg : 'TTT-bg.png',
+        bg : '../images/imgListas/list/TTT-bg.png',
         completeTitle : '13° Andar',
         year : '(1999)',
         name: '13° Andar',
@@ -403,7 +405,7 @@ let tempImgAddedName;
 
 document.querySelectorAll('.listAvailable').forEach((item, i) => {
     item.addEventListener('click', () => {
-        hiddenOpcoes.classList.remove('hiddenInput');
+        hiddenOpcoes.classList.toggle('translateHiddenOpcoes');
 
         index = i;
         const movie = movies[index];
@@ -426,8 +428,8 @@ document.querySelectorAll('.listAvailable').forEach((item, i) => {
 
     });
     
-    document.querySelector('.btnFechar').addEventListener('click', () => {
-        hiddenOpcoes.classList.add('hiddenInput');
+    btnFechar.addEventListener('click', () => {
+        hiddenOpcoes.classList.toggle('translateHiddenOpcoes');
         input.classList.add('hiddenInput');
         btnAddInicio.classList.remove('hiddenInput');
         btnAddFim.classList.remove('hiddenInput');
@@ -563,29 +565,32 @@ listBox.addEventListener('click', (event) => {
             }
 
             itemBox.classList.add('imgSelected');
+
             selectedElement = itemBox;
         }
 
         for (let i = 0; i < movies.length; i++)
         {
             let url = movies[i].pathFile;
-            let srcSelected = new URL(url, window.location.origin).href;
-            if (srcSelected === itemBox.src)
+            let itemBoxSrc = itemBox.src
+            let relativeItemBox = new URL(itemBoxSrc, window.location.origin).pathname
+            let relativeUrl = new URL(url, window.location.origin).pathname
+            
+            if (relativeUrl === relativeItemBox)
             {
-                src = movies[i].bg;
-                titleSelected.textContent = '';
-                description.textContent = '';
-
+                console.log(`itemBox.src: ${itemBoxSrc}`);
                 console.log(`url: ${url}`);
-                console.log(`src: ${src}`);
-                console.log(`srcSeleceted: ${srcSelected}`);
-                console.log(`itemBox.src: ${itemBox.src}`);
+                console.log(`RelativeItemBox: ${relativeItemBox}`)
+                console.log(`Relative url: ${relativeUrl}`);
+                titleSelected.innerHTML = '';
+                description.innerHTML = '';
+                src = movies[i].bg;
 
-                titleSelected.textContent = movies[i].completeTitle;
+                titleSelected.innerHTML = movies[i].completeTitle;
                 
-                description.textContent = movies[i].desc
-                yearSelected.textContent = movies[i].year;
-                console.log(bgList);
+                description.innerHTML = movies[i].desc
+                yearSelected.innerHTML = movies[i].year;
+                // console.log(bgList);
                 bgList.src = src;  
                 console.log("Elemento clicado!");
                 bgList.classList.toggle('bgListAnimation');
@@ -596,20 +601,35 @@ listBox.addEventListener('click', (event) => {
     }
 });
 
-// btnCancelAddMeio.addEventListener('click', () => { 
-//     input.classList.toggle('hiddenInput');
-//     btnAddInicio.classList.toggle('hiddenInput');
-//     btnAddFim.classList.toggle('hiddenInput');
-//     btnAddMeio.classList.toggle('hiddenInput');
-// });
+btnConfirmAddMeio.addEventListener('click', () => {
+    alert("Sorry, don't work... (⩾﹏⩽)");
+});
+
+btnCancelAddMeio.addEventListener('click', () => { 
+    input.classList.toggle('hiddenInput');
+    btnAddInicio.classList.toggle('hiddenInput');
+    btnAddFim.classList.toggle('hiddenInput');
+    btnAddMeio.classList.toggle('hiddenInput');
+});
 
 btnAddInicio.addEventListener('click', () => handleButtonClick('addInicio'));
 btnAddFim.addEventListener('click', () => handleButtonClick('addFim'));
 btnAddMeio.addEventListener('click', () => handleButtonClick('addMeio'));
 
 const handleClick = () => {
-    document.querySelector('.menuTitulos').classList.toggle('hiddenSideAvailable');
-    document.querySelector('.menuTitulos').classList.toggle('visibleSideAvailable');
+    menuTitulos.classList.toggle('hiddenSideAvailable');
+    menuTitulos.classList.toggle('visibleSideAvailable');
+
+    if (menuTitulos.classList.contains('hiddenSideAvailable'))
+    {
+        hiddenOpcoes.classList.add('backAllTranslateHiddenOpcoes');
+    }
+    else
+    {
+        hiddenOpcoes.classList.remove('backAllTranslateHiddenOpcoes');
+    }
+    hiddenOpcoes.classList.toggle('translateHiddenOpcoes1');
+    hiddenOpcoes.classList.toggle('translateHiddenOpcoes2');
 };
 
 document.querySelector('.botaoVerTitulos').addEventListener('click', handleClick);

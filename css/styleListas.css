@@ -491,16 +491,45 @@
     z-index: 1;
     background: linear-gradient(45deg, #000a16f6, #00050a);
     border-radius: 1vh;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
     position: fixed;
-    width: 30%;
+    width: 20%;
     border: #000000ea solid;
     align-items: center;
     display: flex;
     flex-direction: column;
-    top: 30%;
+    bottom: 200%;
     padding: 2vh;
     position: absolute;
+    left: 40%;
+    transform: translateX(0);
+    animation: 1.5s ease-in-out;
 }
+
+
+.translateHiddenOpcoes1
+{
+    transform: translateX(350%);
+    /* transition: 5s; */
+}
+.translateHiddenOpcoes2
+{
+    transform: translateX(100%);
+    transition: 1s ease-in-out;
+}
+.translateHiddenOpcoes
+{
+    transform: translateX(0%);
+    transition: 1s ease-in-out;
+}
+
+.backAllTranslateHiddenOpcoes
+{
+    transform: translateX(350%);
+
+}
+
 
 .titleOpc
 {
@@ -545,7 +574,7 @@
     border-radius: 5vh;
     /* margin-top: 1vh; */
     bottom: 93.5%;
-    left: 94%;
+    left: 0%;
 }
 
 
@@ -575,7 +604,7 @@
 .menuTitulos
 {
     /* background: rgba(9, 8, 78, 0.884); */
-    background-image: url(../images/imgListas/BG4.png);
+    background-image: url(../images/imgListas/bgTitulos.png);
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: cover;
@@ -590,7 +619,7 @@
     margin: auto;
     padding-top: 55vh;
     left: 60%;
-    top: 150%;
+    bottom: 100%;
     z-index: 999;
     border-radius: 3vh;
     transition: 600ms ease-in-out;
