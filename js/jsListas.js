@@ -246,7 +246,7 @@ const movies = [
     },
     {
         id : 9,
-        bg : '../images/imgListas/list/TTT-bg .png',
+        bg : '../images/imgListas/list/TTT-bg.png',
         completeTitle : '13° Andar',
         year : '(1999)',
         name: '13° Andar',
@@ -544,12 +544,29 @@ const handleButtonClick = (actionType) =>
     userList.print();
 }
 
-
- listBox.addEventListener('click', (event) => { 
+let selectedElement = null;
+listBox.addEventListener('click', (event) => { 
     if (event.target.classList.contains('classUserList')) 
     {
-        const itemBox = event.target.closest('.classUserList');
-        
+        const itemBox = event.target.closest('.classUserList');        
+
+        if (itemBox === selectedElement)
+        {
+            itemBox.classList.remove('imgSelected');
+        }
+        else
+        {
+            if (selectedElement)
+            {
+                selectedElement.classList.remove('imgSelected');
+            }
+
+            itemBox.classList.add('imgSelected');
+
+            selectedElement = itemBox;
+
+        }
+
         for (let i = 0; i < movies.length; i++)
         {
             let url = movies[i].pathFile;

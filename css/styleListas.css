@@ -220,6 +220,7 @@
 }
 .itemList
 {
+    cursor: pointer;
     width: 15.5vh;
     /* position: relative; */
     /* display: flex; */
@@ -562,6 +563,13 @@
     margin: auto;
     margin-top: 1vh;
     width: 10vh;
+}
+
+.imgSelected
+{
+    width: 16.5vh;
+    box-shadow: 6px 6px 100px rgb(96, 205, 255);
+    border: #002958 5px solid;
 }
 
 .menuTitulos
