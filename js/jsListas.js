@@ -606,7 +606,7 @@ listBox.addEventListener('click', (event) => {
             let relativeItemBox = new URL(itemBoxSrc, window.location.origin).pathname
             let relativeUrl = new URL(url, window.location.origin).pathname
 
-            let convertURL = `/View-Data-Structure${relativeUrl.toString()}`;
+            let convertURL = `${relativeUrl.toString()}`;
             let convertItemBox = relativeItemBox.toString();
             console.log(`itemBox.src: ${itemBoxSrc}`);
             console.log(`url: ${url}`);
