@@ -575,13 +575,13 @@ listBox.addEventListener('click', (event) => {
             let itemBoxSrc = itemBox.src
             let relativeItemBox = new URL(itemBoxSrc, window.location.origin).pathname
             let relativeUrl = new URL(url, window.location.origin).pathname
+            console.log(`itemBox.src: ${itemBoxSrc}`);
+            console.log(`url: ${url}`);
+            console.log(`RelativeItemBox: ${relativeItemBox}`)
+            console.log(`Relative url: ${relativeUrl}`);
             
             if (relativeUrl === relativeItemBox)
             {
-                console.log(`itemBox.src: ${itemBoxSrc}`);
-                console.log(`url: ${url}`);
-                console.log(`RelativeItemBox: ${relativeItemBox}`)
-                console.log(`Relative url: ${relativeUrl}`);
                 titleSelected.innerHTML = '';
                 description.innerHTML = '';
                 src = movies[i].bg;
