@@ -608,14 +608,14 @@ listBox.addEventListener('click', (event) => {
 
             let convertURL = `/View-Data-Structure${relativeUrl.toString()}`;
             let convertItemBox = relativeItemBox.toString();
+            console.log(`itemBox.src: ${itemBoxSrc}`);
+            console.log(`url: ${url}`);
+            console.log(`RelativeItemBox: ${relativeItemBox}`)
+            console.log(`Relative url: ${relativeUrl}`);
+            console.log(`convertURL: ${convertURL}`);
+            console.log(`convertItemBox ${convertItemBox}`);
             if (convertURL == convertItemBox)
             {
-                console.log(`itemBox.src: ${itemBoxSrc}`);
-                console.log(`url: ${url}`);
-                console.log(`RelativeItemBox: ${relativeItemBox}`)
-                console.log(`Relative url: ${relativeUrl}`);
-                console.log(`convertURL: ${convertURL}`);
-                console.log(`convertItemBox ${convertItemBox}`);
                 titleSelected.innerHTML = '';
                 description.innerHTML = '';
                 src = movies[i].bg;
