@@ -86,7 +86,7 @@ startSliderAnimation();
 const movies = [
     {
         id : 1,
-        bg : '../images/imgListas/list/astra-bg.png',
+        bg : 'astra-bg.png',
         completeTitle: 'Ad Astra: Rumo às Estrelas',
         year : '(2019)',
         name : 'Ad Astra',
@@ -99,7 +99,7 @@ const movies = [
                 `
     },
     {
-        id: 2, bg: '../images/imgListas/list/akira-bg.png',
+        id: 2, bg: 'akira-bg.png',
         completeTitle: 'Akira',
         year : '(1988)',
         name: 'Akira',
@@ -122,7 +122,7 @@ const movies = [
     },
     {
         id : 3,
-        bg : '../images/imgListas/list/alien-bg.png',
+        bg : 'alien-bg.png',
         completeTitle: 'Alien - O Oitavo Passageiro',
         year : '(1979)',
         name : 'Alien',
@@ -149,7 +149,7 @@ const movies = [
     },
     {
         id : 4,
-        bg : '../images/imgListas/list/aniquilacao-bg.png',
+        bg : 'aniquilacao-bg.png',
         completeTitle: 'Aniquilação',
         year : '(2019)',
         name : 'Aniquilação',
@@ -167,7 +167,7 @@ const movies = [
     },
     {
         id : 5,
-        bg : '../images/imgListas/list/arrival-bg.png',
+        bg : 'arrival-bg.png',
         completeTitle: 'A chegada',
         year : '(2016)',
         name : 'Arrival',
@@ -185,7 +185,7 @@ const movies = [
     },
     {
         id : 6,
-        bg : '../images/imgListas/list/ASO-bg.png',
+        bg : 'ASO-bg.png',
         completeTitle : '2001: Uma Odisséia no Espaço',
         year : '(1968)',
         name : '2001: UOE',
@@ -204,7 +204,7 @@ const movies = [
     },
     {
         id : 7,
-        bg : '../images/imgListas/list/AI-bg.png',
+        bg : 'AI-bg.png',
         completeTitle : 'A.I.: Inteligência Artificial',
         year : '(2001)',
         name: 'A.I',
@@ -222,7 +222,7 @@ const movies = [
     },
     {
         id : 8,
-        bg : '../images/imgListas/list/inception-bg.png',
+        bg : 'inception-bg.png',
         completeTitle : 'A Origem - Inception',
         year : '(2010)',
         name: 'Inception',
@@ -246,7 +246,7 @@ const movies = [
     },
     {
         id : 9,
-        bg : '../images/imgListas/list/TTT-bg.png',
+        bg : 'TTT-bg.png',
         completeTitle : '13° Andar',
         year : '(1999)',
         name: '13° Andar',
@@ -573,14 +573,18 @@ listBox.addEventListener('click', (event) => {
             if (srcSelected === itemBox.src)
             {
                 src = movies[i].bg;
-                titleSelected.innerHTML = '';
-                description.innerHTML = '';
+                titleSelected.textContent = '';
+                description.textContent = '';
 
-                titleSelected.innerHTML = movies[i].completeTitle;
+                console.log(`url: ${url}`);
+                console.log(`src: ${src}`);
+                console.log(`srcSeleceted: ${srcSelected}`);
+                console.log(`itemBox.src: ${itemBox.src}`);
+
+                titleSelected.textContent = movies[i].completeTitle;
                 
-                description.innerHTML = movies[i].desc
-                yearSelected.innerHTML = movies[i].year;
-                // console.log(url)
+                description.textContent = movies[i].desc
+                yearSelected.textContent = movies[i].year;
                 console.log(bgList);
                 bgList.src = src;  
                 console.log("Elemento clicado!");
