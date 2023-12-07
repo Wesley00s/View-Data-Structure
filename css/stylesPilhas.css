@@ -1,0 +1,159 @@
+/* .content
+{
+    display: flex;
+} */
+
+.section1
+{
+    background-image: url('../images/imgPilhas/bg1.png');
+    height: 70vh;
+    background-position: 0 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    flex-direction: row;
+    width: 100%;
+    /* background: #b31616; */
+}
+
+.leftSide
+{
+    padding-top: 10vh;
+    flex-direction: column;
+    margin-left: 5vh;
+    width: 50%;
+    /* background: #000; */
+}
+
+.leftSide h1
+{
+    font-size: 35px;
+    color: #fff;
+    background: #0819b8;
+    border-radius: .5vh;
+    padding: .8vh 5vh;
+    width: fit-content;
+}
+
+.leftSide p
+{
+    margin-top: 10vh;
+    background: #000000bd;
+    padding: 5vh;
+    color: #fff;
+    font-size: 20px;
+    width: 100%;
+    font-size: 30px;
+    border-radius: 1vh;
+}
+
+.caracter1
+{
+    position: relative;
+    width: 35vh;
+    left: 82%;
+    bottom: 70%;
+}
+
+.section2
+{
+    display: flex;
+    position: relative;
+    background-image: url('../images/imgPilhas/bg4.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+    height: 150vh;
+    z-index: -999;
+}
+
+.caracter2
+{
+    position: absolute;
+    width: 70vh;
+    z-index: -1;
+}
+.leftSide2
+{
+    /* background: #af0a0a; */
+    width: 75%;
+}
+
+.titleMsg
+{
+    color: #fff;
+    padding: 2vh;
+    margin-top: -2vh;
+    font-size: 50px;
+}
+
+.containerMsg2
+{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: fit-content;
+    background: #000000bd;
+    padding: 10vh;
+    color: #fff;
+    font-size: 20px;
+    width: 70%;
+    font-size: 30px;
+    border-radius: 1vh;
+    /* z-index: 999; */
+    top:30%;
+}
+
+.shelf
+{
+    width: 70vh;
+    height: fit-content;
+    position: relative;
+    top: 25%;
+}
+
+.rightSide2
+{
+    width: 40%;
+    /* background: #26b909; */
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+}
+
+.botaoVerLivros
+{
+    position: relative;
+    background: #003a40;
+    color: #fff;
+    /* font-weight: 600; */
+    font-size: 30px;
+    padding: 3vh 5vh;
+    border-top-left-radius: 10vh;
+    border-bottom-left-radius: 10vh;
+    width: 100%;
+    margin-right: 0;
+    align-items: left;
+
+}
+
+.titleLivros
+{
+    position: relative;
+    top: 25%;
+    background: #003a40;
+    font-size: 20px;
+    padding: 3vh 5vh;
+    color: #fff;
+    /* font-weight: 600; */
+    height: 10vh;
+    background: linear-gradient(#00000000, #003a40);
+    align-content: center;
+}
+
+.titleLivros h2
+{
+    position: relative;
+    /* background: #000; */
+    text-align: center;
+}

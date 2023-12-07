@@ -16,7 +16,6 @@ const listBox = document.querySelector('.listBox');
 const btnFechar = document.querySelector('.btnFechar');
 const menuTitulos = document.querySelector('.menuTitulos');
 
-
 class AddImagesSlider
 {
     constructor(imgList, imgName)
@@ -201,7 +200,6 @@ const movies = [
                     evoluiu até aqui. Agora a humanidade, auxiliada pela inteligência artificial
                     (como HAL), deve ousar encontrar os colocadores de monólitos. Se for bem sucedido,
                     o próximo passo na evolução – seja ele qual for – será alcançado.—Larry Cousins
-
                 `
     },
     {
@@ -296,20 +294,27 @@ class Node {
     }
 }
 
-class LinkedList {
-    constructor() {
+class LinkedList
+{
+    constructor()
+    {
         this.head = null;
         this.length = 0;
     }
 
-    insertEnd(data) {
+    insertEnd(data)
+    {
         const newNode = new Node(data);
 
-        if (!this.head) {
+        if (!this.head)
+        {
             this.head = newNode;
-        } else {
+        }
+        else
+        {
             let current = this.head;
-            while (current.next) {
+            while (current.next)
+            {
                 current = current.next;
             }
 
@@ -326,25 +331,30 @@ class LinkedList {
         this.length++;
     }
 
-    insertAfter(targetData, newData) {
-        const newNode = new Node(newData);
-        let current = this.head;
+    insertAfter(index, newData) {
+    const newNode = new Node(newData);
 
-        while (current) {
-            if (current.data === targetData) {
-                newNode.next = current.next;
-                current.next = newNode;
-                this.length++;
-                return;
-            }
+    let current = this.head;
+    let currentIndex = 0;
 
-            current = current.next;
+    while (current) {
+        if (currentIndex === index) {
+            newNode.next = current.next;
+            current.next = newNode;
+            this.length++;
+            return;
         }
 
-        console.log(`Elemento ${targetData} não encontrado.`);
+            current = current.next;
+            currentIndex++;
+        }
+
+        console.log(`Índice ${index} fora do intervalo.`);
     }
 
-    print() {
+
+    print()
+    {
         let current = this.head;
         while (current) {
             console.log(current.data);
@@ -352,28 +362,50 @@ class LinkedList {
         }
     }
 
-    size() {
+    size()
+    {
         return this.length;
     }
 
-    forEach(callback) {
+    forEach(callback)
+    {
         let current = this.head;
-        while (current) {
+        while (current)
+        {
         callback(current);
         current = current.next;
         }
+    }
+
+    getElementAt(position)
+    {
+        if (position < 0 || position >= this.length)
+        {
+            console.log("Posição inválida.");
+            return null;
+        }
+
+        let current = this.head;
+        let index = 0;
+
+        while (index < position)
+        {
+            current = current.next;
+            index++;
+        }
+
+        return current.data;
     }
 }
 
 const userList = new LinkedList();
 
-const createDynamicElement = (numb, imagePath) => {
+const createDynamicElement = (imagePath) => {
+    const spanElement = document.createElement('span');
     const divElement = document.createElement('div');
     divElement.className = 'itemBox';
 
-    const spanElement = document.createElement('span');
     spanElement.className = 'numb';
-    spanElement.textContent = `ID ${numb}`;
 
     const imgElement = document.createElement('img');
     imgElement.className = 'itemList';
@@ -389,7 +421,7 @@ const createDynamicElement = (numb, imagePath) => {
     divElement.appendChild(imgElement);
     divElement.appendChild(btnRemoveElement);
 
-    document.querySelector('.listBox').appendChild(divElement);
+    listBox.appendChild(divElement);
 
     return divElement;
 }
@@ -398,156 +430,250 @@ const itemBox = document.querySelector('.itemBox');
 const imgItemBoxElement = document.createElement('img');
 const spanItemBoxElement = document.createElement('span');
 
-
 let index;
 const imgAddedName = [];
 let tempImgAddedName;
 
-document.querySelectorAll('.listAvailable').forEach((item, i) => {
-    item.addEventListener('click', () => {
-        hiddenOpcoes.classList.toggle('translateHiddenOpcoes');
-
-        index = i;
-        const movie = movies[index];
-        movie.id = index;
-
-        tempImgAddedName = movie.name
-        console.log('Nome do filme: ' + movie.name);
-        console.log('ID: ' + movie.id);
-
-        imgItemBoxElement.classList.add('itemList');
-        imgItemBoxElement.classList.add('listAvailable');
-        imgItemBoxElement.classList.add('imgAdd');
-        imgItemBoxElement.src = movie.pathFile;
-
-        spanItemBoxElement.classList.add('name');
-        spanItemBoxElement.textContent = movie.completeTitle;
-
-        itemBox.appendChild(imgItemBoxElement);
-        itemBox.appendChild(spanItemBoxElement);
-
+const updateListBox = () =>
+{
+    listBox.innerHTML = '';
+    userList.forEach((node) =>
+    {
+        listBox.appendChild(node.data);
     });
-    
-    btnFechar.addEventListener('click', () => {
-        hiddenOpcoes.classList.toggle('translateHiddenOpcoes');
-        input.classList.add('hiddenInput');
-        btnAddInicio.classList.remove('hiddenInput');
-        btnAddFim.classList.remove('hiddenInput');
-        btnAddMeio.classList.remove('hiddenInput');
-        imgItemBoxElement.remove();
-        spanItemBoxElement.remove();
-        index = 0;
+}
+
+const AddInicioFunc = () =>
+{
+    const element = createDynamicElement(movies[index].pathFile);
+    userList.insertStart(element);
+    updateListBox();
+}
+
+const AddFimFunc = () =>
+{
+    const element = createDynamicElement(movies[index].pathFile);
+    userList.insertEnd(element);
+    updateListBox();
+}
+
+const AddMeioFunc = () =>
+{
+    input.classList.toggle('hiddenInput');
+    btnAddInicio.classList.toggle('hiddenInput');
+    btnAddFim.classList.toggle('hiddenInput');
+    btnAddMeio.classList.toggle('hiddenInput');
+
+    console.log(`Input: ${valueInput.value}`);
+
+    btnConfirmAddMeio.addEventListener('click', () =>
+    {
+        if (valueInput.value !== '')
+        {
+            // Validar se valueInput.value é um número
+            const indexToAdd = parseInt(valueInput.value);
+            
+            // Validar se o índice está dentro dos limites da lista
+            if (!isNaN(indexToAdd) && indexToAdd >= 0 && indexToAdd <= userList.size())
+            {
+                const element = createDynamicElement(movies[index].pathFile);
+                console.log(`Element: ${element.innerHTML}`);
+                
+                userList.insertAfter(indexToAdd, element);
+                updateListBox();
+                resetInputVisibility();
+
+                valueInput.value = '';
+
+                // Atualizar os índices após a adição
+                updateIndices();
+            }
+            else
+            {
+                console.log('Índice inválido ou fora dos limites da lista.');
+            }
+        }
     });
-    
-});
+
+    btnCancelAddMeio.addEventListener('click', () =>
+    { 
+        resetInputVisibility();
+        return;
+    });
+
+    updateListBox();
+}
+
+const updateIndices = () => {
+    document.querySelectorAll('.numb').forEach((el, idx) =>
+    {
+        el.textContent = idx ;
+    });
+}
+
+const resetInputVisibility = () => {
+    input.classList.add('hiddenInput');
+    btnAddInicio.classList.remove('hiddenInput');
+    btnAddFim.classList.remove('hiddenInput');
+    btnAddMeio.classList.remove('hiddenInput');
+}
 
 const handleButtonClick = (actionType) =>
 {
-    if (movies && movies.length > index && movies[index]) {
-        if (imgAddedName.includes(tempImgAddedName)) {
+    if (movies && movies.length > index && movies[index])
+    {
+        if (imgAddedName.includes(tempImgAddedName))
+        {
             console.log('Elemento já presente na lista!');
-        } else {
-            let element, insertMethod;
-
-            switch (actionType) {
+        }
+        else
+        {
+            switch (actionType)
+            {
                 case 'addInicio':
-                    element = createDynamicElement(index + 1, movies[index].pathFile);
-                    userList.insertStart(element);
-                    insertMethod = 'insertStart';
+                    AddInicioFunc();
                     break;
                 case 'addFim':
-                    element = createDynamicElement(index + 1, movies[index].pathFile);
-                    userList.insertEnd(element);
-                    insertMethod = 'insertEnd';
+                    AddFimFunc();
                     break;
                 case 'addMeio':
-                    input.classList.toggle('hiddenInput');
-                    btnAddInicio.classList.toggle('hiddenInput');
-                    btnAddFim.classList.toggle('hiddenInput');
-                    btnAddMeio.classList.toggle('hiddenInput');
+                    AddMeioFunc();
+                    break;
+                default:
+                    console.error('Ação não reconhecida.');
                     return;
-
-                    console.log(`Input: ${valueInput.value}`);
-                //     if (valueInput.value !== '') {
-                //         btnConfirmAddMeio.addEventListener('click', () => {
-                //             element = createDynamicElement(index + 1, valueInput[index].pathFile);
-                //             userList.insertAfter(parseInt(valueInput.value), element);
-                //             insertMethod = 'insertMiddle';
-                //             console.log('AddMeioClicked!');
-                //         });
-
-                //         btnCancelAddMeio.addEventListener('click', () => {
-                //         input.classList.toggle('hiddenInput');
-                //         btnAddInicio.classList.toggle('hiddenInput');
-                //         btnAddFim.classList.toggle('hiddenInput');
-                //         btnAddMeio.classList.toggle('hiddenInput');
-                //     });
-                // }
-                break;
-            default:
-                console.error('Ação não reconhecida.');
-                return;
             }
 
-            listBox.innerHTML = '';
-
-            userList.forEach((node) => {
-                listBox.appendChild(node.data);
-            });
-
-            listBox.addEventListener('click', (event) => {
-                if (event.target.classList.contains('btnRemove')) {
-                    const itemBox = event.target.closest('.itemBox');
-
-                    let current = userList.head;
-                    let previous = null;
-                    let found = false;
-
-                    while (current) {
-                        if (current.data === itemBox) {
-                            found = true;
-                            break;
-                        }
-
-                        previous = current;
-                        current = current.next;
-                    }
-
-                    if (found) {
-                        const removedItemName = imgAddedName[index];
-
-                        const indexToRemove = imgAddedName.indexOf(removedItemName);
-                        if (indexToRemove !== -1) {
-                            imgAddedName.splice(indexToRemove, 1);
-                            console.log('Elemento removido de imgAddedName:', removedItemName);
-                        }
-
-                        if (previous) {
-                            previous.next = current.next;
-                        } else {
-                            userList.head = current.next;
-                        }
-
-                        itemBox.remove();
-                        console.log('Elemento removido:', itemBox);
-                    }
-                }
-            });
-
             imgAddedName.includes(movies[index].name) ? '' : imgAddedName.push(movies[index].name);
-
+            
             console.log('imgAddedName: ' + imgAddedName);
             console.log('tempImgAddedName: ' + tempImgAddedName);
         }
-    } else {
+    }
+    else
+    {
         console.error('Movies está indefinido ou movies[index] é undefined.');
     }
     console.log('Linked list: ')
     userList.print();
+    console.log("Size List: " + userList.size());
+    
+    document.querySelectorAll('.itemBox').forEach((el, idx) =>
+    {
+        el.id = idx - 10;
+    });
+    
+    document.querySelectorAll('.numb').forEach((el, idx) =>
+    {
+        el.textContent = idx ;
+    });
 }
 
+const removeMovie = () =>
+{
+    listBox.addEventListener('click', (event) => {
+        if (event.target.classList.contains('btnRemove')) {
+            const itemBox = event.target.closest('.itemBox');
+    
+            let current = userList.head;
+            let previous = null;
+            let found = false;
+    
+            while (current)
+            {
+                if (current.data === itemBox)
+                {
+                    found = true;
+                    break;
+                }
+    
+                previous = current;
+                current = current.next;
+            }
+    
+            if (found)
+            {
+                const removedItemName = imgAddedName[index];
+    
+                const indexToRemove = imgAddedName.indexOf(removedItemName);
+                if (indexToRemove !== -1)
+                {
+                    imgAddedName.splice(indexToRemove, 1);
+                    console.log('Elemento removido de imgAddedName:', removedItemName);
+                }
+    
+                if (previous) 
+                {
+                    previous.next = current.next;
+                } 
+                else 
+                {
+                    userList.head = current.next;
+                }
+    
+                itemBox.remove();
+                console.log('Elemento removido:', itemBox);
+                userList.length--;
+            }
+        }
+    });
+}
+removeMovie();
+
+const subMenu = () =>
+{
+    document.querySelectorAll('.listAvailable').forEach((item, i) =>
+    {
+        item.addEventListener('click', () =>
+        {
+            hiddenOpcoes.classList.add('translateHiddenOpcoes');
+            input.classList.add('hiddenInput');
+
+            if (hiddenOpcoes.classList.contains('translateHiddenOpcoes'))
+            {
+                btnAddInicio.classList.remove('hiddenInput');
+                btnAddFim.classList.remove('hiddenInput');
+                btnAddMeio.classList.remove('hiddenInput');
+            }
+    
+            index = i;
+            const movie = movies[index];
+            movie.id = index;
+    
+            tempImgAddedName = movie.name
+            console.log('Nome do filme: ' + movie.name);
+            console.log('ID: ' + movie.id);
+    
+            imgItemBoxElement.classList.add('itemList');
+            imgItemBoxElement.classList.add('listAvailable');
+            imgItemBoxElement.classList.add('imgAdd');
+            imgItemBoxElement.src = movie.pathFile;
+    
+            spanItemBoxElement.classList.add('name');
+            spanItemBoxElement.textContent = movie.completeTitle;
+    
+            itemBox.appendChild(imgItemBoxElement);
+            itemBox.appendChild(spanItemBoxElement);
+        });
+        
+        btnFechar.addEventListener('click', () =>
+        {
+            hiddenOpcoes.classList.toggle('translateHiddenOpcoes');
+            input.classList.add('hiddenInput');
+            btnAddInicio.classList.remove('hiddenInput');
+            btnAddFim.classList.remove('hiddenInput');
+            btnAddMeio.classList.remove('hiddenInput');
+            index = 0;
+        });
+        
+    });
+}
+subMenu();
+
+
 let selectedElement = null;
-listBox.addEventListener('click', (event) => { 
+listBox.addEventListener('click', (event) =>
+{ 
     if (event.target.classList.contains('classUserList')) 
     {
         const itemBox = event.target.closest('.classUserList');        
@@ -556,6 +682,7 @@ listBox.addEventListener('click', (event) => {
         {
             itemBox.classList.remove('imgSelected');
             selectedElement = null;
+
         }
         else
         {
@@ -569,81 +696,70 @@ listBox.addEventListener('click', (event) => {
             selectedElement = itemBox;
         }
 
-       // for (let i = 0; i < movies.length; i++)
-        //{
-        //    let url = movies[i].pathFile;
-        //    let itemBoxSrc = itemBox.src
-          //  let relativeItemBox = new URL(itemBoxSrc, window.location.origin).pathname
-          //  let relativeUrl = new URL(url, window.location.origin).pathname
-         //   console.log(`itemBox.src: ${itemBoxSrc}`);
-         //   console.log(`url: ${url}`);
-          //  console.log(`RelativeItemBox: ${relativeItemBox}`)
-          //  console.log(`Relative url: ${relativeUrl}`);
+        for (let i = 0; i < movies.length; i++)
+        {
+            let url = movies[i].pathFile;
+            let itemBoxSrc = itemBox.src
+            let relativeItemBox = new URL(itemBoxSrc, window.location.origin).pathname
+            let relativeUrl = new URL(url, window.location.origin).pathname
+            console.log(`itemBox.src: ${itemBoxSrc}`);
+            console.log(`url: ${url}`);
+            console.log(`RelativeItemBox: ${relativeItemBox}`)
+            console.log(`Relative url: ${relativeUrl}`);
             
-         //   if (relativeUrl === relativeItemBox)
-         //   {
-          //      titleSelected.innerHTML = '';
-         //       description.innerHTML = '';
-        //        src = movies[i].bg;
+            if (relativeUrl === relativeItemBox)
+            {
+                titleSelected.innerHTML = '';
+                description.innerHTML = '';
+                src = movies[i].bg;
 
-        //        titleSelected.innerHTML = movies[i].completeTitle;
+                titleSelected.innerHTML = movies[i].completeTitle;
                 
-        //        description.innerHTML = movies[i].desc
-       //         yearSelected.innerHTML = movies[i].year;
-       //         // console.log(bgList);
-       //         bgList.src = src;
-        //        console.log("Elemento clicado!");
-        //        bgList.classList.toggle('bgListAnimation');
-       //         boxDesc.classList.toggle('animationBoxDesc');
-       //     }
-        //}
+                description.innerHTML = movies[i].desc
+                yearSelected.innerHTML = movies[i].year;
+                // console.log(bgList);
+                bgList.src = src;
+                console.log("Elemento clicado!");
+                bgList.classList.toggle('bgListAnimation');
+                boxDesc.classList.toggle('animationBoxDesc');
+            }
+        }
         
         // This Section is for Github Pages***********************************************
-         for (let i = 0; i < movies.length; i++)
-         {
-             let url = movies[i].pathFile;
-             let itemBoxSrc = itemBox.src
-             let relativeItemBox = new URL(itemBoxSrc, window.location.origin).pathname
-             let relativeUrl = new URL(url, window.location.origin).pathname
+        // for (let i = 0; i < movies.length; i++)
+        // {
+        //     let url = movies[i].pathFile;
+        //     let itemBoxSrc = itemBox.src
+        //     let relativeItemBox = new URL(itemBoxSrc, window.location.origin).pathname
+        //     let relativeUrl = new URL(url, window.location.origin).pathname
 
-             let convertURL = `/View-Data-Structure${relativeUrl.toString()}`;
-             let convertItemBox = relativeItemBox.toString();
-             console.log(`itemBox.src: ${itemBoxSrc}`);
-             console.log(`url: ${url}`);
-             console.log(`RelativeItemBox: ${relativeItemBox}`)
-             console.log(`Relative url: ${relativeUrl}`);
-             console.log(`convertURL: ${convertURL}`);
-             console.log(`convertItemBox ${convertItemBox}`);
-             if (convertURL == convertItemBox)
-             {
-                 titleSelected.innerHTML = '';
-                 description.innerHTML = '';
-                 src = movies[i].bg;
+        //     let convertURL = `/View-Data-Structure${relativeUrl.toString()}`;
+        //     let convertItemBox = relativeItemBox.toString();
+        //     console.log(`itemBox.src: ${itemBoxSrc}`);
+        //     console.log(`url: ${url}`);
+        //     console.log(`RelativeItemBox: ${relativeItemBox}`)
+        //     console.log(`Relative url: ${relativeUrl}`);
+        //     console.log(`convertURL: ${convertURL}`);
+        //     console.log(`convertItemBox ${convertItemBox}`);
+        //     if (convertURL == convertItemBox)
+        //     {
+        //         titleSelected.innerHTML = '';
+        //         description.innerHTML = '';
+        //         src = movies[i].bg;
 
-                 titleSelected.innerHTML = movies[i].completeTitle;
+        //         titleSelected.innerHTML = movies[i].completeTitle;
                 
-                 description.innerHTML = movies[i].desc
-                 yearSelected.innerHTML = movies[i].year;
-                 // console.log(bgList);
-                 bgList.src = src;  
-                 console.log("Elemento clicado!");
-                 bgList.classList.toggle('bgListAnimation');
-                 boxDesc.classList.toggle('animationBoxDesc');
-             }
-         }
+        //         description.innerHTML = movies[i].desc
+        //         yearSelected.innerHTML = movies[i].year;
+        //         // console.log(bgList);
+        //         bgList.src = src;  
+        //         console.log("Elemento clicado!");
+        //         bgList.classList.toggle('bgListAnimation');
+        //         boxDesc.classList.toggle('animationBoxDesc');
+        //     }
+        // }
         // This Section is for Github Pages***********************************************
     }
-});
-
-btnConfirmAddMeio.addEventListener('click', () => {
-    alert("Sorry, don't work... (⩾﹏⩽)");
-});
-
-btnCancelAddMeio.addEventListener('click', () => { 
-    input.classList.toggle('hiddenInput');
-    btnAddInicio.classList.toggle('hiddenInput');
-    btnAddFim.classList.toggle('hiddenInput');
-    btnAddMeio.classList.toggle('hiddenInput');
 });
 
 btnAddInicio.addEventListener('click', () => handleButtonClick('addInicio'));
