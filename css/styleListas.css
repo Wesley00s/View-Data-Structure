@@ -40,7 +40,7 @@
 {
     position: relative;
     left: -5vh;
-    font-size: min(25px, 1.5vh);
+    font-size: min(25px, 2vh);
     width: 110%;
     padding: 3vh;
     border-radius: 3vh;
