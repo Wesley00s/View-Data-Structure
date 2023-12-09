@@ -1,3 +1,4 @@
+// Selecionando elementos do DOM
 const imgsContainer = document.querySelector('.container');
 const btnAddInicio = document.querySelector('.addInicio');
 const btnAddFim = document.querySelector('.addFim');
@@ -15,75 +16,87 @@ const boxDesc = document.querySelector('.boxDesc');
 const listBox = document.querySelector('.listBox');
 const btnFechar = document.querySelector('.btnFechar');
 const menuTitulos = document.querySelector('.menuTitulos');
+const titleOpc = document.querySelector('.titleOpc')
 
+// Definindo uma classe chamada AddImagesSlider
 class AddImagesSlider
 {
+    // Construtor da classe com parâmetros imgList e imgName
     constructor(imgList, imgName)
     {
-        this.imgName = imgName;
-        this.imgList = imgList;
+        this.imgName = imgName; // Atribuindo o nome da imagem
+        this.imgList = imgList; // Atribuindo a lista de imagens
     }
 
+    // Método para adicionar o caminho da imagem na lista
     addInList()
     {
-        const pathFileImg = `../images/imgListas/${this.imgName}`
-        this.imgList.push(pathFileImg);
-        
+        const pathFileImg = `../images/imgListas/${this.imgName}`; // Criando o caminho do arquivo da imagem
+        this.imgList.push(pathFileImg); // Adicionando o caminho na lista
     }
 
+    // Método para criar elementos de imagem no DOM
     createImageElement()
     {
         this.imgList.forEach(imgSrc =>
         {
-            const img = document.createElement('img');
-            img.src = imgSrc;
-            img.classList.add('maxWidthSliders');
-            img.classList.add('slider');
-            imgsContainer.appendChild(img);
+            const img = document.createElement('img'); // Criando um elemento de imagem
+            img.src = imgSrc; // Atribuindo o caminho da imagem ao atributo src
+            img.classList.add('maxWidthSliders'); // Adicionando classe de estilo
+            img.classList.add('slider'); // Adicionando classe de estilo
+            imgsContainer.appendChild(img); // Adicionando a imagem ao contêiner no DOM
         });
     }
-};
+}
 
+// Criando uma lista vazia chamada images
 const images = [];
 
-for (let j = 0; j < 5; j++) {
+// Loop para criar instâncias da classe AddImagesSlider e adicionar à lista
+for (let j = 0; j < 5; j++)
+{
     const addImg = new AddImagesSlider(images, `icon-slide${j + 1}.png`);
     addImg.addInList();
 }
 
+// Criando uma instância final da classe AddImagesSlider sem nome de imagem e chamando o método para criar elementos no DOM
 const final = new AddImagesSlider(images, '');
 final.createImageElement();
 
 // Função para animação de lista de imagens iniciais
 const startSliderAnimation = () =>
 {
-    const images = document.querySelectorAll('.slider'); // Pegar elemento do DOM
+    const images = document.querySelectorAll('.slider'); // Selecionando elementos do DOM com a classe 'slider'
     let currentIndex = 0;
 
+    // Função para animar o slider de imagens de forma recursiva
     function animateSlider()
     {
-        const currentImage = images[currentIndex];
+        const currentImage = images[currentIndex]; // Obtendo a imagem atual
 
         setTimeout(() =>
         {
-            currentImage.classList.add('focus');
-            currentImage.classList.remove('maxWidthSliders');
+            currentImage.classList.add('focus'); // Adicionando classe de foco à imagem
+            currentImage.classList.remove('maxWidthSliders'); // Removendo classe de estilo
 
             setTimeout(() =>
             {
-                currentImage.classList.remove('focus');
-                currentImage.classList.add('maxWidthSliders');
+                currentImage.classList.remove('focus'); // Removendo classe de foco
+                currentImage.classList.add('maxWidthSliders'); // Adicionando classe de estilo de largura máxima
 
-                currentIndex = (currentIndex + 1) % images.length; // Próxima imagem ou reinicia se atingir o final
+                currentIndex = (currentIndex + 1) % images.length; // Avançando para a próxima imagem ou reiniciando se atingir o final
 
-                animateSlider(); // Chama recursivamente para a próxima imagem
-            }, 1500);
-        }, 0);
+                animateSlider(); // Chamando recursivamente para a próxima imagem
+            }, 1500); // Tempo de espera antes da próxima animação
+        }, 0); // Tempo de espera antes da primeira animação
     }
-    animateSlider(); 
-}
-startSliderAnimation();
 
+    animateSlider(); // Iniciando a animação do slider
+}
+
+startSliderAnimation(); // Chamando a função para iniciar a animação do slider
+
+// Definindo uma lista de objetos chamada movies, onde cada objeto representa um filme com várias propriedades
 const movies = [
     {
         id : 1,
@@ -266,42 +279,52 @@ const movies = [
     }
 ]
 
+// Seleciona o elemento HTML com a classe 'containerAvailable' usando o método querySelector
 const containerAvailable = document.querySelector('.containerAvailable');
 
+// Itera sobre cada filme na lista 'movies'
 movies.forEach((movie) => {
+    // Cria um novo elemento div para representar cada item do filme
     const itemBox = document.createElement('div');
-    itemBox.classList.add('itemBox');
+    itemBox.classList.add('itemBox'); // Adiciona a classe 'itemBox' ao elemento div
 
+    // Cria um elemento de imagem para exibir a capa do filme
     const img = document.createElement('img');
-    img.classList.add('itemList', 'listAvailable');
-    img.src = movie.pathFile;
-    img.alt = 'img list';
+    img.classList.add('itemList', 'listAvailable'); // Adiciona classes 'itemList' e 'listAvailable' à imagem
+    img.src = movie.pathFile; // Define o caminho da imagem com base na propriedade 'pathFile' do filme
+    img.alt = 'img list'; // Define um texto alternativo para a imagem
 
+    // Cria um elemento span para exibir o nome do filme
     const span = document.createElement('span');
-    span.classList.add('name');
-    span.textContent = movie.name;
+    span.classList.add('name'); // Adiciona a classe 'name' ao elemento span
+    span.textContent = movie.name; // Define o texto do span com base na propriedade 'name' do filme
 
+    // Adiciona a imagem e o span ao elemento div 'itemBox'
     itemBox.appendChild(img);
     itemBox.appendChild(span);
 
+    // Adiciona o elemento 'itemBox' ao elemento com a classe 'containerAvailable'
     containerAvailable.appendChild(itemBox);
 });
-
-class Node {
-    constructor(data) {
-        this.data = data;
-        this.next = null;
+// Classe Node representa um nó da lista encadeada
+class Node
+{
+    constructor(data)
+    {
+        this.data = data; // Dados armazenados no nó
+        this.next = null; // Referência para o próximo nó na lista
     }
 }
 
+// Classe LinkedList representa a lista encadeada
 class LinkedList
 {
-    constructor()
-    {
-        this.head = null;
-        this.length = 0;
+    constructor() {
+        this.head = null; // Referência para o primeiro nó na lista
+        this.length = 0; // Contador para o tamanho da lista
     }
 
+    // Método para inserir um novo nó no final da lista
     insertEnd(data)
     {
         const newNode = new Node(data);
@@ -321,29 +344,35 @@ class LinkedList
             current.next = newNode;
         }
 
-        this.length++; 
+        this.length++; // Incrementa o tamanho da lista
     }
 
-    insertStart(data) {
+    // Método para inserir um novo nó no início da lista
+    insertStart(data)
+    {
         const newNode = new Node(data);
         newNode.next = this.head;
         this.head = newNode;
         this.length++;
     }
 
-    insertAfter(index, newData) {
-    const newNode = new Node(newData);
+    // Método para inserir um novo nó após um índice específico na lista
+    insertAfter(index, newData)
+    {
+        const newNode = new Node(newData);
 
-    let current = this.head;
-    let currentIndex = 0;
+        let current = this.head;
+        let currentIndex = 0;
 
-    while (current) {
-        if (currentIndex === index) {
-            newNode.next = current.next;
-            current.next = newNode;
-            this.length++;
-            return;
-        }
+        while (current)
+        {
+            if (currentIndex === index)
+            {
+                newNode.next = current.next;
+                current.next = newNode;
+                this.length++;
+                return;
+            }
 
             current = current.next;
             currentIndex++;
@@ -352,31 +381,35 @@ class LinkedList
         console.log(`Índice ${index} fora do intervalo.`);
     }
 
-
+    // Método para imprimir os dados da lista encadeada
     print()
     {
         let current = this.head;
-        while (current) {
+        while (current)
+        {
             console.log(current.data);
             current = current.next;
         }
     }
 
+    // Método para obter o tamanho da lista
     size()
     {
         return this.length;
     }
 
+    // Método que executa uma função de callback para cada nó na lista
     forEach(callback)
     {
         let current = this.head;
         while (current)
         {
-        callback(current);
-        current = current.next;
+            callback(current);
+            current = current.next;
         }
     }
 
+    // Método para obter o dado em uma posição específica na lista
     getElementAt(position)
     {
         if (position < 0 || position >= this.length)
@@ -398,9 +431,13 @@ class LinkedList
     }
 }
 
+// Criando uma instância da classe LinkedList para representar a lista de usuários
 const userList = new LinkedList();
 
-const createDynamicElement = (imagePath) => {
+// Função que cria dinamicamente elementos HTML para representar um usuário
+const createDynamicElement = (imagePath) =>
+{
+    // Criando elementos HTML
     const spanElement = document.createElement('span');
     const divElement = document.createElement('div');
     divElement.className = 'itemBox';
@@ -417,23 +454,29 @@ const createDynamicElement = (imagePath) => {
     btnRemoveElement.className = 'btnRemove';
     btnRemoveElement.textContent = '-';
 
+    // Adicionando os elementos criados ao elemento div 'itemBox'
     divElement.appendChild(spanElement);
     divElement.appendChild(imgElement);
     divElement.appendChild(btnRemoveElement);
 
+    // Adicionando o elemento div 'itemBox' a algum elemento com o ID 'listBox' no DOM
     listBox.appendChild(divElement);
 
-    return divElement;
+    return divElement; // Retornando o elemento div criado para possível manipulação posterior
 }
 
+// Seleciona o primeiro elemento com a classe 'itemBox' no DOM
 const itemBox = document.querySelector('.itemBox');
+
+// Cria elementos HTML dinamicamente
 const imgItemBoxElement = document.createElement('img');
 const spanItemBoxElement = document.createElement('span');
 
-let index;
-const imgAddedName = [];
-let tempImgAddedName;
+let index; // Variável para armazenar um índice
+const imgAddedName = []; // Lista para armazenar nomes de imagens adicionados
+let tempImgAddedName; // Variável temporária para armazenar um nome de imagem
 
+// Função para atualizar a lista no DOM com base nos dados da lista encadeada
 const updateListBox = () =>
 {
     listBox.innerHTML = '';
@@ -443,6 +486,7 @@ const updateListBox = () =>
     });
 }
 
+// Função para adicionar um elemento no início da lista
 const AddInicioFunc = () =>
 {
     const element = createDynamicElement(movies[index].pathFile);
@@ -450,6 +494,7 @@ const AddInicioFunc = () =>
     updateListBox();
 }
 
+// Função para adicionar um elemento no final da lista
 const AddFimFunc = () =>
 {
     const element = createDynamicElement(movies[index].pathFile);
@@ -457,13 +502,9 @@ const AddFimFunc = () =>
     updateListBox();
 }
 
-const AddMeioFunc = () =>
+// Função para confirmar adição no meio da lista
+const confirmAddMeio = () =>
 {
-    input.classList.toggle('hiddenInput');
-    btnAddInicio.classList.toggle('hiddenInput');
-    btnAddFim.classList.toggle('hiddenInput');
-    btnAddMeio.classList.toggle('hiddenInput');
-
     console.log(`Input: ${valueInput.value}`);
 
     btnConfirmAddMeio.addEventListener('click', () =>
@@ -472,13 +513,14 @@ const AddMeioFunc = () =>
         {
             // Validar se valueInput.value é um número
             const indexToAdd = parseInt(valueInput.value);
-            
+
             // Validar se o índice está dentro dos limites da lista
             if (!isNaN(indexToAdd) && indexToAdd >= 0 && indexToAdd <= userList.size())
             {
                 const element = createDynamicElement(movies[index].pathFile);
-                console.log(`Element: ${element.innerHTML}`);
                 
+                console.log(`Element: ${element.innerHTML}`);
+
                 userList.insertAfter(indexToAdd, element);
                 updateListBox();
                 resetInputVisibility();
@@ -487,16 +529,26 @@ const AddMeioFunc = () =>
 
                 // Atualizar os índices após a adição
                 updateIndices();
-            }
-            else
-            {
+            } else {
                 console.log('Índice inválido ou fora dos limites da lista.');
             }
         }
     });
+}
 
+// Função para adicionar um elemento no meio da lista (interação com usuário)
+const AddMeioFunc = () =>
+{
+    if (!imgAddedName.includes(tempImgAddedName))
+    {
+        input.classList.toggle('hiddenInput');
+        btnAddInicio.classList.toggle('hiddenInput');
+        btnAddFim.classList.toggle('hiddenInput');
+        btnAddMeio.classList.toggle('hiddenInput');
+    }
+    // Cancela a adição no meio da lista
     btnCancelAddMeio.addEventListener('click', () =>
-    { 
+    {
         resetInputVisibility();
         return;
     });
@@ -504,30 +556,43 @@ const AddMeioFunc = () =>
     updateListBox();
 }
 
-const updateIndices = () => {
+// Cria listener para adicionar no meio
+btnAddMeio.addEventListener('click', () => AddMeioFunc());
+
+// Função para atualizar os índices exibidos no DOM
+const updateIndices = () =>
+{
     document.querySelectorAll('.numb').forEach((el, idx) =>
     {
-        el.textContent = idx ;
+        el.textContent = idx;
     });
 }
 
-const resetInputVisibility = () => {
+// Função para redefinir a visibilidade dos elementos de entrada
+const resetInputVisibility = () =>
+{
     input.classList.add('hiddenInput');
     btnAddInicio.classList.remove('hiddenInput');
     btnAddFim.classList.remove('hiddenInput');
     btnAddMeio.classList.remove('hiddenInput');
 }
 
+// Função para lidar com o clique em botões
 const handleButtonClick = (actionType) =>
 {
+    // Verifica se a lista de filmes está definida e se o índice é válido
     if (movies && movies.length > index && movies[index])
     {
+        // Verifica se o nome temporário já está na lista de nomes adicionados
         if (imgAddedName.includes(tempImgAddedName))
         {
-            console.log('Elemento já presente na lista!');
+            // console.log('Elemento já presente na lista!');
+            // Mensagem para o usuário informando que o filme já está na lista
+            titleOpc.textContent = 'Elemento já presente na lista!';
         }
         else
         {
+            // Executa ação com base no tipo de ação passado como parâmetro
             switch (actionType)
             {
                 case 'addInicio':
@@ -537,48 +602,70 @@ const handleButtonClick = (actionType) =>
                     AddFimFunc();
                     break;
                 case 'addMeio':
-                    AddMeioFunc();
+                    confirmAddMeio();
                     break;
                 default:
                     console.error('Ação não reconhecida.');
                     return;
             }
 
+            // Adiciona o nome do filme à lista de nomes adicionados
             imgAddedName.includes(movies[index].name) ? '' : imgAddedName.push(movies[index].name);
-            
-            console.log('imgAddedName: ' + imgAddedName);
-            console.log('tempImgAddedName: ' + tempImgAddedName);
+
+            // console.log('imgAddedName: ' + imgAddedName);
+            // console.log('tempImgAddedName: ' + tempImgAddedName);
         }
     }
     else
     {
         console.error('Movies está indefinido ou movies[index] é undefined.');
     }
-    console.log('Linked list: ')
+
+    // Imprime a lista encadeada no console
+    console.log('Linked list: ');
     userList.print();
+
+    // Imprime o tamanho da lista encadeada no console
     console.log("Size List: " + userList.size());
-    
+
+    // Ajusta os IDs dos elementos no DOM
     document.querySelectorAll('.itemBox').forEach((el, idx) =>
     {
         el.id = idx - 10;
     });
-    
+
+    // Atualiza os índices exibidos no DOM
     document.querySelectorAll('.numb').forEach((el, idx) =>
     {
-        el.textContent = idx ;
+        el.textContent = idx;
     });
 }
 
+// Adiciona um ouvinte de evento de clique ao botão 'Adicionar no Início'
+btnAddInicio.addEventListener('click', () => handleButtonClick('addInicio'));
+// Adiciona um ouvinte de evento de clique ao botão 'Adicionar no Fim'
+btnAddFim.addEventListener('click', () => handleButtonClick('addFim'));
+// Adiciona um ouvinte de evento de clique ao botão 'Confirmar'
+btnConfirmAddMeio.addEventListener('click', () => handleButtonClick('addMeio'));
+
+// Função para remover um filme da lista
 const removeMovie = () =>
 {
-    listBox.addEventListener('click', (event) => {
-        if (event.target.classList.contains('btnRemove')) {
+    // Adiciona um ouvinte de eventos de clique ao elemento com o ID 'listBox'
+    listBox.addEventListener('click', (event) =>
+    {
+        // Verifica se o elemento clicado possui a classe 'btnRemove'
+        if (event.target.classList.contains('btnRemove'))
+        {
+            // Encontra o elemento pai mais próximo com a classe 'itemBox'
             const itemBox = event.target.closest('.itemBox');
-    
+
+            // Inicializa variáveis para percorrer a lista encadeada
             let current = userList.head;
             let previous = null;
             let found = false;
-    
+
+            // Percorre a lista encadeada até encontrar o elemento correspondente ao itemBox
             while (current)
             {
                 if (current.data === itemBox)
@@ -586,146 +673,175 @@ const removeMovie = () =>
                     found = true;
                     break;
                 }
-    
+
                 previous = current;
                 current = current.next;
             }
-    
+
+            // Se o elemento foi encontrado
             if (found)
             {
+                // Obtém o nome do item a ser removido da lista de nomes adicionados
                 const removedItemName = imgAddedName[index];
-    
+
+                // Encontra o índice do nome na lista de nomes adicionados e remove-o
                 const indexToRemove = imgAddedName.indexOf(removedItemName);
                 if (indexToRemove !== -1)
                 {
                     imgAddedName.splice(indexToRemove, 1);
                     console.log('Elemento removido de imgAddedName:', removedItemName);
                 }
-    
-                if (previous) 
+
+                // Remove o elemento da lista encadeada
+                if (previous)
                 {
                     previous.next = current.next;
-                } 
-                else 
+                }
+                else
                 {
                     userList.head = current.next;
                 }
-    
+
+                // Remove o elemento do DOM
                 itemBox.remove();
                 console.log('Elemento removido:', itemBox);
+
+                // Atualiza o tamanho da lista encadeada
                 userList.length--;
             }
         }
     });
 }
+// Chama a função para remover filmes
 removeMovie();
 
+
+// Função para lidar com o submenu de opções para filmes disponíveis
 const subMenu = () =>
 {
+    // Itera sobre todos os elementos com a classe 'listAvailable' no DOM
     document.querySelectorAll('.listAvailable').forEach((item, i) =>
     {
+        // Adiciona um ouvinte de eventos de clique a cada elemento
         item.addEventListener('click', () =>
         {
+            // Reinicia o texto padrão
+            titleOpc.textContent = 'Onde deseja adicionar?';
+
+            // Adiciona classes CSS para esconder opções e entrada de texto
             hiddenOpcoes.classList.add('translateHiddenOpcoes');
             input.classList.add('hiddenInput');
 
+            // Remove classes CSS de ocultação dos botões de adição
             if (hiddenOpcoes.classList.contains('translateHiddenOpcoes'))
             {
                 btnAddInicio.classList.remove('hiddenInput');
                 btnAddFim.classList.remove('hiddenInput');
                 btnAddMeio.classList.remove('hiddenInput');
             }
-    
+
+            // Obtém o índice do filme selecionado
             index = i;
+
+            // Obtém os detalhes do filme
             const movie = movies[index];
             movie.id = index;
-    
-            tempImgAddedName = movie.name
+
+            tempImgAddedName = movie.name;
+
+            // Exibe informações no console
             console.log('Nome do filme: ' + movie.name);
             console.log('ID: ' + movie.id);
-    
-            imgItemBoxElement.classList.add('itemList');
-            imgItemBoxElement.classList.add('listAvailable');
-            imgItemBoxElement.classList.add('imgAdd');
+
+            // Configura a imagem e o título do filme no submenu
+            imgItemBoxElement.classList.add('itemList', 'listAvailable', 'imgAdd');
             imgItemBoxElement.src = movie.pathFile;
-    
+
             spanItemBoxElement.classList.add('name');
             spanItemBoxElement.textContent = movie.completeTitle;
-    
+
+            // Adiciona elementos ao DOM
             itemBox.appendChild(imgItemBoxElement);
             itemBox.appendChild(spanItemBoxElement);
         });
-        
+
+        // Adiciona um ouvinte de eventos de clique ao botão de fechar
         btnFechar.addEventListener('click', () =>
         {
+            // Alterna a classe CSS para ocultar o submenu
             hiddenOpcoes.classList.toggle('translateHiddenOpcoes');
             input.classList.add('hiddenInput');
+
+            // Remove classes CSS de ocultação dos botões de adição
             btnAddInicio.classList.remove('hiddenInput');
             btnAddFim.classList.remove('hiddenInput');
             btnAddMeio.classList.remove('hiddenInput');
+
+            // Reinicializa o índice
             index = 0;
         });
-        
     });
 }
+// Chama a função para configurar o submenu
 subMenu();
 
-
+// Variável para armazenar o elemento selecionado
 let selectedElement = null;
+
+// Adiciona um ouvinte de evento de clique à listBox
 listBox.addEventListener('click', (event) =>
 { 
-    if (event.target.classList.contains('classUserList')) 
+    // Verifica se o clique ocorreu em um elemento com a classe 'classUserList'
+    if (event.target.classList.contains('classUserList'))
     {
-        const itemBox = event.target.closest('.classUserList');        
+        // Obtém o elemento pai mais próximo com a classe 'classUserList'
+        const itemBox = event.target.closest('.classUserList');
 
+        // Verifica se o item clicado é o mesmo que já estava selecionado
         if (itemBox === selectedElement)
         {
+            // Remove a classe 'imgSelected' e redefine selectedElement como nulo
             itemBox.classList.remove('imgSelected');
             selectedElement = null;
-
         }
         else
         {
+            // Remove a classe 'imgSelected' do elemento previamente selecionado (se houver)
             if (selectedElement)
             {
                 selectedElement.classList.remove('imgSelected');
             }
 
+            // Adiciona a classe 'imgSelected' ao elemento clicado e atualiza selectedElement
             itemBox.classList.add('imgSelected');
-
             selectedElement = itemBox;
         }
 
-        // for (let i = 0; i < movies.length; i++)
-        // {
-        //     let url = movies[i].pathFile;
-        //     let itemBoxSrc = itemBox.src
-        //     let relativeItemBox = new URL(itemBoxSrc, window.location.origin).pathname
-        //     let relativeUrl = new URL(url, window.location.origin).pathname
-        //     console.log(`itemBox.src: ${itemBoxSrc}`);
-        //     console.log(`url: ${url}`);
-        //     console.log(`RelativeItemBox: ${relativeItemBox}`)
-        //     console.log(`Relative url: ${relativeUrl}`);
-            
-        //     if (relativeUrl === relativeItemBox)
-        //     {
-        //         titleSelected.innerHTML = '';
-        //         description.innerHTML = '';
-        //         src = movies[i].bg;
+        // Itera sobre os filmes para encontrar o correspondente ao item clicado
+       /* for (let i = 0; i < movies.length; i++)
+        {
+            let url = movies[i].pathFile;
+            let itemBoxSrc = itemBox.src;
+            let relativeItemBox = new URL(itemBoxSrc, window.location.origin).pathname;
+            let relativeUrl = new URL(url, window.location.origin).pathname;
 
-        //         titleSelected.innerHTML = movies[i].completeTitle;
-                
-        //         description.innerHTML = movies[i].desc
-        //         yearSelected.innerHTML = movies[i].year;
-        //         // console.log(bgList);
-        //         bgList.src = src;
-        //         console.log("Elemento clicado!");
-        //         bgList.classList.toggle('bgListAnimation');
-        //         boxDesc.classList.toggle('animationBoxDesc');
-        //     }
-        // }
+            // Verifica se a URL do filme corresponde à URL do item clicado
+            if (relativeUrl === relativeItemBox) {
+                // Atualiza os elementos na página com informações do filme
+                titleSelected.innerHTML = movies[i].completeTitle;
+                description.innerHTML = movies[i].desc;
+                yearSelected.innerHTML = movies[i].year;
+                bgList.src = movies[i].bg;
+
+                // Adiciona ou remove classes para animações
+                bgList.classList.toggle('bgListAnimation');
+                boxDesc.classList.toggle('animationBoxDesc');
+
+                console.log("Elemento clicado!");
+            }
+        }*/
         
-        // This Section is for Github Pages***********************************************
+        //*********************** This Section is for Github Pages. Uncomment if Necessary ***********************
         for (let i = 0; i < movies.length; i++)
         {
             let url = movies[i].pathFile;
@@ -758,29 +874,30 @@ listBox.addEventListener('click', (event) =>
                 boxDesc.classList.toggle('animationBoxDesc');
             }
         }
-        // This Section is for Github Pages***********************************************
+        //*********************** This Section is for Github Pages. Uncomment if Necessary ***********************
     }
 });
 
-btnAddInicio.addEventListener('click', () => handleButtonClick('addInicio'));
-btnAddFim.addEventListener('click', () => handleButtonClick('addFim'));
-btnAddMeio.addEventListener('click', () => handleButtonClick('addMeio'));
-
-const handleClick = () => {
+// Função para manipular o clique no botão 'Ver Títulos' e na seta de navegação
+const handleClick = () =>
+{
+    // Alterna entre as classes 'hiddenSideAvailable' e 'visibleSideAvailable' no menu de títulos
     menuTitulos.classList.toggle('hiddenSideAvailable');
     menuTitulos.classList.toggle('visibleSideAvailable');
 
-    if (menuTitulos.classList.contains('hiddenSideAvailable'))
-    {
+    // Adiciona ou remove a classe 'backAllTranslateHiddenOpcoes' no menu de opções escondido
+    if (menuTitulos.classList.contains('hiddenSideAvailable')) {
         hiddenOpcoes.classList.add('backAllTranslateHiddenOpcoes');
-    }
-    else
-    {
+    } else {
         hiddenOpcoes.classList.remove('backAllTranslateHiddenOpcoes');
     }
+
+    // Alterna entre as classes 'translateHiddenOpcoes1' e 'translateHiddenOpcoes2' no menu de opções escondido
     hiddenOpcoes.classList.toggle('translateHiddenOpcoes1');
     hiddenOpcoes.classList.toggle('translateHiddenOpcoes2');
 };
 
+// Adiciona um ouvinte de evento de clique ao botão 'Ver Títulos'
 document.querySelector('.botaoVerTitulos').addEventListener('click', handleClick);
+// Adiciona um ouvinte de evento de clique à seta de navegação
 document.querySelector('.arrowImg').addEventListener('click', handleClick);

@@ -64,14 +64,13 @@
     background-position: 0 0;
     background-size: cover;
     height: 150vh;
-    z-index: -999;
 }
 
 .caracter2
 {
     position: absolute;
     width: 70vh;
-    z-index: -1;
+    z-index: 1;
 }
 .leftSide2
 {
@@ -102,20 +101,13 @@
     border-radius: 1vh;
     /* z-index: 999; */
     top:30%;
-}
-
-.shelf
-{
-    width: 70vh;
-    height: fit-content;
-    position: relative;
-    top: 25%;
+    z-index: 2;
 }
 
 .rightSide2
 {
-    width: 40%;
-    /* background: #26b909; */
+    width: 50%;
+    /* background: #b97b09; */
     display: flex;
     flex-direction: column;
     align-items: right;
@@ -134,13 +126,12 @@
     width: 100%;
     margin-right: 0;
     align-items: left;
-
 }
 
 .titleLivros
 {
     position: relative;
-    top: 25%;
+    top: 5%;
     background: #003a40;
     font-size: 20px;
     padding: 3vh 5vh;
@@ -156,4 +147,66 @@
     position: relative;
     /* background: #000; */
     text-align: center;
+}
+
+.shelfDiv
+{
+    display: flex;
+    /* background: #b10000; */
+    width: 100%;
+    /* height: fit-content; */
+    position: relative;
+    top: 5%;
+    background-image: url(../images/imgPilhas/shelf.png);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+}
+
+.divBooks
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    /* background: #35a800; */
+    /* height: 100vh; */
+    width: 110%;
+    padding: 10vh;
+    /* margin-left: 8vh; */
+    /* position: relative; */
+
+}
+
+.books
+{
+    display: flex;
+    height: 21vh;
+    /* position: relative; */
+    /* top: 100%; */
+    /* left: -%; */
+    margin-left: -5vh;
+    margin-top: 4vh;
+    /* background: #000; */
+        transition: 1s ease-in-out;
+
+}
+
+.booksHover:hover
+{
+    transition: 500ms;
+    height: 21.5vh;
+    cursor: pointer;
+    background: linear-gradient(#000000, #0000005b);
+}
+
+.zoom
+{
+    height: 90vh;
+    transition: 500ms ease-in-out;
+    z-index: 999;
+    position: absolute;
+    transform: translateX(-100%);
+    transition: 1s ease-in-out;
 }
