@@ -3,7 +3,6 @@ const hiddenMenuBooks = document.querySelector('.hiddenMenuBooks');
 const closeMenu = document.querySelector('.close');
 const contentHiddenMenu = document.querySelector('.contentHiddenMenu');
 const bookContent = [...document.querySelectorAll('.bookContent')];
-const bntAdd = document.querySelector('.btnAdd');
 const btnClose = document.querySelector('.btnClose');
 const divBooks = document.querySelector('.divBooks');
 
@@ -390,6 +389,8 @@ const listBooks =  [
     },
 ]
 
+const userStack = [];
+
 const createAvailableList = (bookSrc, bookName) =>
 {
     const divBookContent = document.createElement('div');
@@ -400,7 +401,7 @@ const createAvailableList = (bookSrc, bookName) =>
     imgBookMenu.src = bookSrc;
 
     const pTitleBook = document.createElement('p');
-    pTitleBook.classList.add('titleBook');
+    pTitleBook.classList.add('titleBookHidden');
     pTitleBook.textContent = bookName;
 
     const buttonAdd = document.createElement('button');
@@ -418,17 +419,25 @@ listBooks.forEach((book) =>
     createAvailableList(book.pathFile, book.title);
 });
 
-const createUserShelf = (srcBook, completeTitle, info) =>
+const createUserShelf = (srcBook, completeTitle, info, zIndex, id) =>
 {
     const divBookUser = document.createElement('div');
     divBookUser.classList.add('bookUser');
 
+    const imgEye = document.createElement('img');
+    imgEye.classList.add('eye');
+    imgEye.src = '../images/imgPilhas/eye1.png';
+    imgEye.id = id;
+
     const divImgBook = document.createElement('div');
     divImgBook.classList.add('imgBook', 'books');
+    divImgBook.id = id;
 
     const imgBooks = document.createElement('img');
     imgBooks.classList.add('books', 'booksHover');
     imgBooks.src = srcBook;
+    imgBooks.style.zIndex = zIndex;
+    imgBooks.id = id;
 
     const h2Title = document.createElement('h2');
     h2Title.classList.add('titleBook', 'hiddenInfo');
@@ -437,116 +446,135 @@ const createUserShelf = (srcBook, completeTitle, info) =>
     const pTxtInfo = document.createElement('p');
     pTxtInfo.classList.add('txtInfo', 'hiddenInfo');
     pTxtInfo.textContent = info;
+    h2Title.id = id;
 
     const btnClose = document.createElement('button');
     btnClose.classList.add('btnClose', 'hiddenInfo');
     btnClose.textContent = 'Close';
+    btnClose.id = id;
+
+    // const btnRemove = document.createElement('button');
+    // btnRemove.classList.add('btnRemove', 'hiddenInfo');
+    // btnRemove.textContent = 'Remove'
 
     divImgBook.appendChild(imgBooks)
+    divImgBook.appendChild(imgEye)
 
     divBookUser.appendChild(divImgBook);
     divBookUser.appendChild(h2Title);
     divBookUser.appendChild(pTxtInfo);
     divBookUser.appendChild(btnClose);
+    // divBookUser.appendChild(btnRemove);
 
-    // divBooks.insertBefore(divBookUser, divBooks.firstChild);
-    divBooks.appendChild(divBookUser);
+    divBooks.insertBefore(divBookUser, divBooks.firstChild);
+    // divBooks.appendChild(divBookUser);
+    return divBooks;
+}
+// listBooks.forEach((book) =>
+// {
+//     createUserShelf(book.pathFile, book.completeTitle, book.desc);
+// });
+
+const configureOverlay = (element) => {
+    userStack.forEach((el, index) => {
+        el.style.zIndex = index;
+    });
+
+    element.style.zIndex = userStack.length - 1;
 }
 
-listBooks.forEach((book) =>
-{
-    createUserShelf(book.pathFile, book.completeTitle, book.desc);
-});
+const addBook = (stack, element) => {
+    stack.unshift(element);
+}
 
-const books = [...document.querySelectorAll('.books')];
+const removeBook = (stack) => {
+    stack.shift();
+};
+
+let zIndexCounter = 0; // Variável para controlar o zIndex
 const bookMenu = [...document.querySelectorAll('.bookMenu')];
+const bntAdd = [...document.querySelectorAll('.btnAdd')];
+const addedBooks = new Set();
 
-const configureOverlay = () =>
-{
-    let i = books.length;
-    books.forEach((e) => {
-        e.style.zIndex = i;
-        i--;
-    });
-}
-configureOverlay();
-
-const bookUser = [...document.querySelectorAll('.bookUser')];
-const txtDesc = [...document.querySelectorAll('.txtInfo')];
-const titleBook = [...document.querySelectorAll('.bookUser .titleBook')];
-const btnCloseBook = [...document.querySelectorAll('.btnClose')];
-const imgBook = [...document.querySelectorAll('.imgBook')];
-
-console.log('Número de elementos em bookUser:', bookUser.length);
-console.log('Número de elementos em titleBook:', titleBook.length);
-console.log('Número de elementos em txtDesc:', txtDesc.length);
-console.log('Número de elementos em btnCloseBook:', btnCloseBook.length);
-console.log('Número de elementos em imgBook:', imgBook.length);
-
-
-books.forEach((e, i) => {
-    e.addEventListener('click', (event) => {
-        event.stopPropagation();
-
-        const index = i % bookUser.length;
-
-        console.log('Clicou no livro', index);
-
-        if (bookUser[index]) {
-            console.log(bookUser[index]);
-            console.log(titleBook[index]);
-            console.log(txtDesc[index]);
-            console.log(btnCloseBook[index]);
-            console.log(imgBook[index]);
-
-            e.classList.add('zoom');
-            e.classList.remove('booksHover');
-            bookUser[index].classList.add('info');
-            titleBook[index].classList.remove('hiddenInfo');
-            txtDesc[index].classList.remove('hiddenInfo');
-            btnCloseBook[index].classList.remove('hiddenInfo');
-            imgBook[index].classList.add('zoom');
-        } else {
-            console.error(`Elemento ${bookUser[index]} não está definido.`);
+bntAdd.forEach((e, i) => {
+    e.addEventListener('click', () => { 
+        // Verificar se o elemento já foi adicionado
+        if (addedBooks.has(listBooks[i].pathFile)) {
+            console.log('Livro já adicionado.');
+            return;
         }
+
+        // Adicionar o elemento à prateleira
+        const element = createUserShelf(listBooks[i].pathFile, listBooks[i].completeTitle, listBooks[i].desc, zIndexCounter, zIndexCounter);
+        addBook(userStack, element);
+
+        // Adicionar o caminho do arquivo à lista de livros adicionados
+        addedBooks.add(listBooks[i].pathFile);
+
+        const bookUser = [...document.querySelectorAll('.bookUser')];
+        const txtDesc = [...document.querySelectorAll('.txtInfo')];
+        const titleBook = [...document.querySelectorAll('.bookUser .titleBook')];
+        const btnCloseBook = [...document.querySelectorAll('.btnClose')];
+        const btnRemove = [...document.querySelectorAll('.btnRemove')];
+        const imgBook = [...document.querySelectorAll('.imgBook')];
+        const books = [...document.querySelectorAll('.books.booksHover')];
+
+        zIndexCounter++;
+        
+        const eyeBook = [...document.querySelectorAll('.eye')];
+        
+        eyeBook.forEach((e, i) => {
+            e.addEventListener('click', () => { 
+
+                console.log(bookUser[i])
+                console.log(`Número do livro: ${i}`);
+
+                for (let j = 0; j < books.length; j++)
+                {
+                    if (books[j].id === e.id)
+                    {
+                        bookUser[j].classList.add('info');
+                        titleBook[j].classList.remove('hiddenInfo');
+                        txtDesc[j].classList.remove('hiddenInfo');
+                        imgBook[j].classList.add('zoom');
+                        books[j].classList.remove('booksHover');
+                        btnCloseBook[j].classList.remove('hiddenInfo');
+                        btnRemove[j].classList.remove('hiddenInfo');
+                        eyeBook[j].classList.add('hiddenInfo');
+
+                    }
+                }
+
+            });
+        })
+        btnCloseBook.forEach((e, j) => { 
+            e.addEventListener('click', () => { 
+                bookUser[j].classList.remove('info');
+                titleBook[j].classList.add('hiddenInfo');
+                txtDesc[j].classList.add('hiddenInfo');
+                imgBook[j].classList.remove('zoom');
+                books[j].classList.add('booksHover');
+                btnCloseBook[j].classList.add('hiddenInfo');
+                btnRemove[j].classList.remove('hiddenInfo');
+                eyeBook[j].classList.remove('hiddenInfo');
+
+            });
+        })
+
+        btnRemove.forEach((e, j) => {
+            e.addEventListener('click', () => {
+                removeBook(userStack);
+            });
+        })
     });
 });
-
-
-btnCloseBook.forEach((e, i) => {
-    e.addEventListener('click', (event) => {
-        event.stopPropagation();
-
-        const index = i % bookUser.length;
-
-        console.log('Clicou no livro', index);
-
-        if (bookUser[index]) {
-            e.classList.remove('zoom');
-            e.classList.add('booksHover');
-            bookUser[index].classList.remove('info');
-            titleBook[index].classList.add('hiddenInfo');
-            txtDesc[index].classList.add('hiddenInfo');
-            btnCloseBook[index].classList.add('hiddenInfo');
-            imgBook[index].classList.remove('zoom');
-        } else {
-            console.error(`Elemento ${bookUser[index]} não está definido.`);
-        }
-    });
-});
-
 
 btnVerLivros.addEventListener('click', () =>
 { 
     hiddenMenuBooks.classList.toggle('hidden');
-
+    
     closeMenu.addEventListener('click', () =>
     { 
         hiddenMenuBooks.classList.toggle('hidden');
     });
 });
-
-
-
-
-
