@@ -5,6 +5,8 @@ const contentHiddenMenu = document.querySelector('.contentHiddenMenu');
 const bookContent = [...document.querySelectorAll('.bookContent')];
 const btnClose = document.querySelector('.btnClose');
 const divBooks = document.querySelector('.divBooks');
+const btnRemove = document.querySelector('.btnRemove');
+
 
 const listBooks =  [
 
@@ -419,7 +421,7 @@ listBooks.forEach((book) =>
     createAvailableList(book.pathFile, book.title);
 });
 
-const createUserShelf = (srcBook, completeTitle, info, zIndex, id) =>
+const createUserShelf = (srcBook, completeTitle, info, zIndex, id, authorName, yearBook) =>
 {
     const divBookUser = document.createElement('div');
     divBookUser.classList.add('bookUser');
@@ -439,6 +441,25 @@ const createUserShelf = (srcBook, completeTitle, info, zIndex, id) =>
     imgBooks.style.zIndex = zIndex;
     imgBooks.id = id;
 
+    const ulInfo = document.createElement('ul');
+    ulInfo.classList.add('ulListInfo', 'hiddenInfo');
+
+    const liAutor = document.createElement('li');
+    liAutor.classList.add('liAutor');
+    liAutor.textContent = 'Autor:';
+
+    const divAutorContent = document.createElement('div');
+    divAutorContent.classList.add('autorContent');
+    divAutorContent.textContent = authorName
+
+    const liAno = document.createElement('li');
+    liAno.classList.add('liAno');
+    liAno.textContent = 'Ano:';
+
+    const divAnoContent = document.createElement('div');
+    divAnoContent.classList.add('anoContent');
+    divAnoContent.textContent = yearBook;
+
     const h2Title = document.createElement('h2');
     h2Title.classList.add('titleBook', 'hiddenInfo');
     h2Title.textContent = completeTitle;
@@ -453,12 +474,15 @@ const createUserShelf = (srcBook, completeTitle, info, zIndex, id) =>
     btnClose.textContent = 'Close';
     btnClose.id = id;
 
-    // const btnRemove = document.createElement('button');
-    // btnRemove.classList.add('btnRemove', 'hiddenInfo');
-    // btnRemove.textContent = 'Remove'
+    liAutor.appendChild(divAutorContent);
+    liAno.appendChild(divAnoContent);
+
+    ulInfo.appendChild(liAutor);    
+    ulInfo.appendChild(liAno);    
 
     divImgBook.appendChild(imgBooks)
     divImgBook.appendChild(imgEye)
+    divImgBook.appendChild(ulInfo);
 
     divBookUser.appendChild(divImgBook);
     divBookUser.appendChild(h2Title);
@@ -466,13 +490,12 @@ const createUserShelf = (srcBook, completeTitle, info, zIndex, id) =>
     divBookUser.appendChild(btnClose);
     // divBookUser.appendChild(btnRemove);
 
-    divBooks.insertBefore(divBookUser, divBooks.firstChild);
     // divBooks.appendChild(divBookUser);
-    return divBooks;
+    return divBookUser;
 }
-// listBooks.forEach((book) =>
+// listBooks.forEach((book, id) =>
 // {
-//     createUserShelf(book.pathFile, book.completeTitle, book.desc);
+//     createUserShelf(book.pathFile, book.completeTitle, book.desc, id, id, book.author, book.year);
 // });
 
 const configureOverlay = (element) => {
@@ -485,50 +508,83 @@ const configureOverlay = (element) => {
 
 const addBook = (stack, element) => {
     stack.unshift(element);
+
 }
 
 const removeBook = (stack) => {
     stack.shift();
+    if (divBooks.firstChild)
+    {
+        divBooks.removeChild(divBooks.firstChild);
+    }
 };
+
+const visibilityBtnRemove = () => {
+    if (userStack.length > 0)
+    {
+        btnRemove.classList.remove('hiddenInfo');
+    }
+    else
+    {
+        btnRemove.classList.add('hiddenInfo');
+    }
+    console.log(`userStack.length: ${userStack.length}`)
+}
 
 let zIndexCounter = 0; // Variável para controlar o zIndex
 const bookMenu = [...document.querySelectorAll('.bookMenu')];
 const bntAdd = [...document.querySelectorAll('.btnAdd')];
 const addedBooks = new Set();
+let arrayControl = [];
 
 bntAdd.forEach((e, i) => {
     e.addEventListener('click', () => { 
         // Verificar se o elemento já foi adicionado
-        if (addedBooks.has(listBooks[i].pathFile)) {
+        const title = listBooks[i].title;
+
+        if (addedBooks.has(title)) {
             console.log('Livro já adicionado.');
+            addedBooks.forEach((e) => {
+                console.log(`addedBooks: ${e}`);
+            });
             return;
         }
+        console.log(addedBooks);
+
+        userStack.forEach((book) => { 
+            console.log(`userStack: ${book}`);
+        });
+        arrayControl.forEach((book) => { 
+            console.log(`arrayControl: ${book}`);
+        });
 
         // Adicionar o elemento à prateleira
-        const element = createUserShelf(listBooks[i].pathFile, listBooks[i].completeTitle, listBooks[i].desc, zIndexCounter, zIndexCounter);
-        addBook(userStack, element);
+        const element = createUserShelf(listBooks[i].pathFile, listBooks[i].completeTitle, listBooks[i].desc, zIndexCounter, zIndexCounter, listBooks[i].author, listBooks[i].year);
+        addBook(userStack, title);
+        console.log(`userStack: ${userStack}`);
+        divBooks.insertBefore(element, divBooks.firstChild);
 
-        // Adicionar o caminho do arquivo à lista de livros adicionados
-        addedBooks.add(listBooks[i].pathFile);
+
+
+        // Adicionar o título à lista de livros adicionados
+        addedBooks.add(title);
+        arrayControl.push(title);
 
         const bookUser = [...document.querySelectorAll('.bookUser')];
         const txtDesc = [...document.querySelectorAll('.txtInfo')];
         const titleBook = [...document.querySelectorAll('.bookUser .titleBook')];
         const btnCloseBook = [...document.querySelectorAll('.btnClose')];
-        const btnRemove = [...document.querySelectorAll('.btnRemove')];
         const imgBook = [...document.querySelectorAll('.imgBook')];
         const books = [...document.querySelectorAll('.books.booksHover')];
-
+        const getUlInfo = [...document.querySelectorAll('.ulListInfo')];
         zIndexCounter++;
         
         const eyeBook = [...document.querySelectorAll('.eye')];
         
         eyeBook.forEach((e, i) => {
             e.addEventListener('click', () => { 
-
                 console.log(bookUser[i])
                 console.log(`Número do livro: ${i}`);
-
                 for (let j = 0; j < books.length; j++)
                 {
                     if (books[j].id === e.id)
@@ -539,14 +595,16 @@ bntAdd.forEach((e, i) => {
                         imgBook[j].classList.add('zoom');
                         books[j].classList.remove('booksHover');
                         btnCloseBook[j].classList.remove('hiddenInfo');
-                        btnRemove[j].classList.remove('hiddenInfo');
                         eyeBook[j].classList.add('hiddenInfo');
-
+                        getUlInfo[j].classList.remove('hiddenInfo');
+                        getUlInfo[j].classList.add('ulInfo');
                     }
                 }
-
             });
-        })
+        });
+
+        visibilityBtnRemove();
+
         btnCloseBook.forEach((e, j) => { 
             e.addEventListener('click', () => { 
                 bookUser[j].classList.remove('info');
@@ -555,18 +613,34 @@ bntAdd.forEach((e, i) => {
                 imgBook[j].classList.remove('zoom');
                 books[j].classList.add('booksHover');
                 btnCloseBook[j].classList.add('hiddenInfo');
-                btnRemove[j].classList.remove('hiddenInfo');
                 eyeBook[j].classList.remove('hiddenInfo');
-
+                getUlInfo[j].classList.add('hiddenInfo');
+                getUlInfo[j].classList.remove('ulInfo');
             });
-        })
-
-        btnRemove.forEach((e, j) => {
-            e.addEventListener('click', () => {
-                removeBook(userStack);
-            });
-        })
+        });
     });
+});
+
+const removeLastBook = (stack) => {
+    if (arrayControl.length > 0) {
+        const lastAddedTitle = arrayControl.pop(); // Remove o último título do arrayControl
+        console.log(`lastAddedTitle: ${lastAddedTitle}`);
+        stack.pop();
+
+        // Remover o título do último livro do addedBooks
+        addedBooks.delete(lastAddedTitle);
+
+        // Remover apenas o último livro do DOM, se necessário
+        const lastAddedBookElement = divBooks.firstChild;
+        if (lastAddedBookElement) {
+            divBooks.removeChild(lastAddedBookElement);
+        }
+        visibilityBtnRemove();
+    }
+};
+
+btnRemove.addEventListener('click', () => {
+    removeLastBook(userStack);
 });
 
 btnVerLivros.addEventListener('click', () =>

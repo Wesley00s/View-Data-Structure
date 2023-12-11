@@ -3,6 +3,11 @@
     display: flex;
 } */
 
+body
+{
+    overflow: hidden;
+}
+
 .section1
 {
     background-image: url('../images/imgPilhas/bg1.png');
@@ -27,12 +32,13 @@
 
 .leftSide h1
 {
-    font-size: 35px;
     color: #fff;
-    background: #0819b8;
     border-radius: .5vh;
     padding: .8vh 5vh;
     width: fit-content;
+    background: #0819b8;
+    border-radius: 1vh;
+    font-size: min(30px, 2vh);
 }
 
 .leftSide p
@@ -43,17 +49,20 @@
     color: #fff;
     font-size: 20px;
     width: 100%;
-    font-size: 30px;
+    font-size: min(30px, 5vh);
     border-radius: 1vh;
 }
+
+
 
 .caracter1
 {
     position: relative;
-    width: 35vh;
-    left: 82%;
+    width: 20%;
+    left: 80%;
     bottom: 70%;
 }
+
 
 .section2
 {
@@ -69,9 +78,11 @@
 .caracter2
 {
     position: absolute;
-    width: 70vh;
+    width: 40%;
     z-index: 1;
 }
+
+
 .leftSide2
 {
     /* background: #af0a0a; */
@@ -83,7 +94,7 @@
     color: #fff;
     padding: 2vh;
     margin-top: -2vh;
-    font-size: 50px;
+    font-size: min(50px, 5vh);
 }
 
 .containerMsg2
@@ -97,11 +108,43 @@
     color: #fff;
     font-size: 20px;
     width: 70%;
-    font-size: 30px;
+    font-size: min(30px, 5vh);
     border-radius: 1vh;
     /* z-index: 999; */
     top:30%;
     z-index: 2;
+}
+
+@media (max-width: 1024px)
+{
+    .caracter1
+    {
+        width: 30%;
+        bottom: 80%;
+    }
+    .containerMsg2
+    {
+        top: 10%;
+    }
+}
+@media (max-width: 1440px)
+{
+    .leftSide p
+    {
+        font-size: 2.2vh;
+    }
+    .titleMsg
+    {
+        font-size: min(30px, 4vh);
+
+    }
+    .containerMsg2
+    {
+        font-size: min(20px, 5vh);
+        top: 12%;
+
+    }
+
 }
 
 .rightSide2
@@ -119,7 +162,7 @@
     position: relative;
     background: linear-gradient(135deg, #003a40, #000000);
     color: #fff;
-    font-size: 30px;
+    font-size: min(25px, 2vh);
     padding: 2vh 5vh;
     border-top-left-radius: 10vh;
     border-bottom-left-radius: 10vh;
@@ -152,6 +195,8 @@
     position: relative;
     /* background: #000; */
     text-align: center;
+        font-size: min(30px, 2vh);
+
 }
 
 .shelfDiv
@@ -165,7 +210,7 @@
     background-image: url(../images/imgPilhas/shelf.png);
     height: 100vh;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 105%;
     background-position: 0 0;
     z-index: 10;
     justify-content: left;
@@ -179,14 +224,14 @@
     justify-content: left;
     /* background: #35a800; */
     /* height: 100vh; */
-    width: 115%;
+    width: 105%;
     padding: 10vh;
     height: auto;
     /* margin-left: 8vh; */
     /* position: relative; */
     margin: auto;
-    margin-left: 5vh;
-    margin-top: 2vh;
+    margin-left: 1vh;
+    margin-top: 5vh;
 }
 
 .books
@@ -201,6 +246,22 @@
     /* background: #000; */
     box-shadow: 2vh 0.1vh 1.5vh #000;
         transition: 1s ease-in-out;
+}
+
+@media (max-width: 2560px)
+{
+    .shelfDiv
+    {
+        width: 113%;
+    }
+
+}
+@media (max-width: 1440px)
+{
+    .shelfDiv
+    {
+        width: 120%;
+    }
 
 }
 
@@ -231,11 +292,11 @@
 
 .zoom
 {
-    height: 40vh;
+    height: 30vh;
     transition: 500ms ease-in-out;
     z-index: 999;
     /* position: absolute; */
-    transform: translateX(10%);
+    transform: translateX(30%);
     transition: 1s ease-in-out;
 }
 
@@ -295,7 +356,7 @@
 .about
 {
     text-align: center;
-    font-size: 25px;
+    font-size: min(30px, 2vh);
     padding: 1vh;
     color: #fff;
     background: linear-gradient(90deg, #003a40, #000000);
@@ -321,7 +382,7 @@
 {
     padding: 1vh;
     color: #fff;
-    font-size: 30px;
+    font-size: min(30px, 2vh);
     background: linear-gradient(45deg, #005564, #00000000);
     border-radius: .5vh;
     font-weight: 600;
@@ -331,7 +392,7 @@
 {
     padding: 1vh;
     color: #fff;
-    font-size: 20px;
+    font-size: min(25px, 1.5vh);
     background: linear-gradient(45deg, #005564, #00000000);
     border-radius: .5vh;
     font-weight: 600;
@@ -341,7 +402,7 @@
 
 .btnAdd
 {
-    font-size: 25px;
+    font-size: min(25px, 2vh);
     background: linear-gradient(90deg,#0f9c85, #014d43);
     box-shadow: .2vh .2vh 1vh #00000059;
     padding: 1vh;
@@ -350,12 +411,16 @@
 }
 .btnRemove
 {
-    font-size: 25px;
+    position: relative;
+    font-size: min(30px, 2vh);
     background: linear-gradient(90deg,#9c370f, #4d0101);
     box-shadow: .2vh .2vh 2vh #00000059;
     padding: 1vh;
     color: #fff;
     border-radius: 1vh;
+    top: 150%;
+    left: 85%;
+    z-index: 99;
 }
 
 .btnRemove:hover
@@ -367,7 +432,7 @@
 
 .btnClose
 {
-    font-size: 25px;
+    font-size: min(30px, 2vh);
     background: linear-gradient(90deg,#0f9c85, #014d43);
     box-shadow: .2vh .2vh 1vh #00000059;
     padding: 1vh;
@@ -399,13 +464,13 @@
 {
     display: flex;
     height: auto;
-    width: 100%;
+    width: 130%;
     transition: 500ms ease-in-out;
     z-index: 999;
     align-items: center;
     justify-content: center;
     position: absolute;
-    flex-direction: row;
+    flex-direction: column;
     /* transform: translateX(50%) translateY(-40%); */
     /* right: 100%; */
     top: 0;
@@ -442,7 +507,7 @@
 {
     display: flex;
     color: #fff;
-    font-size: 25px;
+    font-size: min(30px, 2vh);
 }
 
 .hiddenInfo
@@ -481,5 +546,49 @@
     box-shadow: 1vh 1vh 1vh #00000096;
     cursor: pointer;
         width: 4.5vh;
+
+}
+
+.ulInfo
+{
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    background: linear-gradient(90deg, #00000000, #001e24);
+    width: 100%;
+    height: 100%;
+    font-size: min(30px, 2vh);
+    align-items: left;
+    justify-content: start;
+    padding: 2vh;
+    border-radius: 1vh;
+    padding-top: 8vh;
+}
+
+.liAutor
+{
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+
+}
+
+.liAno
+{
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+}
+
+.autorContent
+{
+    margin-left: 1vh;
+    font-weight: 500;
+}
+
+.anoContent
+{
+    margin-left: 1vh;
+    font-weight: 500;
 
 }
