@@ -49,7 +49,7 @@ body
     color: #fff;
     font-size: 20px;
     width: 100%;
-    font-size: min(30px, 5vh);
+    font-size: min(30px, 3vh);
     border-radius: 1vh;
 }
 
@@ -108,7 +108,7 @@ body
     color: #fff;
     font-size: 20px;
     width: 70%;
-    font-size: min(30px, 5vh);
+    font-size: min(30px, 3vh);
     border-radius: 1vh;
     /* z-index: 999; */
     top:30%;
@@ -140,7 +140,7 @@ body
     }
     .containerMsg2
     {
-        font-size: min(20px, 5vh);
+        font-size: min(20px, 3vh);
         top: 12%;
 
     }
@@ -487,6 +487,7 @@ body
     position: absolute;
     width: fit-content;
     padding: .5vh;
+    /* background: #000; */
 }
 
 .close
@@ -494,6 +495,7 @@ body
     box-shadow: .1vh .2vh .5vh #0000009c;
     border-radius: 100vh;
     opacity: .8;
+    height: 4vh;
     
 }
 

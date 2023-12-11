@@ -647,8 +647,8 @@ btnVerLivros.addEventListener('click', () =>
 { 
     hiddenMenuBooks.classList.toggle('hidden');
     
-    closeMenu.addEventListener('click', () =>
-    { 
-        hiddenMenuBooks.classList.toggle('hidden');
-    });
+});
+closeMenu.addEventListener('click', () =>
+{ 
+    hiddenMenuBooks.classList.toggle('hidden');
 });
