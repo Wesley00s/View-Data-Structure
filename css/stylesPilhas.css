@@ -248,9 +248,14 @@ body
         transition: 1s ease-in-out;
 }
 
-@media (max-width: 2560px)
+@media (max-width: 2559px)
 {
     .shelfDiv
+    {
+        width: 113%;
+
+    }
+    .titleLivros
     {
         width: 113%;
     }
@@ -262,7 +267,10 @@ body
     {
         width: 120%;
     }
-
+    .titleLivros
+    {
+        width: 120%;
+    }
 }
 
 .imgBook
