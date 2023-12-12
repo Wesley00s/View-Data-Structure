@@ -1,4 +1,3 @@
-
 const imgsContainer = document.querySelector('.container');
 const input = document.querySelector('.sectionSearch');
 const hiddenOpcoes = document.querySelector('.hiddenOpcoes');
@@ -14,54 +13,56 @@ const menuTitulos = document.querySelector('.menuTitulos');
 const titleOpc = document.querySelector('.titleOpc');
 const listBoxUser = document.querySelector('.listBoxUser');
 const itemList = document.querySelector('.itemList');
-
-class AddImagesSlider{
-    constructor(imgArray, imgName){
-        this.imgArray = imgArray;
-        this.imgName = imgName;
-    }
-
-    addInArray(){
-        const pathFileImg = `../images/imgVetores/${this.imgName}`;
-        this.imgArray.push(pathFileImg);
-    }
-    createImageElement(){
-        this.imgArray.forEach(imgSrc => 
-        {
-            const img = document.createElement('img');
-            img.src = imgSrc;
-            img.classList.add('maxWidthSliders');
-            img.classList.add('slider');
-            imgsContainer.appendChild(img);
-        });
-    }
-};
-
-const images = [];
-
-for (let i = 0; i < 8; i++){
-    const addImg = new AddImagesSlider(images, 'icons-slide${i + 1}.png');
-    addImg.addInArray();
-}
+const userGames = document.querySelector('.userGames');
 
 const games = [
-    {id: 0, nome: "El Diablo", imagem: "../images/imgVetores/diablo.jpg"},
-    {id: 1, nome: "Disco Elysium", imagem: "../images/imgVetores/disco.jpg"},
-    {id: 2, nome: "Horizon Zero Dawn", imagem: "../images/imgVetores/horizon.jpg"},
-    {id: 3, nome: "Dark Souls", imagem: "../images/imgVetores/dark.jpg"},
-    {id: 4, nome: "Mount & Blade", imagem: "../images/imgVetores/mount.jpg"},
-    {id: 5, nome: "Cyberpunk 2077", imagem: "../images/imgVetores/cyberpunk.jpg"},
-    {id: 6, nome: "Hunter", imagem: "../images/imgVetores/hunter.jpg"},
-    {id: 7, nome: "Mass Effect", imagem: "../images/imgVetores/mass_effect.jpg"},
-    {id: 8, nome: "The Elder", imagem: "../images/imgVetores/theElder.jpg"},
-    {id: 9, nome: "Warcraft", imagem: "../images/imgVetores/warcraft.jpg"},
-    {id: 10, nome: "The Witcher", imagem: "../images/imgVetores/witcher.jpg"},
-    {id: 11, nome: "Stardew Valley", imagem: "../images/imgVetores/stardew.jpg"},
-    {id: 12, nome: "Divinity", imagem: "../images/imgVetores/divinity.jpg"}
-
+    {id: 0, nome: "El Diablo", imagem: "../images/imgVetores/games/diablo.png"},
+    {id: 1, nome: "Disco Elysium", imagem: "../images/imgVetores/games/disco.png"},
+    {id: 2, nome: "Warcraft", imagem: "../images/imgVetores/games/war.png"},
+    {id: 3, nome: "Dark Souls", imagem: "../images/imgVetores/games/dark-souls.png"},
+    {id: 4, nome: "Mount & Blade", imagem: "../images/imgVetores/games/mount.png"},
+    {id: 5, nome: "Cyberpunk 2077", imagem: "../images/imgVetores/games/cyberpunk.png"},
+    {id: 6, nome: "Hunter", imagem: "../images/imgVetores/games/hunter.png"},
+    {id: 7, nome: "Mass Effect", imagem: "../images/imgVetores/games/mass.png"},
+    {id: 8, nome: "The Elder", imagem: "../images/imgVetores/games/the-elder.png"},
+    {id: 9, nome: "Divinity", imagem: "../images/imgVetores/games/divinity.png"},
+    {id: 10, nome: "The Witcher", imagem: "../images/imgVetores/games/witcher.png"},
+    {id: 11, nome: "Stardew Valley", imagem: "../images/imgVetores/games/stardew-valley.png"},
+    {id: 12, nome: "Horizon Zero Dawn", imagem: "../images/imgVetores/games/horizon.png"},
+    {id: 13, nome: "God of War", imagem: "../images/imgVetores/games/God-of-War.png"},
+    {id: 14, nome: "Elder Ring", imagem: "../images/imgVetores/games/elder-ring.png"},
+    {id: 15, nome: "Final Fantasy", imagem: "../images/imgVetores/games/final.png"},
+    {id: 15, nome: "Fallout", imagem: "../images/imgVetores/games/Fallout_New_Vegas.png"},
+    {id: 16, nome: "Torment", imagem: "../images/imgVetores/games/torment.png"},
+    {id: 17, nome: "Crono Trigger", imagem: "../images/imgVetores/games/crono.png"},
 ]
 
 const containerAvailable = document.querySelector('.containerAvailable');
+// Função para exibir os exemplares
+const examplesGames = () =>
+{
+    games.slice(0, 10).forEach((games, i) => { 
+        const itemBoxExample = document.createElement('div');
+        itemBoxExample.classList.add('itemBoxExample');
+
+        const nameExample = document.createElement('span');
+        nameExample.classList.add('nameExample');
+        nameExample.textContent = i;
+
+        const itemList = document.createElement('img');
+        itemList.classList.add('itemList');
+        itemList.src = games.imagem;
+
+        const h2 = document.createElement('h2');
+        h2.textContent = games.nome;
+
+        itemBoxExample.appendChild(nameExample);
+        itemBoxExample.appendChild(itemList);
+        itemBoxExample.appendChild(h2);
+        listBox.appendChild(itemBoxExample);
+    });
+}
+examplesGames();
 
 games.forEach((game) => {
     const itemBox = document.createElement('div');
@@ -92,18 +93,26 @@ games.forEach((game) => {
     // Adiciona um evento de clique ao botão "Adicionar"
     addButton.addEventListener('click', () => {
         // Cria um elemento na listBox com as informações do jogo
-        const listBoxItem = createDynamicElement(game.imagem);
-        // Adiciona as informações do jogo ao elemento criado
-        listBoxItem.querySelector('.itemList').src = game.imagem;
-        listBoxItem.querySelector('.name').textContent = game.nome;
-    
-        // Adicione aqui a lógica para lidar com o clique no botão "Adicionar"
-        // Você pode usar a variável game para obter as informações do jogo correspondente
-        console.log('Botão Adicionar clicado para o jogo:', game.nome);
-    
+        const listBoxItem = createDynamicElement(game.imagem, game.nome);
+
+        // Verifica se o jogo já está na listBox
+        const isDuplicate = Array.from(userGames.children).some(item => {
+            const existingName = item.querySelector('.numb').textContent;
+            return existingName === game.nome;
+        });
+
+        // Se for um jogo duplicado, você pode decidir como lidar com isso
+        if (isDuplicate) {
+            console.log('Jogo já adicionado:', game.nome);
+            return; // Não adiciona o jogo novamente e sai da função
+        }
+
         // Adiciona o elemento criado à listBox
-        itemList.appendChild(listBoxItem);
+        userGames.appendChild(listBoxItem);
+
+        console.log('Botão Adicionar clicado para o jogo:', game.nome);
     });
+
 });
 
 const showAvailableGames = () => {
@@ -133,16 +142,13 @@ const itemBox = document.querySelector('.itemBox');
 const imgItemBoxElement = document.createElement('img');
 const spanItemBoxElement = document.createElement('span');
 
-let index;
-const imgAddedName = [];
-let tempImgAddedName;
-
-const createDynamicElement = (imagePath) => {
+const createDynamicElement = (imagePath, name) => {
     const spanElement = document.createElement('span');
     const divElement = document.createElement('div');
-    divElement.className = 'itemBox';
+    divElement.classList.add('userList');
 
     spanElement.className = 'numb';
+    spanElement.textContent = name;
 
     const imgElement = document.createElement('img');
     imgElement.className = 'itemList';
@@ -150,116 +156,19 @@ const createDynamicElement = (imagePath) => {
     imgElement.src = imagePath;
     imgElement.alt = 'img list';
 
-    // const btnRemoveElement = document.createElement('button');
-    // btnRemoveElement.className = 'btnRemove';
-    // btnRemoveElement.textContent = '-';
+    const btnRemoveElement = document.createElement('button');
+    btnRemoveElement.className = 'btnRemove';
+    btnRemoveElement.textContent = '-';
 
-    divElement.appendChild(spanElement);
     divElement.appendChild(imgElement);
-    // divElement.appendChild(btnRemoveElement);
-
-    listBox2.appendChild(divElement);
+    divElement.appendChild(spanElement);
+    divElement.appendChild(btnRemoveElement);
 
     return divElement;
 }
 
-// Função para lidar com o clique em botões
-const handleButtonClick = (actionType) =>
-{
-    // Verifica se a lista de filmes está definida e se o índice é válido
-    if (games && games.length > index && games[index])
-    {
-        // Verifica se o nome temporário já está na lista de nomes adicionados
-        if (imgAddedName.includes(tempImgAddedName))
-        {
-            // console.log('Elemento já presente na lista!');
-            // Mensagem para o usuário informando que o filme já está na lista
-            titleOpc.textContent = 'Elemento já presente na lista!';
-        }
-        else
-        {
-            // Executa ação com base no tipo de ação passado como parâmetro
-            switch (actionType)
-            {
-                case 'addInicio':
-                    AddInicioFunc();
-                    break;
-                case 'addFim':
-                    AddFimFunc();
-                    break;
-                case 'addMeio':
-                    confirmAddMeio();
-                    break;
-                default:
-                    console.error('Ação não reconhecida.');
-                    return;
-            }
-
-            // Adiciona o nome do filme à lista de nomes adicionados
-            imgAddedName.includes(movies[index].name) ? '' : imgAddedName.push(movies[index].name);
-
-            // console.log('imgAddedName: ' + imgAddedName);
-            // console.log('tempImgAddedName: ' + tempImgAddedName);
-        }
-    }
-    else
-    {
-        console.error('Movies está indefinido ou movies[index] é undefined.');
-    }
-
-    // Imprime a lista encadeada no console
-    console.log('Linked list: ');
-    userList.print();
-
-    // Imprime o tamanho da lista encadeada no console
-    console.log("Size List: " + userList.size());
-
-    // Ajusta os IDs dos elementos no DOM
-    document.querySelectorAll('.itemBox').forEach((el, idx) =>
-    {
-        el.id = idx - 10;
-    });
-
-    // Atualiza os índices exibidos no DOM
-    document.querySelectorAll('.numb').forEach((el, idx) =>
-    {
-        el.textContent = idx;
-    });
-}
-
-
-let selectedElement = null;
-itemBox.addEventListener('click', (event) =>
-{ 
-    if (event.target.classList.contains('classUserList')) 
-    {
-        const itemBox = event.target.closest('.classUserList');        
-
-        if (itemBox === selectedElement)
-        {
-            itemBox.classList.remove('imgSelected');
-            selectedElement = null;
-
-        }
-        else
-        {
-            if (selectedElement)
-            {
-                selectedElement.classList.remove('imgSelected');
-            }
-
-            itemBox.classList.add('imgSelected');
-
-            selectedElement = itemBox;
-        }
- 
-    }
-});
-
-const handleClick = () =>
+document.querySelector('.botaoVerGames').addEventListener('click', () =>
 {
     menuTitulos.classList.toggle('hiddenSideAvailable');
     menuTitulos.classList.toggle('visibleSideAvailable');
-
-};
-document.querySelector('.botaoVerGames').addEventListener('click', handleClick);
+});

@@ -163,9 +163,13 @@ body
 
 .leftSide2
 {
+    position: absolute;
     flex-direction: row;
-    /* background: #000; */
+    /* background: #e70606; */
+    justify-content: space-around;
     width: 40%;
+    left: 32%;
+    bottom: 10%;
 }
 
 .leftSide2 h1
@@ -177,6 +181,8 @@ body
 {
     font-size: 20px;
     width: 50%;
+    position: absolute;
+    margin-bottom: 100%;
 }
 
 .rightSide2
@@ -213,16 +219,19 @@ body
 
 .listBox
 {
-    position: absolute;
+    /* position: absolute; */
     display: flex;
     flex-wrap: wrap;
-    width: 70%;
+    
+    width: 75%;
+    text-align: center;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 15vh 2vh 2vh 2vh;
+    /* padding: 15vh 2vh 2vh 2vh; */
     /* background: #ff9595; */
     margin: auto;
+    margin-top: -10%;
     /* border: .5px solid #252E82; */
     border-top: none;
     border-bottom-left-radius: 2vh;
@@ -239,19 +248,34 @@ body
     flex-wrap: wrap;
     justify-content: space-around;
     right: 0;
-    width: 80%;
+    width: 70%;
     /* left: 10%; */
-    margin-top: 20%;
-    z-index: 999;
-    background: linear-gradient(#0000005e, #000000);
-    padding: 5vh;
+    margin-top: 10%;
+    z-index: 1;
+    /* padding: 5vh; */
+    /* background: #ff0000; */
+}
+
+.userGames
+{
     border-radius: 2vh;
-      /* background: #ff0000; */
+    background: linear-gradient(#000, #000a1fc0);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* padding: 2vh; */
+    /* background: #df4a4a; */
+    width: fit-content;
+    padding-top: 2vh;
+    border: #0c2d75c0 2px solid;
 }
 .listBox2 img
 {
-    width: 15vh;
-    margin: 1vh;
+    /* width: 15vh; */
+    /* margin: 1vh; */
+    display: flex;
+    justify-content: left;
+
 }
 
 .bgGeralt
@@ -261,19 +285,20 @@ body
 
 .itemList
 {
-    width: 10vh;
-    height: 10vh;
+    height: 13vh;
+    /* height: 10vh; */
     /* position: relative; */
     /* display: flex; */
     flex-direction: row;
     /* padding: 1vh; */
-    margin: 1.5vh;
+    margin: 1vh;
     /* border: solid 1px #5669a8; */
     border-radius: .5vh;
     justify-content: center;
     align-items: center;
-    box-shadow: 5px 3px 6px #000;
+    box-shadow: 1vh 1vh 2vh #000000;
     /* z-index: 999; */
+    padding-top: 2vh;
     
 }
 
@@ -304,6 +329,26 @@ body
     flex-direction: column;
     /* z-index: 999; */
     width: fit-content;
+    padding: 1vh;
+    border-radius: 1vh;
+    margin-bottom: 1vh;
+
+}
+
+.userList
+{
+    margin: auto;
+    /* background: linear-gradient(#b386863f, #000322); */
+    /* background: #000; */
+    width: fit-content;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    /* padding-right: 5vh; */
+    flex-direction: column;
+    /* z-index: 999; */
+    /* width: fit-content; */
     padding: 1vh;
     border-radius: 1vh;
     margin-bottom: 1vh;
@@ -352,14 +397,14 @@ body
 .numb
 {
     font-size: 20px;
-    position: absolute;
-    background: #00691D;
+    position: relative;
+    /* background: #00691D; */
     padding: .5vh 1.2vh .5vh 1.2vh;
     box-shadow: 5px 3px 6px #000;
     text-align: center;
     align-items: center;
     justify-content: center;
-    border-radius: 10vh;
+    /* border-radius: 10vh; */
 }
 
 .bgList
@@ -451,16 +496,18 @@ body
 
 .btnRemove
 {
-    position: relative;
-    bottom: 2vh;
-    right: 15vh;
+    position: absolute;
+    bottom: 5vh;
+    /* left: 10vh; */
     padding: .2vh 1vh;
     box-shadow: 1px 2px 4px #000;
-    font-size: 25px;
+    font-size: 20px;
     background: #690000;
     color: #fff;
     border-radius: 5vh;
     margin-top: 1vh;
+    /* margin-left: 5vh; */
+    /* left: 4vh; */
 }
 
 .btnRemove:hover
@@ -633,13 +680,14 @@ body
     /* margin-right: 2vh; */
     background-repeat: no-repeat;
     background-position: 0 0;
-    background: linear-gradient(#000000c0, #000);
+    background: linear-gradient(#000000c0, #000144d5);
     background-size: cover;
     border: rgba(0, 0, 0, 0.884) 1px solid;
-    box-shadow: -50px -70px 90px #00000081;    top: 70%;
+    box-shadow: -50px -70px 90px #00000081;
+    top: 70%;
     overflow: auto;
+    padding: 2vh;
     padding-top: 6vh;
-
     z-index: 999;
     border-radius: 3vh;
     transition: 600ms ease-in-out;
@@ -816,17 +864,10 @@ body
     z-index: -999 !important;
 }
 
-.sectionSearch
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .listAvailable
 {
-    width: 10vh;
-    margin: 2vh 1vh -2vh 2vh;
+    height:  20vh;
+    /* margin: 2vh 1vh -2vh 2vh; */
     box-shadow: 10px 10px 50px #000;
 }
 
@@ -853,4 +894,11 @@ body
     background: #000;
     width: 100%;
     height: 50vh;
+}
+
+.classUserList
+{
+    height: 15vh;
+    padding: 0;
+    margin: 0;
 }
