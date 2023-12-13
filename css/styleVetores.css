@@ -72,44 +72,6 @@ body
     width: 80%;
 }
 
-.searchGame
-{
-    width: 50vh;
-    overflow: hidden;
-    padding: 2vh;
-    font-size: 20px;
-    background: #ffffff48;
-    color: #fff;
-    border-bottom-left-radius: 10vh;
-    border-top-left-radius: 10vh;
-    border: 1px #fff solid;    
-}
-
-
-::-webkit-input-placeholder {
-    color: #fff;
-}
-
-:-moz-placeholder { /* Firefox 18- */
-    color: #fff;
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-    color: #fff;
-}
-
-:-ms-input-placeholder {  
-    color: #fff;
-}
-
-.container
-{
-    margin-top: 20vh;
-    display: flex;
-    flex-direction: column;
-    /* transition: 1s ease-in-out; */
-}
-
 .sliderList img
 {
     border-radius: 100%;

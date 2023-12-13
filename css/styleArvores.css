@@ -1,0 +1,293 @@
+body
+{
+    overflow: hidden;
+    color: #fff;
+}
+
+.section1
+{
+    background-image: url('../images/imgArvores/bg1.png');
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+.leftSide
+{
+    display: flex;
+    flex-direction: column;
+    width: 40vh;
+    /* background: #ff0000; */
+
+}
+
+.section1 h1
+{
+    margin-top: 10vh;
+    margin-left: 3.5vh;
+    padding: 1vh 5vh;
+    font-size: max(20px, 2vh);
+    width: fit-content;
+    background: #0c0479;
+    border-radius: 1vh;
+}
+
+.section1 p
+{
+    /* position: relative; */
+    margin-left: 3.5vh;
+    margin-top: 10vh;
+    font-size: max(20px, 2vh);
+    width: 100vh;
+    padding: 3vh;
+    border-radius: 3vh;
+    background: #00000079;
+}
+.rightSide
+{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 40%;
+    /* background: #ff0000; */
+}
+.imgRightSide
+{
+    padding-left: 5vh;
+    width:  70%;
+    /* background: #000; */
+    margin-top: -5vh;
+}
+
+.section2
+{
+    background-image: url(../images/imgArvores/b2.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 120vh;
+    position: relative;
+    /* display: flex; */
+}
+
+/* .contentTree
+{
+    position: relative;
+    display: flex;
+    width: 90%;
+} */
+
+.btnNode
+{
+    position: absolute;
+    padding: 2vh;
+    font-size: max(15px, 2vh);
+    border-radius: 5vh;
+    box-shadow: 1vh 1vh 2vh #000;
+    font-weight: 500;
+    color: #fff;
+}
+
+.btnNode:hover
+{
+    opacity: .8;
+    box-shadow: .5vh .5vh 1vh #0000007e;
+
+}
+
+@media (max-width: 1440px)
+{
+    .btnNode
+    {
+        font-size: 15px;
+    }
+}
+
+.mainNode
+{
+    bottom: 0;
+    left: 45%;
+    background: #0c0479;
+}
+
+.branch1
+{
+    background: #00811C;
+    display: none;
+
+}
+
+.games
+{
+    bottom: 15%;
+    left: 30%;
+}
+
+.filmes
+{
+    bottom: 15%;
+    left: 45%;
+}
+
+.gadgets
+{
+    bottom: 15%;
+    left: 60%;
+}
+
+.branch2
+{
+    background: #814500;
+    display: none;
+}
+
+.rpg
+{
+    bottom: 30%;
+    left: 30%;
+}
+.fps
+{
+    bottom: 15%;
+    left: 15%;
+}
+
+.scifi
+{
+    bottom: 60%;
+    left: 40%;
+}
+
+.series
+{
+    bottom: 70%;
+    left: 60%;
+}
+
+.smartphones
+{
+    bottom: 30%;
+    left: 60%;
+}
+
+.smartwatches
+{
+    bottom: 15%;
+    left: 75%;
+}
+
+.branch3
+{
+    background: #9E1818;
+    display: none;
+}
+
+.cs
+{
+    bottom: 20%;
+    left: 5%;
+}
+
+.cod
+{
+    bottom: 35%;
+    left: 10%;
+}
+
+.witcher
+{
+    bottom: 45%;
+    left: 15%;
+}
+
+.dark
+{
+    bottom: 45%;
+    left: 30%;
+}
+
+.inter
+{
+    bottom: 85%;
+    left: 50%;
+}
+
+.matrix
+{
+    bottom: 75%;
+    left: 35%;
+}
+
+.mirror
+{
+    bottom: 75%;
+    left: 75%;
+}
+
+.robot
+{
+    bottom: 90%;
+    left: 70%;
+}
+
+.android
+{
+    bottom: 45%;
+    left: 65%;
+}
+
+.iphone
+{
+    bottom: 40%;
+    left: 75%;
+}
+
+.tic
+{
+    bottom: 20%;
+    left: 85%;
+}
+
+.apple
+{
+    bottom: 30%;
+    left: 80%;
+}
+
+.branch4
+{
+    background: #000;
+    border: #fff 1px solid;
+    display: none;
+}
+
+.s22
+{
+    bottom: 60%;
+    left: 65%;
+}
+
+.redmi
+{
+    bottom: 60%;
+    left: 80%;
+}
+
+.se
+{
+    bottom: 50%;
+    left: 85%;
+}
+
+.i2g
+{
+    bottom: 40%;
+    left: 85%;
+}
+
+.show
+{
+    display: block;
+}
