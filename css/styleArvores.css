@@ -88,6 +88,7 @@ body
     box-shadow: 1vh 1vh 2vh #000;
     font-weight: 500;
     color: #fff;
+    z-index: 1;
 }
 
 .btnNode:hover
@@ -157,13 +158,13 @@ body
 .scifi
 {
     bottom: 60%;
-    left: 40%;
+    left: 35%;
 }
 
 .series
 {
     bottom: 70%;
-    left: 60%;
+    left: 55%;
 }
 
 .smartphones
@@ -198,8 +199,8 @@ body
 
 .witcher
 {
-    bottom: 45%;
-    left: 15%;
+    bottom: 47%;
+    left: 17%;
 }
 
 .dark
@@ -211,25 +212,25 @@ body
 .inter
 {
     bottom: 85%;
-    left: 50%;
+    left: 35%;
 }
 
 .matrix
 {
     bottom: 75%;
-    left: 35%;
+    left: 25%;
 }
 
 .mirror
 {
     bottom: 75%;
-    left: 75%;
+    left: 70%;
 }
 
 .robot
 {
     bottom: 90%;
-    left: 70%;
+    left: 60%;
 }
 
 .android
@@ -290,4 +291,216 @@ body
 .show
 {
     display: block;
+}
+
+.line
+{
+    position: absolute;
+    background: #fff;
+    z-index: 0;
+}
+
+.l1H
+{
+    width: 12%;
+    height: .01vh;
+    bottom: 2.5%;
+    left: 33%;
+}
+.l1V
+{
+    width: .01vh;
+    height: 12.5%;
+    bottom: 2.5%;
+    left: 33%;
+}
+
+.l2H
+{
+    width: 10.8%;
+    height: .01vh;
+    bottom: 2.5%;
+    left: 52.3%;
+}
+.l2V
+{
+    width: .01vh;
+    height: 12.5%;
+    bottom: 2.5%;
+    left: 63%;
+}
+
+.l3V
+{
+    width: .01vh;
+    height: 10%;
+    bottom: 5%;
+    left: 49%;
+}
+
+.l4H
+{
+    width: 11%;
+    height: .01vh;
+    bottom: 17.5%;
+    left: 19%;
+}
+.l5H
+{
+    width: 7%;
+    height: .01vh;
+    bottom: 17.5%;
+    left: 8%;
+}
+.l5V
+{
+    width: .01vh;
+    height: 2.5%;
+    bottom: 17.5%;
+    left: 8%;
+}
+.l6V
+{
+    width: .01vh;
+    height: 15%;
+    bottom: 20%;
+    left: 17%;
+}
+.l7V
+{
+    width: .01vh;
+    height: 10%;
+    bottom: 20%;
+    left: 32.5%;
+}
+.l8V
+{
+    width: .01vh;
+    height: 10%;
+    bottom: 35%;
+    left: 33%;
+}
+.l9V
+{
+    width: .01vh;
+    height: 14%;
+    bottom: 33%;
+    left: 22%;
+}
+.l9H
+{
+    width: 8%;
+    height: .01vh;
+    bottom: 33%;
+    left: 22%;
+}
+
+.l10V
+{
+    width: 4.5%;
+    height: .01vh;
+    bottom: 62%;
+    left: 43.5%;
+}
+.l10H
+{
+    width: .01vh;
+    height: 42%;
+    bottom: 20%;
+    left: 48%;
+}
+
+.l11V
+{
+    width: 4%;
+    height: .01vh;
+    bottom: 72%;
+    left: 51%;
+}
+.l11H
+{
+    width: .01vh;
+    height: 52%;
+    bottom: 20%;
+    left: 51%;
+}
+
+.l12H
+{
+    width: 7%;
+    height: .01vh;
+    bottom: 77%;
+    left: 30%;
+}
+.l12V
+{
+    width: .01vh;
+    height: 12%;
+    bottom: 65%;
+    left: 37%;
+}
+.l13V
+{
+    width: .01vh;
+    height: 20%;
+    bottom: 65%;
+    left: 42%;
+}
+.l14V
+{
+    width: .01vh;
+    height: 10%;
+    bottom: 20%;
+    left: 62%;
+}
+.l15H
+{
+    width: 8.5%;
+    height: .01vh;
+    bottom: 18%;
+    left: 66.4%;
+}
+.l16H
+{
+    width: 4%;
+    height: .01vh;
+    bottom: 18%;
+    left: 84%;
+}
+.l16V
+{
+    height: 2%;
+    width: .01vh;
+    bottom: 18%;
+    left: 88%;
+}
+.l17H
+{
+    width: 9.2%;
+    height: .01vh;
+    bottom: 32.5%;
+    left: 68.5%;
+}
+.l17V
+{
+    height: 7.6%;
+    width: .01vh;
+    bottom: 32.5%;
+    left: 77.65%;
+}
+
+.l18V
+{
+    height: 10%;
+    width: .01vh;
+    bottom: 35%;
+    left: 67%;
+}
+
+.l19V
+{
+    height: 9.9%;
+    width: .01vh;
+    bottom: 20%;
+    left: 82%;
 }
