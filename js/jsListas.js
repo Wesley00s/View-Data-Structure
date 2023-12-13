@@ -818,6 +818,7 @@ listBox.addEventListener('click', (event) =>
         }
 
         // Itera sobre os filmes para encontrar o correspondente ao item clicado
+        /*
         for (let i = 0; i < movies.length; i++)
         {
             let url = movies[i].pathFile;
@@ -840,9 +841,10 @@ listBox.addEventListener('click', (event) =>
                 console.log("Elemento clicado!");
             }
         }
+        */
         
         //*********************** This Section is for Github Pages. Uncomment if Necessary ***********************
-        /*for (let i = 0; i < movies.length; i++)
+        for (let i = 0; i < movies.length; i++)
         {
             let url = movies[i].pathFile;
             let itemBoxSrc = itemBox.src
@@ -873,7 +875,7 @@ listBox.addEventListener('click', (event) =>
                 bgList.classList.toggle('bgListAnimation');
                 boxDesc.classList.toggle('animationBoxDesc');
             }
-        }*/
+        }
         //*********************** This Section is for Github Pages. Uncomment if Necessary ***********************
     }
 });
