@@ -1,3 +1,4 @@
+// Configurando varáveis referentes ao DOM
 const imgsContainer = document.querySelector('.container');
 const input = document.querySelector('.sectionSearch');
 const hiddenOpcoes = document.querySelector('.hiddenOpcoes');
@@ -15,6 +16,7 @@ const listBoxUser = document.querySelector('.listBoxUser');
 const itemList = document.querySelector('.itemList');
 const userGames = document.querySelector('.userGames');
 
+// Lista de games disponíveis
 const games = [
     {id: 0, nome: "El Diablo", imagem: "../images/imgVetores/games/diablo.png"},
     {id: 1, nome: "Disco Elysium", imagem: "../images/imgVetores/games/disco.png"},
@@ -64,6 +66,7 @@ const examplesGames = () =>
 }
 examplesGames();
 
+// Itera sobre cada jogo da lista para criar os elementos no DOM
 games.forEach((game) => {
     const itemBox = document.createElement('div');
     itemBox.classList.add('itemBox');
@@ -109,15 +112,20 @@ games.forEach((game) => {
 
         // Adiciona o elemento criado à listBox
         userGames.appendChild(listBoxItem);
-
-        console.log('Botão Adicionar clicado para o jogo:', game.nome);
+        const removeButton = listBoxItem.querySelector('.btnRemove');
+        removeButton.addEventListener('click', () => {
+            // Remove o listBoxItem ao clicar no botão "Remover"
+            userGames.removeChild(listBoxItem);
+            console.log('Jogo removido:', game.nome);
+        });
+            console.log('Botão Adicionar clicado para o jogo:', game.nome);
     });
-
 });
-
+// Função para exibir os jogos disponíveis na interface
 const showAvailableGames = () => {
     containerAvailable.innerHTML = '';
 
+    // Itera sobre a lista de jogos e cria elementos HTML dinâmicos para cada jogo
     games.forEach((game) => {
         const itemBox = document.createElement('div');
         itemBox.classList.add('itemBox');
@@ -138,10 +146,12 @@ const showAvailableGames = () => {
     });
 };
 
+// Elementos estáticos
 const itemBox = document.querySelector('.itemBox');
 const imgItemBoxElement = document.createElement('img');
 const spanItemBoxElement = document.createElement('span');
 
+// Função para criar elementos dinâmicos com base em uma imagem e um nome
 const createDynamicElement = (imagePath, name) => {
     const spanElement = document.createElement('span');
     const divElement = document.createElement('div');
@@ -167,8 +177,10 @@ const createDynamicElement = (imagePath, name) => {
     return divElement;
 }
 
+// Adiciona um ouvinte de evento ao botão 'Ver Games'
 document.querySelector('.botaoVerGames').addEventListener('click', () =>
 {
+    // Alterna a visibilidade do menu de títulos
     menuTitulos.classList.toggle('hiddenSideAvailable');
     menuTitulos.classList.toggle('visibleSideAvailable');
 });

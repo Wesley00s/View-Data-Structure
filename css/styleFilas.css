@@ -1,0 +1,145 @@
+.content
+{
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+
+.section1
+{
+    background-image: url('../images/imgFilas/bg6.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.leftSide
+{
+    flex-direction: column;
+    margin-left: 5vh;
+    width: 50%;
+}
+
+.section1 h1
+{
+    position: relative;
+    margin-left: 3.5vh;
+    padding: 1vh 5vh;
+    font-size: 3vh;
+    width: fit-content;
+    background: #0c0479;
+    border-radius: 1vh;
+    margin-top: 100px;
+}
+
+.section1 p
+{
+    position: relative;
+    margin-top: 5vh;
+    left: -5vh;
+    font-size: 21px;
+    width: 100%;
+    padding: 3vh;
+    border-radius: 3vh;
+    background: #00000079;
+
+}
+
+.section2
+{
+    background-image: url('../images/imgFilas/city.jpg ');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bgRobot
+{
+    position: absolute;
+    width: 50%;
+    left: 50%;
+    top: 48%;
+    z-index: 0;
+}
+
+.name
+{
+    font-size: 20px;
+    padding: 5vh;
+}
+
+.queueContent
+{
+    display: flex;
+    position: absolute;
+    top: 70%;
+    flex-wrap: wrap;
+    left: 1%;
+    flex-direction: column;
+    z-index: 0;
+    width: 30%;
+    justify-content: space-between;
+}  
+
+.queueBox
+{
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15vh 2vh 2vh 2vh;
+    margin: auto;
+    border-top: none;
+    border-bottom-left-radius: 2vh;
+    border-bottom-right-radius: 2vh;
+}
+
+.itemBox
+{
+    width: fit-content;
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding-right: 5vh;
+
+}
+.img_queue
+{
+    width: 10vh;
+    height: 10vh;
+    flex-direction: row;
+    margin: 1.5vh;
+    border: solid 1px #5669a8;
+    border-radius: .5vh;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 3px 6px #000;
+}
+
+.buttons{
+    margin-top: 45px;
+    display: flex; 
+    z-index: 999;
+}
+
+.buttons button{
+    width: 150px;
+    height: 30px;
+    border: 2px solid #36e2ec;
+    outline: none;
+    font-size: 20px;
+    background: #36e2ec;
+    border-radius: 30px;
+}
