@@ -429,7 +429,7 @@ const movies = [
         bg : '../images/imgListas/list/exterminator.png',
         completeTitle : 'Schwarzenegger - O Exterminador do Futuro',
         year : '(1984)',
-        name : 'O Exterminador do Futuro',
+        name : 'O Exterminador',
         pathFile : '../images/imgListas/list/exterminator.png',
         desc : `
                 Num futuro próximo, a guerra entre humanos e máquinas foi deflagrada. 
@@ -973,6 +973,11 @@ let selectedElement = null;
 // Adiciona um ouvinte de evento de clique à listBox
 listBox.addEventListener('click', (event) =>
 { 
+    const pathArray = window.location.pathname.split('/');
+    const repository = pathArray[1];
+    console.log(`pathArray: ${pathArray}`);
+    console.log(`repository: ${repository}`);
+    
     // Verifica se o clique ocorreu em um elemento com a classe 'classUserList'
     if (event.target.classList.contains('classUserList'))
     {
@@ -1001,11 +1006,6 @@ listBox.addEventListener('click', (event) =>
 
         const subdomain = window.location.hostname.split('.')[0];
         console.log(`subdomain: ${subdomain}`);
-
-        const pathArray = window.location.pathname.split('/');
-        const repository = pathArray[2];
-        console.log(`pathArray: ${pathArray}`);
-        console.log(`repository: ${repository}`);
 
         // Itera sobre os filmes para encontrar o correspondente ao item clicado
     
