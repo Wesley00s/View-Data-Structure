@@ -973,11 +973,13 @@ let selectedElement = null;
 // Adiciona um ouvinte de evento de clique à listBox
 listBox.addEventListener('click', (event) =>
 { 
+    const subdomain = window.location.hostname.split('.')[0]; // Verifica se o site estar rodando localmente ou no github pages
     const pathArray = window.location.pathname.split('/');
     const repository = pathArray[1];
     console.log(`pathArray: ${pathArray}`);
     console.log(`repository: ${repository}`);
-    
+    console.log(`subdomain: ${subdomain}`);
+
     // Verifica se o clique ocorreu em um elemento com a classe 'classUserList'
     if (event.target.classList.contains('classUserList'))
     {
@@ -1004,85 +1006,81 @@ listBox.addEventListener('click', (event) =>
             selectedElement = itemBox;
         }
 
-        const subdomain = window.location.hostname.split('.')[0];
-        console.log(`subdomain: ${subdomain}`);
-
-        // Itera sobre os filmes para encontrar o correspondente ao item clicado
-    
-        // *********************** CASO ESTEJA RODANOD LOCALMENTE NA SUA MÁQUINA,  DESCOMENTE ESSA PARTE E COMENTE A PARTE POSTERIOR DA SEÇÃO DO GITHUB PAGES ***********************
-        /*
-        for (let i = 0; i < movies.length; i++)
+        if (subdomain === '127')
         {
-            let url = movies[i].pathFile;
-            let itemBoxSrc = itemBox.src;
-            let relativeItemBox = new URL(itemBoxSrc, window.location.origin).pathname;
-            let relativeUrl = new URL(url, window.location.origin).pathname;
-
-            // console.log(`convertURL: ${convertURL}`);
-            // console.log(`convertItemBox ${convertItemBox}`);
-
-            
-            // Verifica se a URL do filme corresponde à URL do item clicado
-            if (relativeUrl === relativeItemBox) {
-                console.log(`itemBox.src: ${itemBoxSrc}`);
-                console.log(`url: ${url}`);
-                console.log(`RelativeItemBox: ${relativeItemBox}`)
-                console.log(`Relative url: ${relativeUrl}`);
-                // Atualiza os elementos na página com informações do filme
-                titleSelected.innerHTML = movies[i].completeTitle;
-                description.innerHTML = movies[i].desc;
-                yearSelected.innerHTML = movies[i].year;
-                bgList.src = movies[i].bg;
-
-                // Adiciona ou remove classes para animações
-                bgList.classList.toggle('bgListAnimation');
-                boxDesc.classList.toggle('animationBoxDesc');
-
-                console.log("Elemento clicado!");
-            }
-        }
-        */
-
-        
-        //*********************** This Section is for Github Pages. Uncomment if Necessary ***********************
-       for (let i = 0; i < movies.length; i++)
-        {
-
-            let url = movies[i].pathFile;
-            let itemBoxSrc = itemBox.src
-            let relativeItemBox = new URL(itemBoxSrc, window.location.origin).pathname
-            let relativeUrl = new URL(url, window.location.origin).pathname
-
-            let convertURL = `/View-Data-Structure${relativeUrl.toString()}`;
-            let convertItemBox = relativeItemBox.toString();
-
-            // console.log(`convertURL: ${convertURL}`);
-            // console.log(`convertItemBox: ${convertItemBox}`);
-
-            console.log(`itemBox.src: ${itemBoxSrc}`);
-            console.log(`url: ${url}`);
-            console.log(`RelativeItemBox: ${relativeItemBox}`)
-            console.log(`Relative url: ${relativeUrl}`);
-            console.log(`convertURL: ${convertURL}`);
-            console.log(`convertItemBox ${convertItemBox}`);
-            if (convertURL == convertItemBox)
+            // Itera sobre os filmes para encontrar o correspondente ao item clicado                
+            for (let i = 0; i < movies.length; i++)
             {
-                titleSelected.innerHTML = '';
-                description.innerHTML = '';
-                src = movies[i].bg;
-
-                titleSelected.innerHTML = movies[i].completeTitle;
-                
-                description.innerHTML = movies[i].desc
-                yearSelected.innerHTML = movies[i].year;
-                // console.log(bgList);
-                bgList.src = src;  
-                console.log("Elemento clicado!");
-                bgList.classList.toggle('bgListAnimation');
-                boxDesc.classList.toggle('animationBoxDesc');
+                let url = movies[i].pathFile;
+                let itemBoxSrc = itemBox.src;
+                let relativeItemBox = new URL(itemBoxSrc, window.location.origin).pathname;
+                let relativeUrl = new URL(url, window.location.origin).pathname;
+    
+                // Verifica se a URL do filme corresponde à URL do item clicado
+                if (relativeUrl === relativeItemBox) {
+                    console.log(`itemBox.src: ${itemBoxSrc}`);
+                    console.log(`url: ${url}`);
+                    console.log(`RelativeItemBox: ${relativeItemBox}`)
+                    console.log(`Relative url: ${relativeUrl}`);
+                    // Atualiza os elementos na página com informações do filme
+                    titleSelected.innerHTML = movies[i].completeTitle;
+                    description.innerHTML = movies[i].desc;
+                    yearSelected.innerHTML = movies[i].year;
+                    bgList.src = movies[i].bg;
+    
+                    // Adiciona ou remove classes para animações
+                    bgList.classList.toggle('bgListAnimation');
+                    boxDesc.classList.toggle('animationBoxDesc');
+    
+                    console.log("Elemento clicado!");
+                }
             }
         }
-        //*********************** This Section is for Github Pages. Uncomment if Necessary ***********************
+        else
+        {
+            //*********************** This Section is for Github Pages ***********************
+            for (let i = 0; i < movies.length; i++)
+            {
+    
+                let url = movies[i].pathFile;
+                let itemBoxSrc = itemBox.src
+                let relativeItemBox = new URL(itemBoxSrc, window.location.origin).pathname
+                let relativeUrl = new URL(url, window.location.origin).pathname
+    
+                let convertURL = `/${repository + relativeUrl.toString()}`;
+                let convertItemBox = relativeItemBox.toString();
+    
+                if (convertURL == convertItemBox)
+                {
+                    console.log(`convertURL: ${convertURL}`);
+                    console.log(`convertItemBox: ${convertItemBox}`);
+    
+                    console.log(`itemBox.src: ${itemBoxSrc}`);
+                    console.log(`url: ${url}`);
+                    console.log(`RelativeItemBox: ${relativeItemBox}`)
+                    console.log(`Relative url: ${relativeUrl}`);
+                    console.log(`convertURL: ${convertURL}`);
+                    console.log(`convertItemBox ${convertItemBox}`);
+
+                    titleSelected.innerHTML = '';
+                    description.innerHTML = '';
+                    src = movies[i].bg;
+    
+                    titleSelected.innerHTML = movies[i].completeTitle;
+                    
+                    description.innerHTML = movies[i].desc
+                    yearSelected.innerHTML = movies[i].year;
+                    // console.log(bgList);
+                    bgList.src = src;  
+                    console.log("Elemento clicado!");
+                    bgList.classList.toggle('bgListAnimation');
+                    boxDesc.classList.toggle('animationBoxDesc');
+                }
+            }
+            //*********************** This Section is for Github Pages. ***********************
+        }
+        
+
     }
 });
 
