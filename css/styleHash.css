@@ -142,19 +142,17 @@
 .botaoVerGames
 {
     display: flex;
-    /* flex-direction: row; */
     position: relative;
     width: 40vh;
-    font-size: 2.5vh;
+    font-size: max(25px, 2vh);
     height: fit-content;
     padding: 2vh 5vh;
     text-align: left;
-    /* left: 10vh; */
     background: #00691d;
     color: #fff;
-    /* margin-top: 6.5vh; */
     border-top-right-radius: 10vh;
     border-bottom-right-radius: 10vh;
+    box-shadow: 1vh 1vh 2vh #000;
 }
 
 .botaoVerGames:hover

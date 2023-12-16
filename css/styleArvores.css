@@ -30,10 +30,10 @@ body
 
 .section1 h1
 {
+    position: relative;
     margin-top: 10vh;
-    margin-left: 3.5vh;
+    margin-left: max(25px, 3vh);
     padding: 1vh 5vh;
-    font-size: max(20px, 2vh);
     width: fit-content;
     background: #0c0479;
     border-radius: 1vh;
@@ -47,7 +47,7 @@ body
     width: 100vh;
     padding: 3vh;
     border-radius: 3vh;
-    background: #00000079;
+    background: #00000086;
 }
 .rightSide
 {

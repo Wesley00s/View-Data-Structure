@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/styleFooter.css">
     <link rel="stylesheet" href="../css/styleGrafos.css">
     <script defer src="../js/jsNavbar.js"></script>
+    <script defer src="../js/jsGrafos.js"></script>
 </head>
 
 <body>
@@ -61,35 +62,92 @@
                             GRAFOS
                         </h1>
                         <p class="msgInicial">
-                            Um grafo é uma coleção de nós (ou vértices) e arestas que conectam esses nós.
-                            Grafos são uma estrutura de dados importante na teoria dos grafos e são 
-                            utilizados para modelar uma variedade de problemas no campo da ciência da
-                            computação, como redes, relacionamentos entre entidades, mapas, etc.
+                            Um grafo é uma estrutura matemática que consiste em nós (também chamados de vértices) conectados por arestas. Os grafos
+                            são utilizados para representar relações entre diferentes objetos. Eles são amplamente aplicados em diversas áreas, como
+                            ciência da computação, matemática, redes, sistemas de transporte, biologia, entre outras.
                         </p>
         
                     </div>
                     <div class="rightSide">
-                        <div class="sliderList">
-                            <div class="container" id="img">
-                                <img src="..images/imgArvores/cyber-removebg-preview.png" alt="">
-                                <input type="text" placeholder="Procurar jogo" class="searchGame">
-                            </div>
-                        </div>
+                        <img src="../images/imgGrafos/grafo.png" alt="">
                     </div>
                 </div>
-                <!-- <div class="leftSide">
-                        <div class="robot">
-                            <img src="../images/imgGrafos/grafo.jpg" alt="" class="bgGrafo">
-                        </div>
-                    </div> -->
+
                 <div class="section2">
-                    <div class="leftSide">
-                        <div class="robot">
-                            <img src="../images/imgGrafos/god_1-removebg-preview.png" alt="" class="bgGod1">
+                    <div class="subSection2">
+                        <div class="sectionExplaning">
+                            <div>
+                                <button class="exEntity ex"></button>
+                                <p class="exMsg">Entidade (Nó)</p>
+
+                            </div>
+                            <div>
+                                <button class="exRelationship ex"></button>
+                                <p class="exMsg rel">Relacionamento (Aresta)</p>
+
+                            </div>
+
+                            <p class="msgEx">Toque no usuário e veja suas relações com outras entidades se formando</p>
+                        </div>
+                        <button class="entity usr show">Usuário</button>
+                        <button class="entity disp">Dispositivo</button>
+                        <button class="entity soft">Software</button>
+                        <button class="entity hard">Hardware</button>
+                        <button class="entity so">Sistema operacional</button>
+                        <button class="entity conec">Conexão</button>
+                        <button class="entity comp">Componentes eletrônicos</button>
+
+                        <button class="relationship usrToDisp"><p>Possui</p></button>
+                        <button class="relationship dispToHard"><p>Possui</p></button>
+                        <button class="relationship hardToComp"><p>Possui</p></button>
+                        <button class="relationship dispToSoft"><p>Executa</p></button>
+                        <button class="relationship compToComp"><p>Conecta</p></button>
+                        <button class="relationship dispToSo"><p>Possui</p></button>
+                        <button class="relationship dispToConec"><p>Tem</button>
+
+                        <div class="line usrToDispLine1"></div>
+                        <div class="line usrToDispLine2"></div>
+
+                        <div class="line dispToHardLine1H"></div>
+                        <div class="line dispToHardLine1V"></div>
+
+                        <div class="line dispToHardLine2H"></div>
+                        <div class="line dispToHardLine2V"></div>
+                        
+                        <div class="line hardToCompLine1"></div>
+                        <div class="line hardToCompLine2"></div>
+                        
+                        <div class="line compToCompLine1"></div>
+                        <div class="line compToCompLine2"></div>
+                        
+                        <div class="line dispToSoftLine1H"></div>
+                        <div class="line dispToSoftLine1V1"></div>
+                        <div class="line dispToSoftLine1V2"></div>
+                        
+                        <div class="line dispToSoftLine2H"></div>
+                        <div class="line dispToSoftLine2V"></div>
+                        
+                        <div class="line dispToSoLine1"></div>
+                        <div class="line dispToSoLine2"></div>
+                        
+                        
+                        <div class="line dispToConecLine1H"></div>
+                        <div class="line dispToConecLine1V"></div>
+                        
+                        <div class="line dispToConecLine2H"></div>
+                        <div class="line dispToConecLine2V"></div>
+
+                        <div class="msgContent">
+                            <p class="msg">
+                                Grafos, exemplificados pelos Diagramas Entidade-Relacionamento em bancos de dados, funcionam como mapas que revelam as
+                                conexões entre partes do sistema. Em um sistema de gerenciamento de usuários, dispositivos, software, hardware, sistema
+                                operacional e conexões, os usuários têm dispositivos, executam software e possuem conexões, simplificando a compreensão
+                                das relações para um design eficiente de bancos de dados.
+                            </p>
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
             </section>
         </body>
 
@@ -109,6 +167,50 @@
                 - Woodrow Wilson <br>
                 "Eu não apenas uso todo o cérebro que tenho, <br> mas todos os que consigo pegar emprestado."
             </p>
+
+            <div class="squad">
+                <h3 class="titleSquad">
+                    &lt;Desenvolvido por&gt;
+                </h3>
+                <div>
+                    <div class="dev1">
+                        <a href="https://github.com/Doug16Yanc">
+                            &lt;
+                            <p>Douglas_Holanda</p>
+                            id="Tech_Leader"&gt;
+                        </a>
+                    </div>
+                    <div class="dev2">
+                        <a href="">
+                            &lt;
+                            <p>Leticia_Pereira</p>
+                            id="Analista_de_requisitos"&gt;
+                        </a>
+                    </div>
+                    <div class="dev3">
+                        <a href="">
+                            &lt;
+                            <p>Micaele_Rodrigues</p>
+                            class="Designer"/&gt;
+                        </a>
+                    </div>
+                    <div class="dev4">
+                        <a href="https://github.com/KaianeSousa">
+                            &lt;
+                            /<p>Kaiane_Sousa</p>
+                            class="Designer"&gt;
+                        </a>
+                    </div>
+                    <div class="dev5">
+                        <a href="https://github.com/Wesley00s">
+                            &lt;
+                            /<p>Wesley_Rodrigues</p>
+                            class="Full_Stack"&gt;
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
             <small class="lastText">
                 &copy;Copyright 2023, Data Viewer. All rights reserved
             </small>

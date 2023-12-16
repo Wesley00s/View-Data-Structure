@@ -5,7 +5,7 @@
     background: linear-gradient(#060429, rgb(0, 0, 0)) no-repeat;
     height: auto;
     flex-direction: column;
-    z-index: -1;
+    z-index: 0;
     padding-top: 1vw;
 }
 
@@ -74,4 +74,58 @@
 a
 {
     color: #4f758f;
+}
+
+.squad
+{
+    /* background: #000; */
+    width: 50%;
+    padding-left: 2%;
+    margin-top: -30vh;
+    padding-bottom: 30vh;
+    /* margin-left: 5%; */
+}
+.titleSquad
+{
+    color:  #35556bd2;
+    font-size: max(20px, 1.2vw);
+    margin-bottom: 2vh;
+    margin-left: -3.5vh;
+}
+.squad a
+{
+    display: flex;
+    font-size: max(10px, 1.8vh);
+    color: #51748b8f;
+    cursor: pointer;
+}
+
+a p
+{
+    padding: 0 1% 0 .5%;
+    font-size: max(18px, 2vh);
+    color: #6790ac;
+    font-weight: 500;
+    transition: 2000ms ease-in-out;
+}
+
+a p:hover
+{
+    font-size: max(25px, 2.3vh);
+    transition: 1000ms ease-in-out;
+    /* font-weight: 600; */
+    text-shadow: .5vh .5vh 5vh #bdceda;
+}
+
+.dev2
+{
+    padding-left: 4%;
+}
+.dev3
+{
+    padding-left: 8%;
+}
+.dev4
+{
+    padding-left: 4%;
 }

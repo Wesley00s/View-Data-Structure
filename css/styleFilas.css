@@ -28,25 +28,23 @@
 .section1 h1
 {
     position: relative;
-    margin-left: 3.5vh;
+    margin-top: 10vh;
+    margin-left: max(25px, 3vh);
     padding: 1vh 5vh;
-    font-size: 3vh;
     width: fit-content;
     background: #0c0479;
     border-radius: 1vh;
-    margin-top: 100px;
 }
 
 .section1 p
 {
     position: relative;
     margin-top: 5vh;
-    left: -5vh;
     font-size: 21px;
     width: 100%;
     padding: 3vh;
     border-radius: 3vh;
-    background: #00000079;
+    background: #00000086;
 
 }
 

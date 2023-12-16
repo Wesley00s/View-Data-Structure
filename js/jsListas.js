@@ -98,7 +98,7 @@ startSliderAnimation(); // Chamando a função para iniciar a animação do slid
 
 // Definindo uma lista de objetos chamada movies, onde cada objeto representa um filme com várias propriedades
 const movies = [
-       {
+        {
         id : 1,
         bg : '../images/imgListas/list/astra-bg.png',
         completeTitle: 'Ad Astra: Rumo às Estrelas',
@@ -973,9 +973,9 @@ let selectedElement = null;
 // Adiciona um ouvinte de evento de clique à listBox
 listBox.addEventListener('click', (event) =>
 { 
-    const subdomain = window.location.hostname.split('.')[0]; // Verifica se o site estar rodando localmente ou no github pages
-    const pathArray = window.location.pathname.split('/');
-    const repository = pathArray[1];
+    const subdomain = window.location.hostname.split('.')[0]; // Obtem a primeira parte do dominio da página
+    const pathArray = window.location.pathname.split('/'); // Obtem o caminho da URL atual da página da web em que o script está sendo executado. 
+    const repository = pathArray[1]; // Armazena o nome do repositório, que estar na segunda posição do array
     console.log(`pathArray: ${pathArray}`);
     console.log(`repository: ${repository}`);
     console.log(`subdomain: ${subdomain}`);
@@ -1006,7 +1006,7 @@ listBox.addEventListener('click', (event) =>
             selectedElement = itemBox;
         }
 
-        if (subdomain === '127')
+        if (subdomain === '127') // Caso esteja rodando localmente a primeira parte do dominio da página retornará 127
         {
             // Itera sobre os filmes para encontrar o correspondente ao item clicado                
             for (let i = 0; i < movies.length; i++)
@@ -1036,18 +1036,17 @@ listBox.addEventListener('click', (event) =>
                 }
             }
         }
-        else
+        else // Case o retorno seja diferente de 127 significa que o site estar rodando no GitHub pages
         {
-            //*********************** This Section is for Github Pages ***********************
+            // Mesma função do trecho acima
             for (let i = 0; i < movies.length; i++)
             {
-    
                 let url = movies[i].pathFile;
                 let itemBoxSrc = itemBox.src
                 let relativeItemBox = new URL(itemBoxSrc, window.location.origin).pathname
                 let relativeUrl = new URL(url, window.location.origin).pathname
     
-                let convertURL = `/${repository + relativeUrl.toString()}`;
+                let convertURL = `/${repository + relativeUrl.toString()}`; // Obtem o nome do repositório para fazer o caminho correto dos arquivos
                 let convertItemBox = relativeItemBox.toString();
     
                 if (convertURL == convertItemBox)
@@ -1077,10 +1076,7 @@ listBox.addEventListener('click', (event) =>
                     boxDesc.classList.toggle('animationBoxDesc');
                 }
             }
-            //*********************** This Section is for Github Pages. ***********************
         }
-        
-
     }
 });
 
