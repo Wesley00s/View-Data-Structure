@@ -31,7 +31,7 @@ body
 {
     position: relative;
     margin-top: 10vh;
-    margin-left: max(25px, 3vh);
+    font-size: max(25px, 2.5vh);
     padding: 1vh 5vh;
     width: fit-content;
     background: #0c0479;
@@ -634,7 +634,6 @@ body
     overflow: auto;
     transition: 1s;
     transform: translateX(0%);
-    transition: 1s;
 }
 
 .hiddenSideAvailable

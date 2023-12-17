@@ -7,7 +7,7 @@
 
 .section1
 {
-    background-image: url('../images/imgHash/tela3.png');
+    /* background-image: url('../images/imgHash/tela3.png'); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
@@ -65,11 +65,11 @@
 
 .section2
 {
-    background-image: url('../images/imgHash/dna.jpg ');
+    background-image: url('../images/imgHash/bg2.png ');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 0 0;
-    height: 100vh;
+    background-position: center;
+    height: 105vh;
     width: 100%;
     display: flex;
     flex-direction: row;

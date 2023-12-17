@@ -35,15 +35,13 @@ body
 .section1 h1
 {
     position: relative;
-    margin-top: 15vh;
-    margin-left: 3.5vh;
+    margin-top: 10vh;
+    font-size: max(25px, 2.5vh);
     padding: 1vh 5vh;
-    font-size: max(20px, 2vh);
     width: fit-content;
     background: #0c0479;
     border-radius: 1vh;
 }
-
 .section1 p
 {
     position: relative;

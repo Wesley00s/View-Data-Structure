@@ -114,7 +114,7 @@ a p:hover
     font-size: max(25px, 2.3vh);
     transition: 1000ms ease-in-out;
     /* font-weight: 600; */
-    text-shadow: .5vh .5vh 5vh #bdceda;
+    text-shadow: 10px 10px 10px #000000;
 }
 
 .dev2
@@ -128,4 +128,51 @@ a p:hover
 .dev4
 {
     padding-left: 4%;
+}
+
+@media (max-width: 375px)
+{
+    .footerBody
+    {
+        height: 100vh;
+    }
+
+    .squad
+    {
+        margin-top: 0;
+        padding-bottom: 0;
+        width: 100%;
+    }
+
+    .titleSquad
+    {
+        color:  #35556bd2;
+        font-size: 15px;
+        margin-bottom: 2vh;
+        margin-left: 0vh;
+    }
+    .squad a
+    {
+        display: flex;
+        font-size: 12px;
+        color: #51748b8f;
+        cursor: pointer;
+    }
+
+    a p
+    {
+        padding: 0 1% 0 .5%;
+        font-size: 15px;
+        color: #6790ac;
+        font-weight: 500;
+        transition: 2000ms ease-in-out;
+    }
+
+    a p:hover
+    {
+        font-size: 14px;
+        transition: 1000ms ease-in-out;
+        /* font-weight: 600; */
+        text-shadow: 5px 5px 5px #000000;
+    }
 }

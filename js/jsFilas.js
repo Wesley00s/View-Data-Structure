@@ -71,6 +71,10 @@ filaHistoriaComputador.enqueue({ano: "1837", nome: "Engenho analítico", imagem:
 // Adiciona um ouvinte de evento ao botão de remover
 removerBtn.addEventListener("click", (event) => {
     filaHistoriaComputador.removerElemento();
+    
+    filaHistoriaComputador.isEmpty() ?
+        document.querySelector('.msg').classList.add('showMsg') :
+        document.querySelector('.msg').classList.remove('showMsg');
 });
 
 // Inicializa o índice de adição e adiciona um ouvinte de evento ao botão de adicionar
@@ -96,4 +100,8 @@ adicionarBtn.addEventListener("click", (event) => {
         filaHistoriaComputador.adicionarElemento(elementoAtual.ano, elementoAtual.nome, elementoAtual.imagem);
         indiceAdicao++;
     }
+
+    filaHistoriaComputador.isEmpty() ?
+        document.querySelector('.msg').classList.add('showMsg') :
+        document.querySelector('.msg').classList.remove('showMsg');
 });
