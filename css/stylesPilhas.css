@@ -1,49 +1,56 @@
 body
 {
     overflow: hidden;
+}
+.content
+{
+    display: flex;
+    flex-direction: column;
     color: #fff;
 }
-
 .section1
-{
+{ 
     background-image: url('../images/imgPilhas/bg1.png');
     height: 70vh;
     background-position: 0 0;
     background-size: cover;
     background-repeat: no-repeat;
     flex-direction: column;
-    flex-direction: row;
     width: 100%;
 }
 
 .leftSide
 {
-    padding-top: 10vh;
     flex-direction: column;
     margin-left: 5vh;
-    width: 50%;
+    width: 55%;
 }
 
-.section1 h1
-{
+.leftSide h1
+{  
     position: relative;
-    margin-top: 0;
-    font-size: max(25px, 2.5vh);
-    padding: 1vh 5vh;
+    margin-top: 100px;
+    margin-left: 3.5vh;
+    padding: 1.5vh 3vh;
+    font-size: 2.5vh;
     width: fit-content;
-    background: #0c0479;
+    background: #0819b8;
     border-radius: 1vh;
 }
 
 .leftSide p
 {
-    margin-top: 10vh;
-    background: #00000086;
-    padding: 5vh;
-    color: #fff;
+    position: relative;
+    margin-top: 5vh;
+    left: -5vh;
+    font-size: 22px;
+    line-height: 3.5vh;
     width: 100%;
-    font-size: min(18px, 2vh);
-    border-radius: 1vh;
+    padding: 3vh 4vh 3vh 3vh;
+    text-align: justify;
+    border-radius: 0 4vh 4vh 0; 
+    background: #00000090;
+    color: white;
 }
 
 .caracter1
@@ -51,7 +58,7 @@ body
     position: relative;
     width: 20%;
     left: 80%;
-    bottom: 70%;
+    bottom: 60%;
 }
 
 .section2
@@ -83,22 +90,28 @@ body
     padding: 2vh;
     margin-top: -2vh;
     font-size: min(50px, 5vh);
-}
+} 
+.msgSec{
+    line-height: 4vh;
+    text-align: justify;
+    margin-right: 1vh;
 
+}
 .containerMsg2
 {
     display: flex;
     position: relative;
     flex-direction: column;
     width: fit-content;
-    background: #000000bd;
-    padding: 10vh;
+    background: #000000c0;
+    padding: 6vh;
     color: #fff;
     font-size: 20px;
     width: 70%;
-    font-size: min(30px, 2vh);
-    border-radius: 1vh;
-    top:30%;
+    font-size: min(30px, 3vh);
+    line-height: 10em;
+    border-radius: 0 4vh 04vh 0;
+    top: 42%;
     z-index: 2;
 }
 
@@ -176,7 +189,7 @@ body
     top: 5%;
     background: #003a40;
     font-size: 20px;
-    padding: 3vh 5vh;
+    padding: 4vh 5vh;
     color: #fff;
     height: 10vh;
     background: linear-gradient(#00000000, #003a40);

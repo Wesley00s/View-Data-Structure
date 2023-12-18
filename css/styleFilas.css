@@ -1,10 +1,13 @@
+body
+{
+    overflow: hidden;
+}
 .content
 {
     display: flex;
     flex-direction: column;
     color: #fff;
 }
-
 .section1
 {
     background-image: url('../images/imgFilas/bg1.png');
@@ -22,30 +25,34 @@
 {
     flex-direction: column;
     margin-left: 5vh;
-    width: 50%;
+    width: 55%;
 }
 
-.section1 h1
-{
+.leftSide h1
+{  
     position: relative;
-    margin-top: 10vh;
-    font-size: max(25px, 2.5vh);
-    padding: 1vh 5vh;
+    margin-top: 100px;
+    margin-left: 3.5vh;
+    padding: 1.5vh 3vh;
+    font-size: 2.5vh;
     width: fit-content;
-    background: #0c0479;
+    background: #0819b8;
     border-radius: 1vh;
 }
 
-.section1 p
+.leftSide p
 {
     position: relative;
     margin-top: 5vh;
-    font-size: min(18px, 2vh);
+    left: -5vh;
+    font-size: 22px;
+    line-height: 3.5vh;
     width: 100%;
-    padding: 3vh;
-    border-radius: 3vh;
-    background: #00000086;
-
+    padding: 3vh 4vh 3vh 3vh;
+    text-align: justify;
+    border-radius: 0 4vh 4vh 0; 
+    background: #00000090;
+    color: white;
 }
 
 .section2
