@@ -488,133 +488,6 @@ movies.forEach((movie) => {
     // Adiciona o elemento 'itemBox' ao elemento com a classe 'containerAvailable'
     containerAvailable.appendChild(itemBox);
 });
-// Classe Node representa um nó da lista encadeada
-class Node
-{
-    constructor(data)
-    {
-        this.data = data; // Dados armazenados no nó
-        this.next = null; // Referência para o próximo nó na lista
-    }
-}
-
-// Classe LinkedList representa a lista encadeada
-class LinkedList
-{
-    constructor() {
-        this.head = null; // Referência para o primeiro nó na lista
-        this.length = 0; // Contador para o tamanho da lista
-    }
-
-    // Método para inserir um novo nó no final da lista
-    insertEnd(data)
-    {
-        const newNode = new Node(data);
-
-        if (!this.head)
-        {
-            this.head = newNode;
-        }
-        else
-        {
-            let current = this.head;
-            while (current.next)
-            {
-                current = current.next;
-            }
-
-            current.next = newNode;
-        }
-
-        this.length++; // Incrementa o tamanho da lista
-    }
-
-    // Método para inserir um novo nó no início da lista
-    insertStart(data)
-    {
-        const newNode = new Node(data);
-        newNode.next = this.head;
-        this.head = newNode;
-        this.length++;
-    }
-
-    // Método para inserir um novo nó após um índice específico na lista
-    insertAfter(index, newData)
-    {
-        const newNode = new Node(newData);
-
-        let current = this.head;
-        let currentIndex = 0;
-
-        while (current)
-        {
-            if (currentIndex === index)
-            {
-                newNode.next = current.next;
-                current.next = newNode;
-                this.length++;
-                return;
-            }
-
-            current = current.next;
-            currentIndex++;
-        }
-
-        console.log(`Índice ${index} fora do intervalo.`);
-    }
-
-    // Método para imprimir os dados da lista encadeada
-    print()
-    {
-        let current = this.head;
-        while (current)
-        {
-            console.log(current.data);
-            current = current.next;
-        }
-    }
-
-    // Método para obter o tamanho da lista
-    size()
-    {
-        return this.length;
-    }
-
-    // Método que executa uma função de callback para cada nó na lista
-    forEach(callback)
-    {
-        let current = this.head;
-        while (current)
-        {
-            callback(current);
-            current = current.next;
-        }
-    }
-
-    // Método para obter o dado em uma posição específica na lista
-    getElementAt(position)
-    {
-        if (position < 0 || position >= this.length)
-        {
-            console.log("Posição inválida.");
-            return null;
-        }
-
-        let current = this.head;
-        let index = 0;
-
-        while (index < position)
-        {
-            current = current.next;
-            index++;
-        }
-
-        return current.data;
-    }
-}
-
-// Criando uma instância da classe LinkedList para representar a lista de usuários
-const userList = new LinkedList();
 
 // Função que cria dinamicamente elementos HTML para representar um usuário
 const createDynamicElement = (imagePath) => {
@@ -681,23 +554,20 @@ const imgItemBoxElement = document.createElement('img');
 const spanItemBoxElement = document.createElement('span');
 
 let index; // Variável para armazenar um índice
-const imgAddedName = []; // Lista para armazenar nomes de imagens adicionados
-let tempImgAddedName; // Variável temporária para armazenar um nome de imagem
-
 
 // Função para adicionar um elemento no início da lista
 const AddInicioFunc = () =>
 {
     const element = createDynamicElement(movies[index].pathFile);
     listBox.insertBefore(element, listBox.firstChild);
-    userList.insertStart(element);
+    // userList.insertStart(element);
 }
 
 // Função para adicionar um elemento no final da lista
 const AddFimFunc = () =>
 {
     const element = createDynamicElement(movies[index].pathFile);
-    userList.insertEnd(element);
+    // userList.insertEnd(element);
 }
 
 // Função para confirmar adição no meio da lista
@@ -720,8 +590,7 @@ const confirmAddMeio = () => {
 
                 // Inserir o novo elemento antes do elemento encontrado
                 if (existingElement) {
-                    // listBox.insertBefore(element, existingElement);
-                    listBox.insertBefore(element, listBox.firstChild);
+                    listBox.insertBefore(element, existingElement);
 
                 } else {
                     // Se o elemento não existe, adicionar no final da lista
@@ -809,23 +678,11 @@ const handleButtonClick = (actionType) =>
                 return;
         }
 
-        // Adiciona o nome do filme à lista de nomes adicionados
-        imgAddedName.includes(movies[index].pathFile) ? '' : imgAddedName.push(movies[index].pathFile);
-
-        console.log('imgAddedName: ' + imgAddedName);
-        console.log('tempImgAddedName: ' + tempImgAddedName);
     }
     else
     {
         console.error('Movies está indefinido ou movies[index] é undefined.');
     }
-
-    // Imprime a lista encadeada no console
-    console.log('Linked list: ');
-    userList.print();
-
-    // Imprime o tamanho da lista encadeada no console
-    console.log("Size List: " + userList.size());
 
     // Ajusta os IDs dos elementos no DOM
     document.querySelectorAll('.itemBox').forEach((el, idx) =>
@@ -908,9 +765,6 @@ const subMenu = () =>
             btnAddInicio.classList.remove('hiddenInput');
             btnAddFim.classList.remove('hiddenInput');
             btnAddMeio.classList.remove('hiddenInput');
-
-            // Reinicializa o índice
-            // index = 0;
         });
     });
 }
