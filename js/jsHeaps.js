@@ -39,7 +39,7 @@ document.querySelector('.front').addEventListener('click', () => {
 // Quando o nó de Sci-Fi é clicado
 document.querySelector('.design').addEventListener('click', () => {
     // Exibe os ramos relacionados ao Sci-Fi
-    document.querySelectorAll('.design1').forEach((e) => e.classList.add('show'));
+    document.querySelectorAll('.web1').forEach((e) => e.classList.add('show'));
     // Ativa as linhas de conexão relacionadas ao Sci-Fi
     document.querySelectorAll('.designToB3').forEach((e) => e.classList.add('activeLine'));
 });
@@ -47,7 +47,7 @@ document.querySelector('.design').addEventListener('click', () => {
 // Quando o nó de séries é clicado
 document.querySelector('.web').addEventListener('click', () => {
     // Exibe os ramos relacionados às séries
-    document.querySelectorAll('.web1').forEach((e) => e.classList.add('show'));
+    document.querySelectorAll('.design1').forEach((e) => e.classList.add('show'));
     // Ativa as linhas de conexão relacionadas às séries
     document.querySelectorAll('.webToB3').forEach((e) => e.classList.add('activeLine'));
 });

@@ -45,7 +45,7 @@ body
 {
     position: relative;
     margin-top: 5vh;
-    font-size: 25px;
+    font-size: min(18px, 2vh);
     width: 100%;
     padding: 3vh;
     border-radius: 2vh;

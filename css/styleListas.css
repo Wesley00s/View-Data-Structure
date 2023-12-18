@@ -41,7 +41,7 @@ body
 .section1 p
 {
     position: relative;
-    font-size: min(25px, 2vh);
+    font-size: min(18px, 2vh);
     width: 110%;
     margin-top: 5vh;
     padding: 3vh;

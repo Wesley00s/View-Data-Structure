@@ -277,9 +277,9 @@ const movies = [
                     A verdade é mais dura do que ele jamais poderia imaginar...—Danny Rosenbluth
                 `
     },
-    {
+     {
         id : 10,
-        bg : '../images/imgListas/list/blade.png',
+        bg : '../images/imgListas/list/blade-bg.png',
         completeTitle : 'Blade Runner - O caçador de androides',
         year : '(1982)',
         name : 'Blade Runner',
@@ -298,7 +298,7 @@ const movies = [
     },
     {
         id : 11,
-        bg : '../images/imgListas/list/robocop.png',
+        bg : '../images/imgListas/list/robocop-bg.png',
         completeTitle : 'Robocop - O Policial do Futuro',
         year : '(1987)',
         name : 'Robocop',
@@ -315,7 +315,7 @@ const movies = [
     },
     {
         id : 12,
-        bg : '../images/imgListas/list/machina.png',
+        bg : '../images/imgListas/list/machina-bg.png',
         completeTitle : 'Ex Machina - Instinto Artificial',
         year : '(2015)',
         name : 'Ex Machina',
@@ -331,7 +331,7 @@ const movies = [
     },
     {
         id : 13,
-        bg : '../images/imgListas/list/interestellar.png',
+        bg : '../images/imgListas/list/interestellar-bg.png',
         completeTitle : 'Interestelar',
         year : '(2013)',
         name : 'Interestelar',
@@ -348,7 +348,7 @@ const movies = [
     },
     {
         id : 14,
-        bg : '../images/imgListas/list/wall.png',
+        bg : '../images/imgListas/list/wall-bg.png',
         completeTitle : 'Wall-e',
         year : '(2008)',
         name : 'Wall-e',
@@ -370,7 +370,7 @@ const movies = [
     },
     {
         id : 15,
-        bg : '../images/imgListas/list/ely.png',
+        bg : '../images/imgListas/list/elysium-bg.png',
         completeTitle : 'Elysium',
         year : '(2013)',
         name : 'Elysium',
@@ -378,7 +378,7 @@ const movies = [
         desc : `
                 No ano de 2159, existem duas classes de pessoas: os ricos e abastados, 
                 que vivem numa estação espacial chamada Elysium, e o resto, que vive numa 
-                Terra arruinada e superpopulada. A Secretária Rhodes (Jodie Foster), uma 
+                Terra arruinada e superpopulosa. A Secretária Rhodes (Jodie Foster), uma 
                 oficial durona do governo, fará de tudo para garantir que as leis anti-imigração 
                 sejam obedecidas à risca, para preservar o luxuoso estilo de vida dos cidadãos de Elysium. 
                 Isso não impedirá o povo da Terra de tentar entrar, de qualquer forma possível. 
@@ -391,7 +391,7 @@ const movies = [
     
     {
         id : 16,
-        bg : '../images/imgListas/list/matrix.png',
+        bg : '../images/imgListas/list/matrix-bg.png',
         completeTitle : 'The Matrix',
         year : '(1999)',
         name : 'The Matrix',
@@ -410,7 +410,7 @@ const movies = [
     },
     {
         id : 17,
-        bg : '../images/imgListas/list/gravity.png',
+        bg : '../images/imgListas/list/gravity-bg.png',
         completeTitle : 'Gravidade',
         year : '(2013)',
         name : 'Gravidade',
@@ -426,7 +426,7 @@ const movies = [
     },
     {
         id : 18,
-        bg : '../images/imgListas/list/exterminator.png',
+        bg : '../images/imgListas/list/exterminator-bg.png',
         completeTitle : 'Schwarzenegger - O Exterminador do Futuro',
         year : '(1984)',
         name : 'O Exterminador',
@@ -444,7 +444,7 @@ const movies = [
 
     {
         id : 19,
-        bg : '../images/imgListas/list/future.png',
+        bg : '../images/imgListas/list/future-bg.png',
         completeTitle : 'De Volta para o Futuro',
         year : '(1985)',
         name : 'De Volta para o Futuro',
@@ -617,8 +617,12 @@ class LinkedList
 const userList = new LinkedList();
 
 // Função que cria dinamicamente elementos HTML para representar um usuário
-const createDynamicElement = (imagePath) =>
-{
+const createDynamicElement = (imagePath) => {
+    // Verifica se o elemento já existe na lista antes de adicioná-lo
+    if (isElementAlreadyAdded(imagePath)) {
+        return null; // Elemento já existe, não adiciona novamente
+    }
+
     // Criando elementos HTML
     const spanElement = document.createElement('span');
     const divElement = document.createElement('div');
@@ -644,8 +648,59 @@ const createDynamicElement = (imagePath) =>
     // Adicionando o elemento div 'itemBox' a algum elemento com o ID 'listBox' no DOM
     listBox.appendChild(divElement);
 
+    const removeButton = divElement.querySelector('.btnRemove');
+    removeButton.addEventListener('click', () => {
+        // Remove o listBoxItem ao clicar no botão "Remover"
+        // Seleciona o primeiro elemento com a classe 'itemBox' no DOM
+        const itemBox = document.querySelector('.itemBox');
+        listBox.removeChild(divElement);
+
+        let current = userList.head;
+        let previous = null;
+        let found = false;
+
+        // Percorre a lista encadeada até encontrar o elemento correspondente ao itemBox
+        while (current)
+        {
+            if (current.data === itemBox)
+            {
+                found = true;
+                break;
+            }
+
+            previous = current;
+            current = current.next;
+        }
+         // Remove o elemento da lista encadeada
+        if (previous)
+        {
+            previous.next = current.next;
+        }
+        else
+        {
+            userList.head = current.next;
+        }
+
+        userList.length--;
+
+        updateIndices();
+        // Remove o elemento do conjunto para permitir adição futura
+        addedElements.delete(imagePath);
+    });
+
+    // Adiciona o novo elemento ao conjunto para evitar duplicatas
+    addedElements.add(imagePath);
+
     return divElement; // Retornando o elemento div criado para possível manipulação posterior
-}
+};
+
+// Conjunto para rastrear elementos já adicionados
+const addedElements = new Set();
+
+// Função para verificar se o elemento já foi adicionado
+const isElementAlreadyAdded = (imagePath) => {
+    return addedElements.has(imagePath);
+};
 
 // Seleciona o primeiro elemento com a classe 'itemBox' no DOM
 const itemBox = document.querySelector('.itemBox');
@@ -658,22 +713,13 @@ let index; // Variável para armazenar um índice
 const imgAddedName = []; // Lista para armazenar nomes de imagens adicionados
 let tempImgAddedName; // Variável temporária para armazenar um nome de imagem
 
-// Função para atualizar a lista no DOM com base nos dados da lista encadeada
-const updateListBox = () =>
-{
-    listBox.innerHTML = '';
-    userList.forEach((node) =>
-    {
-        listBox.appendChild(node.data);
-    });
-}
 
 // Função para adicionar um elemento no início da lista
 const AddInicioFunc = () =>
 {
     const element = createDynamicElement(movies[index].pathFile);
+    listBox.insertBefore(element, listBox.firstChild);
     userList.insertStart(element);
-    updateListBox();
 }
 
 // Função para adicionar um elemento no final da lista
@@ -681,30 +727,36 @@ const AddFimFunc = () =>
 {
     const element = createDynamicElement(movies[index].pathFile);
     userList.insertEnd(element);
-    updateListBox();
 }
 
 // Função para confirmar adição no meio da lista
-const confirmAddMeio = () =>
-{
+const confirmAddMeio = () => {
     console.log(`Input: ${valueInput.value}`);
 
-    btnConfirmAddMeio.addEventListener('click', () =>
-    {
-        if (valueInput.value !== '')
-        {
+    btnConfirmAddMeio.addEventListener('click', () => {
+        if (valueInput.value !== '') {
             // Validar se valueInput.value é um número
             const indexToAdd = parseInt(valueInput.value);
 
             // Validar se o índice está dentro dos limites da lista
-            if (!isNaN(indexToAdd) && indexToAdd >= 0 && indexToAdd <= userList.size())
-            {
+            if (!isNaN(indexToAdd) && indexToAdd >= 0 && indexToAdd <= listBox.children.length) {
                 const element = createDynamicElement(movies[index].pathFile);
-                
+
                 console.log(`Element: ${element.innerHTML}`);
 
-                userList.insertAfter(indexToAdd, element);
-                updateListBox();
+                // Encontrar o elemento na posição indexToAdd na lista
+                const existingElement = listBox.children[indexToAdd];
+
+                // Inserir o novo elemento antes do elemento encontrado
+                if (existingElement) {
+                    // listBox.insertBefore(element, existingElement);
+                    listBox.insertBefore(element, listBox.firstChild);
+
+                } else {
+                    // Se o elemento não existe, adicionar no final da lista
+                    listBox.appendChild(element);
+                }
+
                 resetInputVisibility();
 
                 valueInput.value = '';
@@ -716,26 +768,22 @@ const confirmAddMeio = () =>
             }
         }
     });
-}
+};
 
 // Função para adicionar um elemento no meio da lista (interação com usuário)
 const AddMeioFunc = () =>
 {
-    if (!imgAddedName.includes(tempImgAddedName))
-    {
-        input.classList.toggle('hiddenInput');
-        btnAddInicio.classList.toggle('hiddenInput');
-        btnAddFim.classList.toggle('hiddenInput');
-        btnAddMeio.classList.toggle('hiddenInput');
-    }
+    input.classList.toggle('hiddenInput');
+    btnAddInicio.classList.toggle('hiddenInput');
+    btnAddFim.classList.toggle('hiddenInput');
+    btnAddMeio.classList.toggle('hiddenInput');
+    
     // Cancela a adição no meio da lista
     btnCancelAddMeio.addEventListener('click', () =>
     {
         resetInputVisibility();
         return;
     });
-
-    updateListBox();
 }
 
 // Cria listener para adicionar no meio
@@ -744,6 +792,10 @@ btnAddMeio.addEventListener('click', () => AddMeioFunc());
 // Função para atualizar os índices exibidos no DOM
 const updateIndices = () =>
 {
+    document.querySelectorAll('.itemBox').forEach((el, idx) =>
+    {
+        el.id = idx - 20;
+    });
     document.querySelectorAll('.numb').forEach((el, idx) =>
     {
         el.textContent = idx;
@@ -765,38 +817,32 @@ const handleButtonClick = (actionType) =>
     // Verifica se a lista de filmes está definida e se o índice é válido
     if (movies && movies.length > index && movies[index])
     {
-        // Verifica se o nome temporário já está na lista de nomes adicionados
-        if (imgAddedName.includes(tempImgAddedName))
-        {
-            // console.log('Elemento já presente na lista!');
-            // Mensagem para o usuário informando que o filme já está na lista
-            titleOpc.textContent = 'Elemento já presente na lista!';
-        }
-        else
-        {
-            // Executa ação com base no tipo de ação passado como parâmetro
-            switch (actionType)
-            {
-                case 'addInicio':
-                    AddInicioFunc();
-                    break;
-                case 'addFim':
-                    AddFimFunc();
-                    break;
-                case 'addMeio':
-                    confirmAddMeio();
-                    break;
-                default:
-                    console.error('Ação não reconhecida.');
-                    return;
-            }
+        console.log('Elemento já presente na lista!');
+        // Mensagem para o usuário informando que o filme já está na lista
+        titleOpc.textContent = 'Elemento já presente na lista!';
 
-            // Adiciona o nome do filme à lista de nomes adicionados
-            imgAddedName.includes(movies[index].name) ? '' : imgAddedName.push(movies[index].name);
-
-            // console.log('imgAddedName: ' + imgAddedName);
-            // console.log('tempImgAddedName: ' + tempImgAddedName);
+        // Executa ação com base no tipo de ação passado como parâmetro
+        switch (actionType)
+        {
+            case 'addInicio':
+                AddInicioFunc();
+                break;
+            case 'addFim':
+                AddFimFunc();
+                break;
+            case 'addMeio':
+                confirmAddMeio();
+                break;
+            default:
+                console.error('Ação não reconhecida.');
+                return;
         }
+
+        // Adiciona o nome do filme à lista de nomes adicionados
+        imgAddedName.includes(movies[index].pathFile) ? '' : imgAddedName.push(movies[index].pathFile);
+
+        console.log('imgAddedName: ' + imgAddedName);
+        console.log('tempImgAddedName: ' + tempImgAddedName);
     }
     else
     {
@@ -813,7 +859,7 @@ const handleButtonClick = (actionType) =>
     // Ajusta os IDs dos elementos no DOM
     document.querySelectorAll('.itemBox').forEach((el, idx) =>
     {
-        el.id = idx - 10;
+        el.id = idx - 20;
     });
 
     // Atualiza os índices exibidos no DOM
@@ -821,6 +867,7 @@ const handleButtonClick = (actionType) =>
     {
         el.textContent = idx;
     });
+
 }
 
 // Adiciona um ouvinte de evento de clique ao botão 'Adicionar no Início'
@@ -829,74 +876,6 @@ btnAddInicio.addEventListener('click', () => handleButtonClick('addInicio'));
 btnAddFim.addEventListener('click', () => handleButtonClick('addFim'));
 // Adiciona um ouvinte de evento de clique ao botão 'Confirmar'
 btnConfirmAddMeio.addEventListener('click', () => handleButtonClick('addMeio'));
-
-// Função para remover um filme da lista
-const removeMovie = () =>
-{
-    // Adiciona um ouvinte de eventos de clique ao elemento com o ID 'listBox'
-    listBox.addEventListener('click', (event) =>
-    {
-        // Verifica se o elemento clicado possui a classe 'btnRemove'
-        if (event.target.classList.contains('btnRemove'))
-        {
-            // Encontra o elemento pai mais próximo com a classe 'itemBox'
-            const itemBox = event.target.closest('.itemBox');
-
-            // Inicializa variáveis para percorrer a lista encadeada
-            let current = userList.head;
-            let previous = null;
-            let found = false;
-
-            // Percorre a lista encadeada até encontrar o elemento correspondente ao itemBox
-            while (current)
-            {
-                if (current.data === itemBox)
-                {
-                    found = true;
-                    break;
-                }
-
-                previous = current;
-                current = current.next;
-            }
-
-            // Se o elemento foi encontrado
-            if (found)
-            {
-                // Obtém o nome do item a ser removido da lista de nomes adicionados
-                const removedItemName = imgAddedName[index];
-
-                // Encontra o índice do nome na lista de nomes adicionados e remove-o
-                const indexToRemove = imgAddedName.indexOf(removedItemName);
-                if (indexToRemove !== -1)
-                {
-                    imgAddedName.splice(indexToRemove, 1);
-                    console.log('Elemento removido de imgAddedName:', removedItemName);
-                }
-
-                // Remove o elemento da lista encadeada
-                if (previous)
-                {
-                    previous.next = current.next;
-                }
-                else
-                {
-                    userList.head = current.next;
-                }
-
-                // Remove o elemento do DOM
-                itemBox.remove();
-                console.log('Elemento removido:', itemBox);
-
-                // Atualiza o tamanho da lista encadeada
-                userList.length--;
-            }
-        }
-    });
-}
-// Chama a função para remover filmes
-removeMovie();
-
 
 // Função para lidar com o submenu de opções para filmes disponíveis
 const subMenu = () =>
@@ -929,7 +908,7 @@ const subMenu = () =>
             const movie = movies[index];
             movie.id = index;
 
-            tempImgAddedName = movie.name;
+            tempImgAddedName = movie.pathFile;
 
             // Exibe informações no console
             console.log('Nome do filme: ' + movie.name);
@@ -960,7 +939,7 @@ const subMenu = () =>
             btnAddMeio.classList.remove('hiddenInput');
 
             // Reinicializa o índice
-            index = 0;
+            // index = 0;
         });
     });
 }

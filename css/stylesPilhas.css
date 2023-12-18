@@ -41,9 +41,8 @@ body
     background: #00000086;
     padding: 5vh;
     color: #fff;
-    font-size: 20px;
     width: 100%;
-    font-size: min(30px, 3vh);
+    font-size: min(18px, 2vh);
     border-radius: 1vh;
 }
 
@@ -97,7 +96,7 @@ body
     color: #fff;
     font-size: 20px;
     width: 70%;
-    font-size: min(30px, 3vh);
+    font-size: min(30px, 2vh);
     border-radius: 1vh;
     top:30%;
     z-index: 2;
