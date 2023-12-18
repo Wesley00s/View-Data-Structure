@@ -618,11 +618,10 @@ const userList = new LinkedList();
 
 // Função que cria dinamicamente elementos HTML para representar um usuário
 const createDynamicElement = (imagePath) => {
-    // Verifica se o elemento já existe na lista antes de adicioná-lo
-    if (isElementAlreadyAdded(imagePath)) {
-        return null; // Elemento já existe, não adiciona novamente
+    if (addedElements.has(imagePath)) {
+        console.log('Elemento já existe na lista:', imagePath);
+        return null; // Retorna nulo para indicar que o elemento não foi adicionado
     }
-
     // Criando elementos HTML
     const spanElement = document.createElement('span');
     const divElement = document.createElement('div');
@@ -655,35 +654,7 @@ const createDynamicElement = (imagePath) => {
         const itemBox = document.querySelector('.itemBox');
         listBox.removeChild(divElement);
 
-        let current = userList.head;
-        let previous = null;
-        let found = false;
-
-        // Percorre a lista encadeada até encontrar o elemento correspondente ao itemBox
-        while (current)
-        {
-            if (current.data === itemBox)
-            {
-                found = true;
-                break;
-            }
-
-            previous = current;
-            current = current.next;
-        }
-         // Remove o elemento da lista encadeada
-        if (previous)
-        {
-            previous.next = current.next;
-        }
-        else
-        {
-            userList.head = current.next;
-        }
-
-        userList.length--;
-
-        updateIndices();
+        // updateIndices();
         // Remove o elemento do conjunto para permitir adição futura
         addedElements.delete(imagePath);
     });
