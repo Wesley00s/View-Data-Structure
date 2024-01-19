@@ -354,6 +354,7 @@ body
     background: linear-gradient(45deg, #005564, #00000000);
     border-radius: .5vh;
     font-weight: 600;
+    margin-top: 2vh;
 }
 
 .titleBookHidden
