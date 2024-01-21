@@ -30,7 +30,7 @@ body
 .section1 h1
 {
     position: relative;
-    margin-top: 10vh;
+    margin-top: 20vh;
     font-size: max(25px, 2.5vh);
     padding: 1vh 5vh;
     width: fit-content;
