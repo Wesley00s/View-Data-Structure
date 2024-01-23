@@ -41,14 +41,13 @@ body
 .section1 p
 {
     position: relative;
-    font-size: min(18px, 2vh);
-    width: 110%;
     margin-top: 5vh;
+    font-size: min(18px, 2.5vh);
+    width: 100%;
     padding: 3vh;
-    border-radius: 3vh;
-    background: #00000086;
+    border-radius: 2vh;
+    background: #00000079;
 }
-
 @media (max-width: 320px)
 {
     .section1 p
