@@ -1,7 +1,7 @@
 
 # View-Data-Structure 🎲🖥️
 
-Repositório público de um projeto web para visualização dinâmica dos diferentes tipos de esturutas de dados computacionais. O projeto faz parte de uma atividade avaliativa aplicada aos estudantes do curso superior de Tecnologia em Análise e Desenvolvimento de Sistemas do Instituto Federal de Educação, Ciência e Tecnologia do Ceará, campus Boa Viagem,
+Repositório público de um projeto web para visualização dinâmica dos diferentes tipos de estruturas de dados computacionais. O projeto faz parte de uma atividade avaliativa aplicada aos estudantes do curso superior de Tecnologia em Análise e Desenvolvimento de Sistemas do Instituto Federal de Educação, Ciência e Tecnologia do Ceará, campus Boa Viagem,
 na cadeira de Programação Estruturada e Estrutura de Dados no segundo semestre letivo da graducação.
 
 ## Descrição 📄
