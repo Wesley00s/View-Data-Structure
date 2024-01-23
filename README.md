@@ -1,7 +1,7 @@
 
 # View-Data-Structure 🎲🖥️
 
-Repositório público de um projeto web para visualização dinâmica dos diferentes tipos de esturutas de dados computacionais. O projeto faz parte de uma atividade avaliativa aplicada aos estudantes do curso superior de Tecnologia em Análise e Desenvolvimento de Sistemas do Instituto Federal de Educação, Ciência e Tecnologia do Ceará, campus Boa Viagem,
+Repositório público de um projeto web para visualização dinâmica dos diferentes tipos de estruturas de dados computacionais. O projeto faz parte de uma atividade avaliativa aplicada aos estudantes do curso superior de Tecnologia em Análise e Desenvolvimento de Sistemas do Instituto Federal de Educação, Ciência e Tecnologia do Ceará, campus Boa Viagem,
 na cadeira de Programação Estruturada e Estrutura de Dados no segundo semestre letivo da graducação.
 
 ## Descrição 📄
@@ -22,6 +22,12 @@ Clone o repositório por meio do terminal git com :
 ```bash
 git@github.com:Wesley00s/View-Data-Structure.git
 ```
+=======
+
+```bash
+git@github.com:Wesley00s/View-Data-Structure.git
+```
+
 ## Tecnologias utilizadas 👨‍💻🖥️
 
 Uma recomendação íntegra para qualquer qualquer indivíduo que aspira a ser desenvolvedor de software é familiarizar-se com as documentações oficiais das linguagens de marcação ou programação disponibilizadas pelos criadores da respectiva tecnologia.
