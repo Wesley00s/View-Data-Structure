@@ -19,6 +19,10 @@ O sistema web consiste em uma aplicação interativa e dinâmica que demonstre o
 ## Como instalar 🧑‍🔧
 
 Clone o repositório por meio do terminal git com :
+```bash
+git@github.com:Wesley00s/View-Data-Structure.git
+```
+=======
 
 ```bash
 git@github.com:Wesley00s/View-Data-Structure.git
