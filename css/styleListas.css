@@ -1,159 +1,153 @@
-body
-{
+/* Estilo geral para toda a página */
+body {
     overflow: hidden;
 }
-.content
-{
+
+/* Estilo para o contêiner principal */
+.content {
     display: flex;
     flex-direction: column;
     color: #fff;
 }
 
-.section1
-{
+/* Estilo para a primeira seção */
+.section1 {
     background-image: url('../images/imgListas/bg1.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
-    height: 100vh;
+    height: 110vh;
     width: 100%;
     display: flex;
 }
 
-.leftSide
-{
+/* Estilo para o lado esquerdo da primeira seção */
+.leftSide {
     flex-direction: column;
     margin-left: 5vh;
-    width: 50%;
+    width: 60%;
 }
 
-.section1 h1
-{
+/* Estilo para o título no lado esquerdo */
+.leftSide h1 {
     position: relative;
-    margin-top: 20vh;
-    font-size: max(25px, 2.5vh);
-    padding: 1vh 5vh;
+    margin-top: 100px;
+    margin-left: 3.5vh;
+    padding: 1.5vh 3vh;
+    font-size: 2.5vh;
     width: fit-content;
-    background: #0c0479;
+    background: #0819b8;
     border-radius: 1vh;
 }
 
-.section1 p
-{
+/* Estilo para o parágrafo no lado esquerdo */
+.leftSide p {
     position: relative;
     margin-top: 5vh;
-    font-size: min(18px, 2.5vh);
-    width: 100%;
-    padding: 3vh;
-    border-radius: 2vh;
-    background: #00000079;
+    left: -5vh;
+    font-size: 22px;
+    line-height: 3.5vh;
+    width: 110%;
+    padding: 3vh 4vh 3vh 3vh;
+    text-align: justify;
+    /* (sup.esq.,sup.dir.,inf.dir., inf.esq.) */
+    border-radius: 0 4vh 4vh 0; 
+    background: #00000090;
 }
-@media (max-width: 320px)
-{
-    .section1 p
-    {
+
+/* Estilo responsivo para telas pequenas */
+@media (max-width: 320px) {
+    .section1 p {
         width: 200%;
     }
 
-    .sliderList
-    {
+    .sliderList {
         display: none;
     }
 }
 
-.shelfImg
-{
+/* Estilo para a imagem da prateleira */
+.shelfImg {
     position: relative;
     margin: 2vh 10vh;
     width: 70vh;
 }
 
-.rightSide
-{
+/* Estilo para o lado direito da primeira seção */
+.rightSide {
     display: flex;
     justify-content: center;
     position: relative;
     width: 50%;
 }
 
-.sliderList
-{
+/* Estilo para a lista de slides */
+.sliderList {
     width: 100%;
     overflow: hidden;
     height: 100vh;
-    
 }
 
-.container
-{
+/* Estilo para o contêiner */
+.container {
     margin-top: 20vh;
     display: flex;
     flex-direction: column;
 }
 
-.sliderList img
-{
+/* Estilo para as imagens na lista de slides */
+.sliderList img {
     border-radius: 100%;
     object-fit: cover;
     margin: .5vh auto;
-
 }
 
-.minWidthSliders
-{
+/* Estilo para larguras diferentes de slides */
+.minWidthSliders {
     width: 1vh;
     filter: blur(0.5px);
     opacity: .5;
-
 }
 
-.maxWidthSliders
-{
+.maxWidthSliders {
     width: 12vh;
     filter: blur(0.5px);
     opacity: .8;
     transition: 2s ease-out;
-
 }
 
-.focus
-{
+/* Estilo para o slide em foco */
+.focus {
     box-shadow: 0px 0px 10vh #344069;
     width: 16vh;
     filter: blur(0);
     transition: 2s ease-out;
 }
 
-@media (max-width: 426px)
-{
-    .section1 h1
-    {
+/* Estilo responsivo para telas menores */
+@media (max-width: 426px) {
+    .section1 h1 {
         margin-left: 3.5vh;
         padding: .3vh 3vh;
         font-size: min(30px, 1.6vh);
     }
-    .minWidthSliders
-    {
+    .minWidthSliders {
         width: 10vh;
-
     }
-    .maxWidthSliders
-    {
+    .maxWidthSliders {
         width: 4vh;
     }
-    .rightSide
-    {
+    .rightSide {
         margin-top: 45%;
         width: 35%;
     }
-    .focus
-    {
+    .focus {
         width: 10vh;
     }
 }
 
-.section2
-{
+/* Estilo para a segunda seção */
+.section2 {
     background-image: url('../images/imgListas/bg2.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -165,8 +159,8 @@ body
     justify-content: space-between;
 }
 
-.title2
-{
+/* Estilo para o título da segunda seção */
+.title2 {
     font-size: max(20px, 2vh);
     background: #0a2945;
     text-align: right;
@@ -177,8 +171,8 @@ body
     border-bottom-right-radius: 10vh;
 }
 
-.circleText
-{
+/* Estilo para o texto circular */
+.circleText {
     background: linear-gradient(#00000000, #000000);
     box-shadow: 7px 8px 5px #000;
     font-size: max(20px, 2vh);
@@ -189,37 +183,36 @@ body
     border-radius: 100%;
     text-align: center;
     align-items: center;
-
 }
 
-.leftSide2
-{
+/* Estilo para o lado esquerdo da segunda seção */
+.leftSide2 {
     flex-direction: row;
     width: 50%;
 }
 
-.rightSide2
-{
+/* Estilo para o lado direito da segunda seção */
+.rightSide2 {
     flex-direction: row;
     height: fit-content;
     width: 30%;
     background: #000;
 }
 
-.menuList
-{
+/* Estilo para a lista de menu */
+.menuList {
     flex-direction: row;
 }
 
-.contentSides
-{
+/* Estilo para os conteúdos laterais */
+.contentSides {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.listContent
-{
+/* Estilo para o conteúdo da lista */
+.listContent {
     display: flex;
     position: relative;
     flex-direction: row;
@@ -229,8 +222,8 @@ body
     z-index: 0;
 }  
 
-.listBox
-{
+/* Estilo para a caixa da lista */
+.listBox {
     display: flex;
     flex-wrap: wrap;
     width: 90%;
@@ -246,8 +239,8 @@ body
     background: linear-gradient(#252e8200, #252e824d);
 }
 
-.itemList
-{
+/* Estilo para os itens da lista */
+.itemList {
     cursor: pointer;
     width: 12vh;
     flex-direction: row;
@@ -259,27 +252,26 @@ body
     box-shadow: 5px 3px 6px #000;
 }
 
-.itemList:hover
-{
+/* Estilo hover para os itens da lista */
+.itemList:hover {
     box-shadow: 10px 8px 55px #0842ac98;
-
 }
 
-.itemBox
-{
+/* Estilo para a caixa do item */
+.itemBox {
     width: fit-content;
     align-items: center;
     justify-content: center;
 }
 
-.styleItemBox
-{
+/* Estilo para o conteúdo do item */
+.styleItemBox {
     display: flex;
     flex-direction: column;
 }
 
-.numb
-{
+/* Estilo para o número do item */
+.numb {
     font-size: 20px;
     position: absolute;
     background: #002958;
@@ -291,8 +283,8 @@ body
     border-radius: 10vh;
 }
 
-.bgList
-{
+/* Estilo para o fundo da lista */
+.bgList {
     position: absolute;
     z-index: -999;
     bottom: 82%;
@@ -301,15 +293,14 @@ body
     animation: 1.5s ease-in-out;
 }
 
-.bgListAnimation
-{
-        transform: translateX(0);
+/* Estilo para a animação do fundo da lista */
+.bgListAnimation {
+    transform: translateX(0);
     animation: 1.5s ease-in-out;
-
 }
 
-.boxDesc
-{
+/* Estilo para a caixa de descrição */
+.boxDesc {
     font-size: 30px;
     width: 50%;
     background: #000000a6;
@@ -326,28 +317,27 @@ body
     transform: translateX(100%);
 }
 
-.animationBoxDesc
-{
+/* Estilo para a animação da caixa de descrição */
+.animationBoxDesc {
     transform: translateX(0);
 }
 
-.titleFilm
-{
+/* Estilo para o título do filme */
+.titleFilm {
     position: relative;
     display: flex;
     padding: 1vh;
     margin-top: -2vh;
     margin-bottom: 2vh;
-    
 }
 
-.titleFilm h3
-{
+/* Estilo para o texto do título do filme */
+.titleFilm h3 {
     color: #99A5BC;
 }
 
-.btnAdd
-{
+/* Estilo para o botão de adicionar */
+.btnAdd {
     position: relative;
     padding: 1vh 2vh;
     box-shadow: 3px 4px 5px #000;
@@ -361,14 +351,14 @@ body
     text-align: center;
 }
 
-.btnAdd:hover
-{
+/* Estilo hover para o botão de adicionar */
+.btnAdd:hover {
     background: #005318;
     box-shadow: 2px 2px 4px #00000088;
 }
 
-.btnRemove
-{
+/* Estilo para o botão de remover */
+.btnRemove {
     position: relative;
     bottom: 2vh;
     right: 15vh;
@@ -381,14 +371,14 @@ body
     margin-top: 1vh;
 }
 
-.btnRemove:hover
-{
+/* Estilo hover para o botão de remover */
+.btnRemove:hover {
     background: #4e0000;
     box-shadow: 2px 2px 4px #00000088;
 }
 
-.searchMovie
-{
+/* Estilo para a barra de pesquisa de filmes */
+.searchMovie {
     padding: 1vh;
     display: flex;
     margin: auto;
@@ -396,11 +386,10 @@ body
     font-size: 15px;
     width: 10vh;
     margin-top: 1vh;
-
 }
 
-.boxHeader
-{
+/* Estilo para o cabeçalho da caixa */
+.boxHeader {
     position: relative;
     bottom: 12%;
     width: 90%;
@@ -410,8 +399,8 @@ body
     justify-content: space-between;  
 }
 
-.myList 
-{
+/* Estilo para a lista "Minha Lista" */
+.myList {
     display: flex;
     position: relative;
     background: #0A2945;
@@ -424,8 +413,8 @@ body
     border-bottom-right-radius: 12vh;
 }
 
-.botaoVerTitulos
-{
+/* Estilo para o botão de ver títulos */
+.botaoVerTitulos {
     display: flex;
     position: relative;
     width: 30vh;
@@ -440,14 +429,14 @@ body
     box-shadow: -5px 5px 8px rgb(0, 4, 14)
 }
 
-.botaoVerTitulos:hover
-{
+/* Estilo hover para o botão de ver títulos */
+.botaoVerTitulos:hover {
     background: #004214;
     box-shadow: -2px 2px 6px rgba(0, 4, 14, 0.733)
 }
 
-.arrowImg
-{
+/* Estilo para a imagem da seta */
+.arrowImg {
     position: relative;
     width: 9%;
     height: 19%;    
@@ -456,15 +445,15 @@ body
     z-index: 1;
 }
 
-.hiddenMenuList
-{
+/* Estilo para a lista de menu oculta */
+.hiddenMenuList {
     opacity: 0;
     transition: 600ms ease-in-out;
     z-index: -999;
 }
 
-.opcoesAdd
-{
+/* Estilo para as opções de adição */
+.opcoesAdd {
     display: flex;
     justify-content: space-around; 
     align-items: center;
@@ -472,15 +461,15 @@ body
     padding: .5vh;
 }
 
-.opcoesAdd button
-{
+/* Estilo para os botões de opções */
+.opcoesAdd button {
     align-items: center;
     display: flex;
     justify-content: center;
 }
 
-.name
-{
+/* Estilo para o nome */
+.name {
     font-size: 20px;
     position: relative;
     display: flex;
@@ -493,8 +482,8 @@ body
     margin-top: 0.5vh;
 }
 
-.containerAvailable
-{
+/* Estilo para o contêiner de disponíveis */
+.containerAvailable {
     flex-direction: row;
     display: flex;
     flex-wrap: wrap;
@@ -504,8 +493,8 @@ body
     margin-right: 2vh;
 }
 
-.hiddenOpcoes
-{
+/* Estilo para as opções ocultas */
+.hiddenOpcoes {
     z-index: 1;
     background: linear-gradient(45deg, #000a16f6, #00050a);
     border-radius: 1vh;
@@ -526,28 +515,27 @@ body
     justify-content: center;
 }
 
-
-.translateHiddenOpcoes1
-{
+/* Estilo para a animação de transição das opções ocultas */
+.translateHiddenOpcoes1 {
     transform: translateX(350%);
 }
-.translateHiddenOpcoes2
-{
+
+.translateHiddenOpcoes2 {
     transform: translateX(100%);
     transition: 1s ease-in-out;
 }
-.translateHiddenOpcoes
-{
+
+.translateHiddenOpcoes {
     transform: translateX(0%);
 }
 
-.backAllTranslateHiddenOpcoes
-{
+/* Estilo para a transição de volta das opções ocultas */
+.backAllTranslateHiddenOpcoes {
     transform: translateX(350%);
 }
 
-.titleOpc
-{
+/* Estilo para o título das opções */
+.titleOpc {
     text-align: center;
     border-radius: .5vh;
     font-size: 18px;
@@ -557,8 +545,8 @@ body
     font-size: max(18px, 1.5vh);
 }
 
-.txtOpc
-{
+/* Estilo para o texto das opções */
+.txtOpc {
     font-size: 18px;
     padding: 1vh;
     background: linear-gradient(45deg, #3f0d0d7c, #002d61ab);
@@ -567,8 +555,8 @@ body
     border-radius: .5vh;
 }
 
-.searchFilme
-{
+/* Estilo para a barra de pesquisa de filmes nas opções */
+.searchFilme {
     top: 2vh;
     position: absolute;
     padding: .5vh 1vh;
@@ -577,8 +565,8 @@ body
     left: 2vh;
 }
 
-.btnFechar
-{
+/* Estilo para o botão de fechar as opções */
+.btnFechar {
     position: absolute;
     padding: .5vh 1.2vh;
     box-shadow: 1px 2px 4px #000;
@@ -592,8 +580,8 @@ body
     left: 0%;
 }
 
-.imgAdd
-{
+/* Estilo para a imagem de adição */
+.imgAdd {
     display: flex;
     margin: auto;
     align-items: center;
@@ -602,15 +590,15 @@ body
     width: fit-content;
 }
 
-.imgSelected
-{
+/* Estilo para a imagem selecionada */
+.imgSelected {
     width: 13.5vh;
     box-shadow: 6px 6px 100px rgb(96, 205, 255);
     border: #002958 5px solid;
 }
 
-.menuTitulos
-{
+/* Estilo para a lista de títulos do menu */
+.menuTitulos {
     background-image: url(../images/imgListas/bgTitulos.png);
     background-repeat: no-repeat;
     background-position: 0 0;
@@ -635,30 +623,30 @@ body
     transform: translateX(0%);
 }
 
-.hiddenSideAvailable
-{
+/* Estilo para ocultar a lista de disponíveis */
+.hiddenSideAvailable {
     transform: translateX(110%);
     transition: 1s;
 }
 
-.visibleSideAvailable
-{
+/* Estilo para mostrar a lista de disponíveis */
+.visibleSideAvailable {
     transform: translateX(0%);
     transition: 1s;
 }
 
-.confirmAddMeio
-{
+/* Estilo para o botão de confirmação de adição */
+.confirmAddMeio {
     background: #00691D;
 }
 
-.cancelAddMeio
-{
+/* Estilo para o botão de cancelamento de adição */
+.cancelAddMeio {
     background: #9e0000;
 }
 
-.opcBtn
-{
+/* Estilo para as opções dos botões de opção */
+.opcBtn {
     padding: 1vh;
     font-size: 15px;
     width: 15vh;
@@ -667,52 +655,123 @@ body
     border-radius: 1vh;
 }
 
-.opcBtn:hover
-{
+/* Estilo hover para as opções dos botões de opção */
+.opcBtn:hover {
     background: #9753533a;
 }
 
-.hiddenInput
-{
+/* Estilo para ocultar a entrada de arquivo */
+.hiddenInput {
     display: none !important;
     z-index: -999 !important;
 }
 
-.sectionSearch
-{
+/* Estilo para a seção de pesquisa */
+.sectionSearch {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para a lista de disponíveis */
+.listAvailable {
+    width: 10vh;
+    margin: 2vh 0;
+}
+
+/* Estilo para os títulos na lista de disponíveis */
+.availableTitle {
+    font-size: 18px;
+    color: #ffffff;
+    border-bottom: 1px solid #2c2c2c;
+}
+
+/* Estilo hover para os títulos na lista de disponíveis */
+.availableTitle:hover {
+    cursor: pointer;
+    background: #0000004d;
+}
+
+/* Estilo para a barra de rolagem da lista de disponíveis */
+.listAvailable::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Estilo para a parte superior da barra de rolagem da lista de disponíveis */
+.listAvailable::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+}
+
+/* Estilo para o cabeçalho da lista de disponíveis */
+.availableHeader {
+    background: #0A2945;
+    color: #ffffff;
+    padding: 1vh 0;
+    font-size: 18px;
+    text-align: center;
+    border-bottom: 1px solid #2c2c2c;
+}
+
+/* Estilo para o botão de upload */
+.uploadBtn {
+    padding: .5vh 1.2vh;
+    box-shadow: 1px 2px 4px #000;
+    font-size: 18px;
+    background: #00691D;
+    margin: 1vh auto 1vh 1vh;
+    display: flex;
+    color: #fff;
+    border-radius: 5vh;
+}
+
+/* Estilo hover para o botão de upload */
+.uploadBtn:hover {
+    background: #005318;
+    box-shadow: 2px 2px 4px #00000088;
+}
+
+/* Estilo para a mensagem de sucesso */
+.successMsg {
+    color: #00691D;
+    font-size: 18px;
+    text-align: center;
+    margin: auto;
+    margin-top: 2vh;
+}
+
+/* Estilo para o contêiner de carregamento */
+.loadingContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
-.listAvailable
-{
-    width: 10vh;
-    margin: 2vh 1vh -2vh 2vh;
-    box-shadow: 10px 10px 50px #000;
+/* Estilo para a animação de carregamento */
+@keyframes loadingAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-.listAvailable:hover
-{
-    box-shadow: 10px 8px 55px #0842ac98;
+/* Estilo para o ícone de carregamento */
+.loadingIcon {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: loadingAnimation 2s linear infinite;
+    margin-bottom: 10px;
 }
 
-.titleSelected
-{
-    font-size: max(30px, 3vh);
-}
-
-.year
-{
-    font-size: max(20px, 1vh);
-}
-
-.desc
-{
-    font-size: max(18px, 2vh);
-}
-
-.name
-{
-    font-size: max(15px, 1.8vh);
+/* Estilo para o texto de carregamento */
+.loadingText {
+    font-size: 18px;
+    color: #00691D;
+    margin-top: 20px;
 }

@@ -1,64 +1,66 @@
-
-header
-{
-    top : 0;
-    left : 0;
-    right : 0;
+/* Estilos para o cabeçalho */
+header {
+    top: 0;
+    left: 0;
+    right: 0;
     background-color: #060429;
-    padding : 0.5rem 2%;
-    display : flex;
-    align-items : center;
+    padding: 0.5rem 2%;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     box-shadow: 1vh 0 2vh #0000008a;
     z-index: 999;
 }
 
+/* Torna o cabeçalho fixo na parte superior da página */
 header {
     position: fixed;
 }
 
-header .navbar a{
-    font-size : max(15px, .7vw);
+/* Estilos para os links da barra de navegação */
+header .navbar a {
+    font-size: max(15px, .7vw);
     padding: .5rem 1.5rem;
-    color : #fff;
-    border : .1rem solid transparent;
+    color: #fff;
+    border: .1rem solid transparent;
 }
-header .navbar a.active, header .navbar a:hover{
-    color : #b8b6d6;
-    border : .1rem solid #b8b6d6a6;
+
+/* Estilos para os links ativos e hover da barra de navegação */
+header .navbar a.active, header .navbar a:hover {
+    color: #b8b6d6;
+    border: .1rem solid #b8b6d6a6;
     border-radius: 1vw;
 }
 
-@media (max-width : 1500px)
-{
-    html 
-    {
+/* Estilos específicos para telas com largura máxima de 1500px */
+@media (max-width: 1500px) {
+    html {
         font-size: 55%;
     }
-    header{
-        padding : 1rem;
+    header {
+        padding: 1rem;
     }
-    header .logo img{
-        height : 6%;
+    header .logo img {
+        height: 6%;
     }
 }
 
-@media (max-width : 980px){
-    
-    header .logo img{
+/* Estilos específicos para telas com largura máxima de 980px */
+@media (max-width: 980px) {
+    header .logo img {
         height: 6%;
     }
 
-    header .navbar{
-        position : fixed;
-        top : 4%;
+    header .navbar {
+        position: fixed;
+        top: 4%;
         right: 0;
-        background : .1rem solid rgba(205, 170, 124, 0.2);
+        background: .1rem solid rgba(205, 170, 124, 0.2);
         border-bottom: .1rem solid rgba(205, 170, 124, 0.2);
         padding: .5rem;
         display: flex;
         flex-direction: column;
-        background:#060429;
+        background: #060429;
         height: 500vw;
         width: 50%;
         transition: 1050ms;
@@ -67,24 +69,23 @@ header .navbar a.active, header .navbar a:hover{
         z-index: -1;
     }
 
-    header .navbar a
-    {
+    header .navbar a {
         padding: 5vw;
     }
-    
-    header .menuIcon
-    {
+
+    header .menuIcon {
         display: block;
     }
-    .hiddenMenu
-    {
+
+    /* Efeito de transição para o menu quando está oculto */
+    .hiddenMenu {
         transform: translateX(100%);
         transition: transform 1000ms;
     }
 }
 
-.menuIcon
-{
+/* Estilos para o ícone do menu */
+.menuIcon {
     top: 20%;
     right: 15%;
     position: absolute;
@@ -93,18 +94,18 @@ header .navbar a.active, header .navbar a:hover{
     cursor: pointer;
 }
 
-.logoTitle
-{
+/* Estilos para o logotipo e título */
+.logoTitle {
     width: auto;
     display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-
 }
-.titlePage
-{
+
+/* Estilos para o título da página */
+.titlePage {
     margin-left: 1rem;
     color: #87b6c2;
     padding: .5vw 3vw;
@@ -113,10 +114,9 @@ header .navbar a.active, header .navbar a:hover{
     font-size: max(10px, 1vw);
 }
 
-@media (max-width : 785px)
-{
-    .logoTitle
-    {
+/* Estilos específicos para telas com largura máxima de 785px */
+@media (max-width: 785px) {
+    .logoTitle {
         width: 60%;
         display: flex;
         text-align: right;

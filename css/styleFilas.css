@@ -1,66 +1,71 @@
-.content
-{
+/* Configuração para ocultar as barras de rolagem do corpo da página */
+body {
+    overflow: hidden;
+}
+
+/* Estilos para a seção principal de conteúdo */
+.content {
     display: flex;
     flex-direction: column;
     color: #fff;
 }
 
-.section1
-{
+/* Estilos para a primeira seção com uma imagem de fundo */
+.section1 {
     background-image: url('../images/imgFilas/bg1.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
-    height: 150vh;
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: row;
-
 }
 
-.leftSide
-{
+/* Estilos para a parte esquerda da primeira seção */
+.leftSide {
     flex-direction: column;
     margin-left: 5vh;
-    width: 50%;
+    width: 55%;
 }
 
-.section1 h1
-{
+/* Estilos para o título h1 na parte esquerda */
+.leftSide h1 {
     position: relative;
-    margin-top: 20vh;
-    font-size: max(25px, 2.5vh);
-    padding: 1vh 5vh;
+    margin-top: 100px;
+    margin-left: 3.5vh;
+    padding: 1.5vh 3vh;
+    font-size: 2.5vh;
     width: fit-content;
-    background: #0c0479;
+    background: #0819b8;
     border-radius: 1vh;
 }
 
-.section1 p
-{
+/* Estilos para o parágrafo na parte esquerda */
+.leftSide p {
     position: relative;
     margin-top: 5vh;
-    font-size: min(18px, 2.5vh);
+    left: -5vh;
+    font-size: 22px;
+    line-height: 3.5vh;
     width: 100%;
-    padding: 3vh;
-    border-radius: 3vh;
-    background: #00000086;
-
+    padding: 3vh 4vh 3vh 3vh;
+    text-align: justify;
+    border-radius: 0 4vh 4vh 0;
+    background: #00000090;
 }
-
-.section2
-{
+/* Estilos para a seção 2 */
+.section2 {
     background-image: url('../images/imgFilas/bg3.png ');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 110vh;
     width: 100%;
-
 }
 
-.bgRobot
-{
+/* Estilos para o fundo do robô */
+.bgRobot {
     position: absolute;
     height: 180vh;
     right: 0;
@@ -68,8 +73,8 @@
     z-index: 1;
 }
 
-.name
-{
+/* Estilos para o nome */
+.name {
     font-size: max(15px, 1.8vh);
     width: 20vh;
     background: #0000006e;
@@ -80,8 +85,8 @@
     margin-left: 0;
 }
 
-.queueContent
-{
+/* Estilos para o contêiner de fila */
+.queueContent {
     display: flex;
     position: absolute;
     top: 100%;
@@ -93,8 +98,8 @@
     justify-content: space-between;
 }  
 
-.queueBox
-{
+/* Estilos para o contêiner de caixa de fila */
+.queueBox {
     position: absolute;
     display: flex;
     flex-wrap: wrap;
@@ -106,8 +111,8 @@
     top: -20%;
 }
 
-.itemBox
-{
+/* Estilos para a caixa de item */
+.itemBox {
     width: 190%;
     display: flex;
     justify-content:left;
@@ -116,10 +121,11 @@
     align-items: center;
     padding-right: 5vh;
     z-index: 999;
-
 }
-.img_queue
-{
+
+
+/* Estilos para a imagem da fila */
+.img_queue {
     width: 10vh;
     height: 10vh;
     flex-direction: row;
@@ -131,20 +137,21 @@
     box-shadow: 5px 3px 6px #000;
 }
 
-.buttons{
+/* Estilos para os botões */
+.buttons {
     margin-top: 45px;
-    display: flex; 
+    display: flex;
     z-index: 999;
 }
 
-.buttons 
-{
+.buttons {
     /* background: #000; */
     width: 100%;
     height: 80vh;
 }
 
-.buttons button{
+/* Estilos para os botões individuais */
+.buttons button {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -160,19 +167,19 @@
     z-index: 99;
 }
 
-.removerBtn
-{
+/* Estilos específicos para o botão de remover */
+.removerBtn {
     top: -20%;
 }
 
-.adicionarBtn
-{
+/* Estilos específicos para o botão de adicionar */
+.adicionarBtn {
     bottom: 30%;
     /* left: 0%; */
 }
 
-.robot p
-{
+/* Estilos para o texto dentro do robô */
+.robot p {
     position: absolute;
     top: 100%;
     width: 5%;
@@ -186,8 +193,8 @@
     z-index: 0;
 }
 
-.showMsg
-{
+/* Estilos para a mensagem visível */
+.showMsg {
     /* padding: 4vh; */
     font-size: max(20px, 2vh);
     width: 15% !important;

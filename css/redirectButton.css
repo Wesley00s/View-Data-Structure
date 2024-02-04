@@ -1,5 +1,5 @@
-.redirectButton
-{
+/* Estilos para o botão de redirecionamento */
+.redirectButton {
     position: fixed;
     width: 20%;
     top: 92%;
@@ -8,8 +8,8 @@
     padding: 1vh;
 }
 
-.redirBtn
-{
+/* Estilos gerais para os botões de redirecionamento */
+.redirBtn {
     color: #fff;
     padding: .8vh 3vh;
     border-radius: 1vh;
@@ -18,20 +18,19 @@
     box-shadow: 1vh 1vh 4vh #000000;
 }
 
-.redirBtn:hover
-{
+/* Efeito ao passar o mouse sobre o botão */
+.redirBtn:hover {
     opacity: .7;
 }
 
-.prev
-{
+/* Estilos específicos para o botão "anterior" */
+.prev {
     border-radius: 10vh 0vh 0vh 10vh;
     background: linear-gradient(90deg, #071a81, #000000);
-
 }
 
-.next
-{
+/* Estilos específicos para o botão "próximo" */
+.next {
     background: linear-gradient(90deg, #000203 , #071a81);
     border-radius: 0vh 10vh 10vh 0vh;
 }
