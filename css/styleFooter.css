@@ -1,5 +1,5 @@
-.footerBody
-{
+/* Estilos para o rodapé */
+.footerBody {
     position: relative;
     display: flex;
     background: linear-gradient(#060429, rgb(0, 0, 0)) no-repeat;
@@ -9,8 +9,8 @@
     padding-top: 1vw;
 }
 
-.lastText
-{
+/* Estilos para o último texto no rodapé */
+.lastText {
     display: flex;
     color: #73a4c5;
     align-items: center;
@@ -23,21 +23,21 @@
     padding: 5vw;
 }
 
-@media (max-width: 768px) 
-{
-    .footerBody
-    {
+/* Estilos para o rodapé em dispositivos com largura máxima de 768px */
+@media (max-width: 768px) {
+    .footerBody {
         height: 60vh;
     }
 }
-.wave
-{
+
+/* Estilos para a onda no rodapé */
+.wave {
     background: #000;
     margin-bottom: -5px;
 }
 
-.logoFooter
-{
+/* Estilos para o logotipo no rodapé */
+.logoFooter {
     margin-top: 100px;
     width: 7rem;
     height: 7rem;
@@ -50,16 +50,16 @@
     z-index: -1;
 }
 
-.dataName
-{
+/* Estilos para o nome da data no rodapé */
+.dataName {
     width: fit-content;
     margin: 5vw auto;
     color: aliceblue;
     font-size: max(25px, 2vw);
 }
 
-.phrase
-{
+/* Estilos para a frase no rodapé */
+.phrase {
     font-weight: 500;
     font-size: max(12px, 1vw);
     color: #4f758f;
@@ -71,13 +71,13 @@
     margin-bottom: 3vw;
 }
 
-a
-{
+/* Estilos para os links no rodapé */
+a {
     color: #4f758f;
 }
 
-.squad
-{
+/* Estilos para a seção do squad no rodapé */
+.squad {
     /* background: #000; */
     width: 50%;
     padding-left: 2%;
@@ -85,23 +85,24 @@ a
     padding-bottom: 30vh;
     /* margin-left: 5%; */
 }
-.titleSquad
-{
+
+/* Estilos para o título da seção do squad no rodapé */
+.titleSquad {
     color:  #35556bd2;
     font-size: max(20px, 1.2vw);
     margin-bottom: 2vh;
     margin-left: -3.5vh;
 }
-.squad a
-{
+
+/* Estilos para os links na seção do squad no rodapé */
+.squad a {
     display: flex;
     font-size: max(10px, 1.8vh);
     color: #51748b8f;
     cursor: pointer;
 }
-
-a p
-{
+/* Estilos para parágrafos dentro de links */
+a p {
     padding: 0 1% 0 .5%;
     font-size: max(18px, 2vh);
     color: #6790ac;
@@ -109,58 +110,61 @@ a p
     transition: 2000ms ease-in-out;
 }
 
-a p:hover
-{
+/* Estilos para o hover nos parágrafos dentro de links */
+a p:hover {
     font-size: max(25px, 2.3vh);
     transition: 1000ms ease-in-out;
     /* font-weight: 600; */
     text-shadow: 10px 10px 10px #000000;
 }
 
-.dev2
-{
-    padding-left: 4%;
-}
-.dev3
-{
-    padding-left: 8%;
-}
-.dev4
-{
+/* Estilos específicos para o elemento com classe .dev2 */
+.dev2 {
     padding-left: 4%;
 }
 
-@media (max-width: 375px)
-{
-    .footerBody
-    {
+/* Estilos específicos para o elemento com classe .dev3 */
+.dev3 {
+    padding-left: 8%;
+}
+
+/* Estilos específicos para o elemento com classe .dev4 */
+.dev4 {
+    padding-left: 4%;
+}
+
+/* Estilos para a responsividade em dispositivos com largura máxima de 375px */
+@media (max-width: 375px) {
+    /* Ajustes na altura do rodapé para dispositivos com largura máxima de 375px */
+    .footerBody {
         height: 100vh;
     }
 
-    .squad
-    {
+    /* Ajustes na seção do squad para dispositivos com largura máxima de 375px */
+    .squad {
         margin-top: 0;
         padding-bottom: 0;
         width: 100%;
     }
 
-    .titleSquad
-    {
+    /* Ajustes no título da seção do squad para dispositivos com largura máxima de 375px */
+    .titleSquad {
         color:  #35556bd2;
         font-size: 15px;
         margin-bottom: 2vh;
         margin-left: 0vh;
     }
-    .squad a
-    {
+
+    /* Ajustes nos links dentro da seção do squad para dispositivos com largura máxima de 375px */
+    .squad a {
         display: flex;
         font-size: 12px;
         color: #51748b8f;
         cursor: pointer;
     }
 
-    a p
-    {
+    /* Ajustes nos parágrafos dentro de links para dispositivos com largura máxima de 375px */
+    a p {
         padding: 0 1% 0 .5%;
         font-size: 15px;
         color: #6790ac;
@@ -168,8 +172,8 @@ a p:hover
         transition: 2000ms ease-in-out;
     }
 
-    a p:hover
-    {
+    /* Ajustes no hover dos parágrafos dentro de links para dispositivos com largura máxima de 375px */
+    a p:hover {
         font-size: 14px;
         transition: 1000ms ease-in-out;
         /* font-weight: 600; */

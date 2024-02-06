@@ -1,44 +1,58 @@
-body
-{
+/* Define que o conteúdo do body não deve ter rolagem vertical */
+body {
     overflow: hidden;
+}
+
+/* Configuração para o contêiner principal */
+.content {
+    display: flex;
+    flex-direction: column;
     color: #fff;
 }
 
-.section1 h1
-{
-    position: relative;
-    margin-top: 20vh;
-    margin-left: 5vh;
-    font-size: max(25px, 2.5vh);
-    padding: 1vh 5vh;
-    width: fit-content;
-    background: #0c0479;
-    border-radius: 1vh;
-}
-
-.section1 p
-{
-    margin-left: 3.5vh;
-    margin-top: 10vh;
-    font-size: min(24px, 2.5vh);
-    width: 100vh;
-    padding: 3vh;
-    border-radius: 3vh;
-    background: #00000086;
-}
-
-.section1
-{
+/* Estilos para a primeira seção */
+.section1 {
     background-image: url(../images/imgHash/bg1.png);
     background-size: cover;
     background-position: center;
     height: 100vh;
     display: flex;
-    
 }
 
-.section2
-{
+.leftSide {
+    flex-direction: column;
+    margin-left: 5vh;
+    width: 55%;
+}
+
+/* Estilo para o título na seção 1 */
+.section1 h1 {
+    position: relative;
+    margin-top: 100px;
+    margin-left: 3.5vh;
+    padding: 1.5vh 3vh;
+    font-size: 2.5vh;
+    width: fit-content;
+    background: #0819b8;
+    border-radius: 1vh;
+}
+
+/* Estilo para o parágrafo na seção 1 */
+.section1 p {
+    position: relative;
+    margin-top: 5vh;
+    left: -5vh;
+    font-size: 22px;
+    line-height: 3.5vh;
+    width: 100%;
+    padding: 3vh 4vh 3vh 3vh;
+    text-align: justify;
+    border-radius: 0 4vh 4vh 0;
+    background: #00000090;
+}
+
+/* Estilos para a segunda seção */
+.section2 {
     background-image: url(../images/imgHash/bg2.png);
     background-size: cover;
     background-position: center;
@@ -50,8 +64,8 @@ body
     align-content: center;
 }
 
-.msg
-{
+/* Estilos para a mensagem na segunda seção */
+.msg {
     background: linear-gradient(90deg, #2d008d00, #2D008D);
     display: flex;
     width: 50%;
@@ -63,8 +77,8 @@ body
     margin-right: 50%;
 }
 
-.hashTable
-{
+/* Estilos para a tabela de hash na segunda seção */
+.hashTable {
     margin-top: 10%;
     width: 70%;
     height: 100vh;
@@ -73,9 +87,8 @@ body
     border-radius: 2%;
 }
 
-.keys
-{
-    /* background: #000; */
+/* Estilos para as chaves na tabela de hash */
+.keys {
     display: flex;
     flex-direction: column;
     width: 5%;
@@ -83,8 +96,8 @@ body
     margin-top: 5%;
 }
 
-.key
-{
+/* Estilos para cada chave individual na tabela de hash */
+.key {
     width: 9vh;
     padding: 1vh;
     margin-bottom: 4vh;
@@ -92,90 +105,89 @@ body
     cursor: pointer;
 }
 
-.key:first-child
-{
+.key:first-child {
     margin-top: 2vh;
 }
 
-.keyJsActive
-{
+/* Estilos para chaves ativas em JavaScript */
+.keyJsActive {
     border: .4vh solid #FFC803;
     box-shadow: .5vh .5vh 2vh #FFC803;
 }
 
-.keyJs:hover
-{
+/* Efeitos de hover para chaves em JavaScript */
+.keyJs:hover {
     box-shadow: .5vh .5vh 1vh #ffc8039a;
 }
 
-.keyJavaActive
-{
+/* Estilos para chaves ativas em Java */
+.keyJavaActive {
     border: .4vh solid #1565C0;
     box-shadow: .5vh .5vh 2vh #1565C0;
 }
 
-.keyJava:hover
-{
+/* Efeitos de hover para chaves em Java */
+.keyJava:hover {
     box-shadow: .5vh .5vh 1vh #1565c098;
 }
 
-.keyPyActive
-{
+/* Estilos para chaves ativas em Python */
+.keyPyActive {
     border: .4vh solid #6BBCED;
     box-shadow: .5vh .5vh 2vh #6BBCED;
 }
 
-.keyPy:hover
-{
+/* Efeitos de hover para chaves em Python */
+.keyPy:hover {
     box-shadow: .5vh .5vh 1vh #6bbbed9d;
 }
 
-.keyCppActive
-{
+/* Estilos para chaves ativas em C++ */
+.keyCppActive {
     border: .4vh solid #fff;
     box-shadow: .5vh .5vh 2vh #fff;
 }
 
-.keyCpp:hover
-{
+/* Efeitos de hover para chaves em C++ */
+.keyCpp:hover {
     box-shadow: .5vh .5vh 1vh #ffffff98;
 }
 
-.keyCsharpActive
-{
+/* Estilos para chaves ativas em C# */
+.keyCsharpActive {
     border: .4vh solid #00773E;
     box-shadow: .5vh .5vh 2vh #00773E;
 }
 
-.keyCsharp:hover
-{
+/* Efeitos de hover para chaves em C# */
+.keyCsharp:hover {
     box-shadow: .5vh .5vh 1vh #00773ea4;
 }
 
-.keySwiftActive
-{
+/* Estilos para chaves ativas em Swift */
+.keySwiftActive {
     border: .4vh solid #993a1d;
     box-shadow: .5vh .5vh 2vh #993a1d;
 }
 
-.keySwift:hover
-{
+/* Efeitos de hover para chaves em Swift */
+.keySwift:hover {
     box-shadow: .5vh .5vh 1vh #993a1da4;
 }
 
-.keyRubyActive
-{
+/* Estilos para chaves ativas em Ruby */
+.keyRubyActive {
     border: .4vh solid #C62828;
     box-shadow: .5vh .5vh 2vh #C62828;
 }
 
-.keyRuby:hover
-{
+/* Efeitos de hover para chaves em Ruby */
+.keyRuby:hover {
     box-shadow: .5vh .5vh 1vh #c628289f;
 }
 
-.value
-{
+/* Estilos para os valores das chaves na tabela de hash */
+.value {
     position: absolute;
     width: 9vh;
     padding: 1vh;
@@ -184,120 +196,107 @@ body
     cursor: pointer;
 }
 
-.vFlask
-{
-    left: 35%;
-    top: 150%;
-
+/* Posicionamento específico para a linguagem Flask */
+.vFlask {
+    left: 35%; 
+    top: 150%; 
 }
 
-.vQt
-{
+/* Posicionamento específico para a linguagem Qt */
+.vQt {
     left: 35%;
     top: 170%;
 }
 
-.vNodejs
-{
+/* Posicionamento específico para a linguagem Node.js */
+.vNodejs {
     left: 35%;
     top: 190%;
-
 }
 
-.vReact
-{
+/* Posicionamento específico para a linguagem React */
+.vReact {
     left: 35%;
     top: 210%;
-
 }
 
-.vRails
-{
+/* Posicionamento específico para a linguagem Rails */
+.vRails {
     left: 35%;
     top: 230%;
-
 }
 
-.vBoost
-{
+/* Posicionamento específico para a linguagem Boost */
+.vBoost {
     left: 50%;
     top: 160%;
-
 }
 
-.vAngular
-{
+/* Posicionamento específico para a linguagem Angular */
+.vAngular {
     left: 50%;
     top: 180%;
-
 }
 
-.vSelenium
-{
+/* Posicionamento específico para a linguagem Selenium */
+.vSelenium {
     left: 50%;
     top: 200%;
-
 }
 
-.vUikit
-{
+/* Posicionamento específico para a linguagem Uikit */
+.vUikit {
     left: 50%;
     top: 220%;
-
 }
 
-.vDjango
-{
+/* Posicionamento específico para a linguagem Django */
+.vDjango {
     left: 65%;
     top: 150%;
-
 }
 
-.vVue
-{
+/* Posicionamento específico para a linguagem Vue */
+.vVue {
     left: 65%;
     top: 170%;
-
 }
 
-.vSpring
-{
+/* Posicionamento específico para a linguagem Spring */
+.vSpring {
     left: 65%;
     top: 190%;
-
 }
 
-.vAspnet
-{
+/* Posicionamento específico para a linguagem Aspnet */
+.vAspnet {
     left: 65%;
     top: 210%;
-
 }
 
-.vUnity
-{
+/* Posicionamento específico para a linguagem Unity */
+.vUnity {
     left: 65%;
     top: 230%;
-
 }
 
-.line
-{
+/* Estilos para as linhas de conexão entre elementos na representação gráfica */
+.line {
     position: absolute;
 }
 
-.jsToNodeH1
-{
+/* Linha horizontal de conexão entre JavaScript e Node.js */
+.jsToNodeH1 {
     width: 10%;
     height: .6vh;
-    background: #FFC803;
-    box-shadow: 1px 1px 1vh #FFC803;
-    right: 72.9%;
+    background: #FFC803; 
+    box-shadow: 1px 1px 1vh #FFC803; 
+    right: 72.9%; 
     bottom: -55%;
 }
 
-.jsToNodeV
-{
+/* Linha vertical de conexão entre JavaScript e Node.js */
+.jsToNodeV {
     height: 40%;
     width: .6vh;
     background: #FFC803;
@@ -306,18 +305,18 @@ body
     bottom: -95%;
 }
 
-.jsToNodeH2
-{
+/* Outras linhas de conexão seguem um padrão semelhante, mas com variações nas dimensões e posições específicas para cada conexão */
+
+.jsToNodeH2 {
     width: 8%;
     height: .6vh;
     background: #FFC803;
-    box-shadow: 1px 1px 2vh #FFC803;
+    box-shadow: 1px 1px 2vh #FFC803; 
     right: 64.9%;
     bottom: -95%;
 }
 
-.jsToReactH
-{
+.jsToReactH {
     width: 8%;
     height: .6vh;
     background: #FFC803;
@@ -326,8 +325,7 @@ body
     bottom: -115%;
 }
 
-.jsToReactV
-{
+.jsToReactV {
     height: 20%;
     width: .6vh;
     background: #FFC803;
@@ -336,8 +334,7 @@ body
     bottom: -115%;
 }
 
-.jsToAngularH
-{
+.jsToAngularH {
     width: 23%;
     height: .6vh;
     background: #FFC803;
@@ -346,8 +343,7 @@ body
     bottom: -85%;
 }
 
-.jsToVueH
-{
+.jsToVueH {
     width: 21.1%;
     height: .6vh;
     background: #FFC803;
@@ -356,8 +352,7 @@ body
     bottom: -75%;
 }
 
-.jsToVueV
-{
+.jsToVueV {
     height: 10%;
     width: .6vh;
     background: #FFC803;
@@ -365,19 +360,20 @@ body
     right: 55.9%;
     bottom: -85%;
 }
+/* Estilos para as linhas de conexão entre elementos na representação gráfica */
 
-.javaToSeleniumV
-{
+/* Linha vertical de conexão entre Java e Selenium */
+.javaToSeleniumV {
     height: 37%;
     width: .1vh;
-    border: .4vh solid #1565C0;
-    box-shadow: .5vh .5vh 2vh #1565C0;
-    right: 77.9%;
-    bottom: -105%;
+    border: .4vh solid #1565C0; 
+    box-shadow: .5vh .5vh 2vh #1565C0; 
+    right: 77.9%; 
+    bottom: -105%; 
 }
 
-.javaToSeleniumH1
-{
+/* Linhas horizontais de conexão entre Java e Selenium */
+.javaToSeleniumH1 {
     width: 5%;
     height: .1vh;
     border: .4vh solid #1565C0;
@@ -385,8 +381,8 @@ body
     right: 77.9%;
     bottom: -68%;
 }
-.javaToSeleniumH2
-{
+
+.javaToSeleniumH2 {
     width: 28%;
     height: .1vh;
     border: .4vh solid #1565C0;
@@ -395,8 +391,8 @@ body
     bottom: -105%;
 }
 
-.javaToSpringV
-{
+/* Linha vertical de conexão entre Java e Spring */
+.javaToSpringV {
     height: 10%;
     width: .1vh;
     border: .4vh solid #1565C0;
@@ -405,19 +401,18 @@ body
     bottom: -105%;
 }
 
-.javaToSpringH
-{
+/* Linha horizontal de conexão entre Java e Spring */
+.javaToSpringH {
     width: 19.3%;
     height: .1vh;
     border: .4vh solid #1565C0;
     box-shadow: .5vh .5vh 2vh #1565C0;
     right: 35%;
     bottom: -95%;
-    
 }
 
-.pyToFlaskV1
-{
+/* Linhas de conexão entre Python, Flask e Django */
+.pyToFlaskV1 {
     height: 20%;
     width: .1vh;
     border: .4vh solid #6BBCED;
@@ -426,8 +421,7 @@ body
     bottom: -80%;
 }
 
-.pyToFlaskV2
-{
+.pyToFlaskV2 {
     height: 1.2%;
     width: .1vh;
     border: .4vh solid #6BBCED;
@@ -436,8 +430,7 @@ body
     bottom: -60%;
 }
 
-.pyToFlaskH1
-{
+.pyToFlaskH1 {
     width: 3%;
     height: .1vh;
     border: .4vh solid #6BBCED;
@@ -446,8 +439,7 @@ body
     bottom: -80%;
 }
 
-.pyToFlaskH2
-{
+.pyToFlaskH2 {
     width: 17.3%;
     height: .1vh;
     border: .4vh solid #6BBCED;
@@ -456,8 +448,7 @@ body
     bottom: -60.5%;
 }
 
-.pyToDjangoH1
-{
+.pyToDjangoH1 {
     width: 20%;
     height: .1vh;
     border: .4vh solid #6BBCED;
@@ -465,8 +456,8 @@ body
     right: 35%;
     bottom: -55.5%;
 }
-.pyToDjangoH2
-{
+
+.pyToDjangoH2 {
     width: 11%;
     height: .1vh;
     border: .4vh solid #6BBCED;
@@ -475,9 +466,7 @@ body
     bottom: -65.5%;
 }
 
-
-.pyToDjangoV1
-{
+.pyToDjangoV1 {
     height: 5%;
     width: .1vh;
     border: .4vh solid #6BBCED;
@@ -486,8 +475,7 @@ body
     bottom: -65%;
 }
 
-.pyToDjangoV2
-{
+.pyToDjangoV2 {
     height: 10%;
     width: .1vh;
     border: .4vh solid #6BBCED;
@@ -496,18 +484,19 @@ body
     bottom: -65%;
 }
 
-.cppToQtH1
-{
+/* Estilos para linhas de conexão entre elementos na representação gráfica */
+
+/* Linhas de conexão entre C++ e Qt */
+.cppToQtH1 {
     width: 7%;
     height: .1vh;
     border: .4vh solid #fff;
-    box-shadow: .5vh .5vh 2vh #fff;
-    right: 75.9%;
-    bottom: -94%;
+    box-shadow: .5vh .5vh 2vh #fff; 
+    right: 75.9%; 
+    bottom: -94%; 
 }
 
-.cppToQtH2
-{
+.cppToQtH2 {
     width: 11%;
     height: .1vh;
     border: .4vh solid #fff;
@@ -516,8 +505,7 @@ body
     bottom: -75.5%;
 }
 
-.cppToQtV
-{
+.cppToQtV {
     height: 19%;
     width: .1vh;
     border: .4vh solid #fff;
@@ -526,8 +514,8 @@ body
     bottom: -94%;
 }
 
-.cppToBoostV
-{
+/* Linhas de conexão entre C++ e Boost */
+.cppToBoostV {
     width: 13%;
     height: .1vh;
     border: .4vh solid #fff;
@@ -536,19 +524,17 @@ body
     bottom: -72%;
 }
 
-.cppToBoostH
-{
+.cppToBoostH {
     height: 3.2%;
     width: .1vh;
     border: .4vh solid #fff;
     box-shadow: .5vh .5vh 2vh #fff;
     right: 48%;
     bottom: -72%;
-    
 }
 
-.csharpToNetH1
-{
+/* Linhas de conexão entre C# e .NET */
+.csharpToNetH1 {
     width: 7%;
     height: .1vh;
     border: .4vh solid #00773E;
@@ -557,8 +543,7 @@ body
     bottom: -107%;
 }
 
-.csharpToNetV1
-{
+.csharpToNetV1 {
     height: 15%;
     width: .1vh;
     border: .4vh solid #00773E;
@@ -567,8 +552,7 @@ body
     bottom: -122%;
 }
 
-.csharpToNetH2
-{
+.csharpToNetH2 {
     width: 20%;
     height: .1vh;
     border: .4vh solid #00773E;
@@ -577,8 +561,7 @@ body
     bottom: -122%;
 }
 
-.csharpToNetV2
-{
+.csharpToNetV2 {
     height: 7%;
     width: .1vh;
     border: .4vh solid #00773E;
@@ -586,8 +569,8 @@ body
     right: 55.9%;
     bottom: -122%;
 }
-.csharpToNetH3
-{
+
+.csharpToNetH3 {
     width: 21.2%;
     height: .1vh;
     border: .4vh solid #00773E;
@@ -596,8 +579,7 @@ body
     bottom: -115%;
 }
 
-.csharpToNetV3
-{
+.csharpToNetV3 {
     height: 20.8%;
     width: .1vh;
     border: .4vh solid #00773E;
@@ -606,8 +588,7 @@ body
     bottom: -135%;
 }
 
-.csharpToNetH4
-{
+.csharpToNetH4 {
     width: 5%;
     height: .1vh;
     border: .4vh solid #00773E;
@@ -616,8 +597,8 @@ body
     bottom: -135%;
 }
 
-.swiftToUikitH1
-{
+/* Linhas de conexão entre Swift e UIKit */
+.swiftToUikitH1 {
     width: 5%;
     height: .1vh;
     border: .4vh solid #993a1d;
@@ -626,8 +607,7 @@ body
     bottom: -120%;
 }
 
-.swiftToUikitV
-{
+.swiftToUikitV {
     height: 5%;
     width: .1vh;
     border: .4vh solid #993a1d;
@@ -636,8 +616,7 @@ body
     bottom: -125%;
 }
 
-.swiftToUikitH2
-{
+.swiftToUikitH2 {
     width: 28%;
     height: .1vh;
     border: .4vh solid #993a1d;
@@ -646,38 +625,39 @@ body
     bottom: -125%;
 }
 
-.rubyToRails
-{
+/* Estilos para a linha de conexão entre Ruby e Rails */
+.rubyToRails {
     width: 18%;
     height: .1vh;
-    border: .4vh solid #C62828;
+    border: .4vh solid #C62828; 
     box-shadow: .5vh .5vh 2vh #C62828;
     right: 64.9%;
-    bottom: -133%;
+    bottom: -133%; 
 }
 
-.keyTxt
-{
+/* Estilos para o texto nas chaves */
+.keyTxt {
     position: absolute;
-    left: 10%;
-    bottom: -40%;
-    font-size: max(20px, 2vh);
+    left: 10%; 
+    bottom: -40%; 
+    font-size: max(20px, 2vh); /* Tamanho da fonte responsiva */
 }
-.valTxt
-{
+
+/* Estilos para o texto nos valores */
+.valTxt {
     position: absolute;
-    left: 10%;
+    left: 10%; 
     bottom: -40%;
-    font-size: max(20px, 2vh);
-    left: 35%;
+    font-size: max(20px, 2vh); /* Tamanho da fonte responsiva */
+    left: 35%; 
 }
 
-.disabled
-{
-    display: none;
+/* Estilos para elementos desativados (ocultos) */
+.disabled {
+    display: none; /* Oculta o elemento */
 }
 
-.abled
-{
-    display: block;
+/* Estilos para elementos ativados (visíveis) */
+.abled {
+    display: block; /* Torna o elemento visível */
 }
