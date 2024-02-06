@@ -1,15 +1,18 @@
-:root {
-    --black: #333; /* Definição de uma variável para a cor preta */
-    --light-color: rgb(255, 255, 255); /* Definição de uma variável para a cor branca */
-    --box-shadow: 0.5rem 1.5rem rgba(0, 0, 0, 0.1); /* Definição de uma sombra */
+:root{
+    --black : #333;
+    --light-color : rgb(255, 255, 255);
+    --box-shadow : 0.5rem 1.5rem rgba(0,0,0,.1);
 }
 
-/* Estilos para a seção "home" */
 .home {
-    display: flex;
-    align-items: center;
+    display : flex;
+    align-items : center;
     height: 100vh;
     justify-content: flex-start;
+}
+
+.home {
+    display: flex;
     background-image: url(../images/gamer.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -18,58 +21,61 @@
     text-align: center;
 }
 
-/* Estilos para os elementos h1, h2 e p dentro da seção "home" */
-.home h1 {
+.home h1
+{
     color: white;
     font-size: max(20px, 3vw);
     font-weight: 400;
-    letter-spacing: 0.5vh;
+        letter-spacing: .5vh;
+        padding: 1vh;
+}
+.home h2
+{
+    color : #fff;
+    font-size:  max(35px, 5vw);
+    letter-spacing: .5vh;
     padding: 1vh;
 }
-
-.home h2 {
-    color: #fff;
-    font-size: max(35px, 5vw);
-    letter-spacing: 0.5vh;
-    padding: 1vh;
-}
-
-.home p {
-    color: #ffffff;
+.home p
+{  
+    color : #ffffff;
     font-size: max(15px, 1.5vw);
-    padding: 5vh;
+    padding : 5vh;
     margin-top: 1vh;
-    letter-spacing: 0.5vh;
+    letter-spacing: .5vh;
 }
 
-/* Estilos para a classe "content" */
-.content {
+.content
+{
     background: #060429a4;
     border-top-right-radius: 5rem;
     border-bottom-right-radius: 5rem;
     padding: 1rem 5rem;
-    box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 3px 2px 5px rgba(0,0,0,.4);
 }
 
-/* Estilos para a linha horizontal hr */
-hr {
-    border: 0.5px solid #2596d8;
+hr
+{
+	border: .5px solid  #2596d8;
     width: 100%;
     margin: auto;
     display: flex;
 }
 
-/* Estilos para telas menores que 413px de largura */
-@media (max-width: 413px) {
-    .home h1,
+@media (max-width: 413px)
+{
+    .home h1, 
     .home h2,
-    .home p {
-        letter-spacing: 0.2vw;
-        padding: 0.5vh;
+    .home p
+    {
+        letter-spacing: .2vw;
+            padding : .5vh;
+
     }
+
 }
 
-/* Estilos específicos para o botão de redirecionamento */
-.redirectButton {
+.redirectButton
+{
     left: 90.5%;
 }

@@ -1,63 +1,60 @@
-/* Define que o corpo do documento não terá barras de rolagem visíveis */
-body {
+body
+{
     overflow: hidden;
 }
-
-/* Estilo para a seção principal do conteúdo */
-.content {
+.content
+{
     display: flex;
     flex-direction: column;
     color: #fff;
-    overflow: hidden;
+        overflow: hidden;
+
 }
 
-/* Estilo para a primeira seção com imagem de fundo */
-.section1 {
+.section1
+{
     background-image: url('../images/imgGrafos/bg1.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 110vh;
     width: 100%;
     display: flex;
     flex-direction: row;
+    
 }
 
-/* Estilo para a parte esquerda da primeira seção */
-.leftSide {
+.leftSide
+{
     flex-direction: column;
     margin-left: 5vh;
-    width: 55%;
+    width: 50%;
+    /* background: #000; */
 }
 
-/* Estilo para o título na parte esquerda */
-.leftSide h1 {
+.section1 h1
+{
     position: relative;
-    margin-top: 100px;
-    margin-left: 3.5vh;
-    padding: 1.5vh 3vh;
-    font-size: 2.5vh;
+    margin-top: 20vh;
+    font-size: max(25px, 2.5vh);
+    padding: 1vh 5vh;
     width: fit-content;
-    background: #0819b8;
+    background: #0c0479;
     border-radius: 1vh;
 }
-
-/* Estilo para o parágrafo na parte esquerda */
-.leftSide p {
+.section1 p
+{
     position: relative;
     margin-top: 5vh;
-    left: -5vh;
-    font-size: 22px;
-    line-height: 3.5vh;
+    font-size: min(18px, 2.5vh);
     width: 100%;
-    padding: 3vh 4vh 3vh 3vh;
-    text-align: justify;
-    border-radius: 0 4vh 4vh 0;
-    background: #00000090;
+    padding: 3vh;
+    border-radius: 2vh;
+    background: #00000079;
 }
-
-/* Estilo para a parte direita da primeira seção */
-.rightSide {
+.rightSide
+{
+    /* background: #ff0000; */
     width: 50%;
     display: flex;
     align-content: center;
@@ -65,13 +62,13 @@ body {
     justify-content: center;
 }
 
-/* Estilo para a imagem na parte direita */
-.rightSide img {
+.rightSide img
+{
     width: 80%;
 }
 
-/* Estilo para a segunda seção com imagem de fundo */
-.section2 {
+.section2
+{
     background-image: url('../images/imgGrafos/bg2.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -83,16 +80,17 @@ body {
     justify-content: space-between;
 }
 
-/* Estilo para a subseção dentro da segunda seção */
-.subSection2 {
+.subSection2
+{
     display: flex;
     height: fit-content;
     width: 100%;
     flex-direction: column;
 }
 
-/* Estilo para a caixa de mensagem na subseção 2 */
-.msgContent {
+.msgContent
+{
+    /* position: relative; */
     width: 100%;
     display: flex;
     align-items: end;
@@ -100,9 +98,10 @@ body {
     left: 50%;
 }
 
-/* Estilo para a mensagem na caixa de mensagem */
-.msg {
+.msg
+{
     background: #2D008D;
+    background: linear-gradient(45deg, #2D008D, #2d008d00);
     font-size: max(20px, 2vh);
     padding: 7vh 10vh;
     border-top-left-radius: 50vh;
@@ -112,8 +111,8 @@ body {
     width: 50%;
 }
 
-/* Estilo para a seção de explicação posicionada abaixo da subseção 2 */
-.sectionExplaning {
+.sectionExplaning
+{
     position: absolute;
     width: fit-content;
     left: 5%;
@@ -123,54 +122,57 @@ body {
     justify-content: space-between;
 }
 
-/* Estilo para as entidades na seção de explicação */
-.sectionExplaning div {
+
+.sectionExplaning div
+{
     display: flex;
 }
 
-/* Estilo para a entidade genérica na seção de explicação */
-.ex {
+.ex
+{
     margin: 1vh;
     box-shadow: .5vh .5vh 1vh #000;
+    border-radius: .5vh;
 }
 
-/* Estilo para a entidade do tipo 'Entity' na seção de explicação */
-.exEntity {
+.exEntity
+{
     background: linear-gradient(90deg, #00031f, #061BD8);
     width: 10vh;
     height: 5vh;
 }
 
-/* Estilo para a entidade do tipo 'Relationship' na seção de explicação */
-.exRelationship {
+.exRelationship
+{
     background: linear-gradient(90deg, #122900, #48A500);
     margin-left: 2.5vh;
     width: 7vh;
     height: 5vh;
     transform: rotate(23deg) skewX(-45deg);
 }
-/* Estilo para atributo */
-.exAtribute {
+.exAtribute
+{
     background: linear-gradient(90deg, #290000, #DD0000);
+
     border-radius: 60%;
     width: 10vh;
     height: 5vh;
 }
 
-/* Estilo para mensagem */
-.exMsg {
+.exMsg
+{
     font-size: max(20px, 1.8vh);
     margin-left: 5vh;
     margin-top: 2vh;
 }
 
-/* Estilo para relação */
-.rel {
+.rel
+{
     margin-left: 6vh;
 }
 
-/* Estilo para entidade */
-.entity {
+.entity
+{
     color: #fff;
     position: absolute;
     background: linear-gradient(90deg, #00031f, #061BD8);
@@ -184,8 +186,8 @@ body {
     display: none;
 }
 
-/* Estilo hover para entidade */
-.entity:hover {
+.entity:hover
+{
     opacity: .9;
     box-shadow: 1vh 1vh 1vh #000000be;
     font-size: max(20px, 1.8vh);
@@ -193,50 +195,368 @@ body {
     height: 8.7vh;
 }
 
-/* Estilo para parte esquerda da segunda seção */
-.leftSide2 {
+.leftSide2
+{
     width: 100%;
     height: 100vh;
 }
 
-/* Estilo para contêiner do grafo */
-.container {
+.container
+{
     position: absolute;
     display: flex;
 }
 
-/* Estilo para elementos no contêiner do grafo */
-.usr, .disp, .soft, .hard, .comp, .conec, .so {
+.usr
+{
     left: 45%;
     bottom: -80%;
 }
-
-/* Estilo para linhas de conexão no grafo */
-.dispToConec, .usrToDisp, .dispToHard, .hardToComp, .dispToSo, .compToComp, .dispToSoft {
+.disp
+{
     left: 45%;
     bottom: -120%;
 }
 
-/* Estilo para linhas de conexão no grafo */
-.usrToDispLine1, .usrToDispLine2, .dispToHardLine1H, .dispToHardLine1V, .dispToHardLine2H, .dispToHardLine2V,
-.hardToCompLine1, .hardToCompLine2, .compToCompLine1, .compToCompLine2, .dispToSoftLine1H, .dispToSoftLine1V1,
-.dispToSoftLine1V2, .dispToSoftLine2H, .dispToSoftLine2V, .dispToSoLine1, .dispToSoLine2, .dispToConecLine1H,
-.dispToConecLine1V, .dispToConecLine2H, .dispToConecLine2V {
+.soft
+{
+    left: 70%;
+    bottom: -155%;
+}
+
+.hard
+{
+    left: 15%;
+    bottom: -90%;
+} 
+
+.comp
+{
+    left: 15%;
+    bottom: -130%;
+}
+
+.conec
+{
+    left: 75%;
+    bottom: -90%;
+}
+
+.so
+{
+    left: 75%;
+    bottom: -120%;
+}
+
+.relationship
+{
+    color: #fff;
     position: absolute;
+    background: linear-gradient(90deg, #122900, #48A500);
+    /* margin-left: 2.5vh; */
+    width: 8vh;
+    height: 6vh;
+    transform: rotate(23deg) skewX(-45deg);
+    box-shadow: 1vh 1vh 2vh #000;
+    border-radius: .5vh;
+    z-index: 1;
+    transition: 500ms;
+    display: none;
+}
+
+.relationship:hover
+{
+    opacity: .9;
+    box-shadow: 1vh 1vh 1vh #000000a4;
+        transform: rotate(30deg) skewX(-30deg);
+
+    padding: 4vh;
+
+}
+
+.relationship p
+{
+    transform: rotate(-45deg) skewX(4deg) scale(.3, 1);
+    font-size: max(18px, 3vh);
+}
+
+.dispToConec
+{
+    left: 63%;
+    bottom: -107%;
+}
+
+.usrToDisp
+{
+    left: 47%;
+    bottom: -100%;
+}
+
+.dispToHard
+{
+    left: 32%;
+    bottom: -110%;
+}
+
+.hardToComp
+{
+    left: 17%;
+    bottom: -110%;
+}
+
+.dispToSo
+{
+    left: 62%;
+    bottom: -120%;
+}
+
+.compToComp
+{
+    left: 17%;
+    bottom: -145%;
+}
+
+.dispToSoft
+{
+
+
+    left: 57%;
+    bottom: -140%;
+}
+
+.usrToDispLine1
+{
+    position: absolute;
+    width: .1vh;
+    height: 14.6%;
     background: #fff;
+    left: 49%;
+    bottom: -95%;
+}
+
+.usrToDispLine2
+{
+    position: absolute;
+    width: .1vh;
+    height: 12%;
+    background: #fff;
+    left: 49.5%;
+    bottom: -112%;
+}
+
+
+.dispToHardLine1H
+{
+    position: absolute;
+    width: 10.5%;
+    height: .1vh;
+    background: #fff;
+    left: 34.5%;
+    bottom: -116%;
+}
+
+.dispToHardLine1V
+{
+    position: absolute;
+    width: .1vh;
+    height: 6%;
+    background: #fff;
+    left: 34.5%;
+    bottom: -116%;
+}
+
+.dispToHardLine2H
+{
+    position: absolute;
+    width: 11.5%;
+    height: .1vh;
+    background: #fff;
+    left: 23%;
+    bottom: -86%;
+}
+
+.dispToHardLine2V
+{
+    position: absolute;
+    width: .1vh;
+    height: 18%;
+    background: #fff;
+    left: 34.5%;
+    bottom: -103.9%;
+}
+
+.hardToCompLine1
+{
+    position: absolute;
+    width: .1vh;
+    height: 13.6%;
+    background: #fff;
+    left: 19.5%;
+    bottom: -103.5%;
+}
+
+.hardToCompLine2
+{
+    position: absolute;
+    width: .1vh;
+    height: 12%;
+    background: #fff;
+    left: 19.5%;
+    bottom: -122%;
+}
+
+.compToCompLine1
+{
+    position: absolute;
+    width: .1vh;
+    height: 12%;
+    background: #fff;
+    left: 22.5%;
+    bottom: -142%;
+}
+
+.compToCompLine2
+{
+    position: absolute;
+    width: .1vh;
+    height: 12%;
+    background: #fff;
+    left: 15.5%;
+    bottom: -142%;
+}
+
+.dispToSoftLine1H
+{
+    position: absolute;
+    width: 9%;
+    height: .1vh;
+    background: #fff;
+    left: 50%;
+    bottom: -127%;
+}
+
+.dispToSoftLine1V1
+{
+    position: absolute;
+    width: .1vh;
+    height: 7%;
+    background: #fff;
+    left: 50%;
+    bottom: -127%;
+}
+
+.dispToSoftLine1V2
+{
+    position: absolute;
+    width: .1vh;
+    height: 7%;
+    background: #fff;
+    left: 59%;
+    bottom: -134%;
+}
+
+.dispToSoftLine2H
+{
+    position: absolute;
+    width: 11%;
+    height: .1vh;
+    background: #fff;
+    left: 59%;
+    bottom: -150%;
+}
+
+.dispToSoftLine2V
+{
+    position: absolute;
+    width: .1vh;
+    height: 10%;
+    background: #fff;
+    left: 59%;
+    bottom: -150%;
+}
+
+.dispToSoLine1
+{
+    position: absolute;
+    width: 7.5%;
+    height: .1vh;
+    background: #fff;
+    left: 53%;
+    bottom: -117%;
+}
+
+.dispToSoLine2
+{
+    position: absolute;
+    width: 7%;
+    height: .1vh;
+    background: #fff;
+    left: 68%;
+    bottom: -117%;
+}
+
+.dispToConecLine1H
+{
+    position: absolute;
+    width: 9.5%;
+    height: .1vh;
+    background: #fff;
+    left: 52%;
+    bottom: -104%;
+}
+
+.dispToConecLine1V
+{
+    position: absolute;
+    height: 8.1%;
+    width: .1vh;
+    background: #fff;
+    left: 52%;
+    bottom: -112%;
+}
+
+.dispToConecLine2H
+{
+    position: absolute;
+    width: 9.5%;
+    height: .1vh;
+    background: #fff;
+    left: 65.5%;
+    bottom: -85%;
+}
+
+.dispToConecLine2V
+{
+    position: absolute;
+    height: 16%;
+    width: .1vh;
+    background: #fff;
+    left: 65.5%;
+    bottom: -101%;
+}
+
+.show
+{
+    display: block;
+}
+
+.line
+{
+    position: absolute;
+    background: rgba(107, 80, 80, 0.651);
     z-index: 0;
     transition: 1s ease-in;
 }
 
-/* Estilo para linha de conexão ativa no grafo */
-.activeLine {
+.activeLine
+{
     box-shadow: 1px 1px 1vh rgb(255, 255, 255);
     background: #a89494;
     padding: 1px;
 }
 
-/* Estilo para caixa de mensagem explicativa */
-.msgEx {
+.msgEx
+{
     left: -10%;
     width: 80%;
     text-align: center;
