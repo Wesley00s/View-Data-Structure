@@ -1,72 +1,71 @@
-/* Estilos globais */
-body {
+body
+{
     overflow: hidden;
-}
-
-/* Estilos para o conteúdo geral */
-.content {
-    display: flex;
-    flex-direction: column;
     color: #fff;
 }
 
-/* Estilo da primeira seção */
-.section1 {
+.section1
+{
     background-image: url('../images/imgArvores/bg1.png');
     background-size: cover;
-    background-position: 0 0;
+    background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
     display: flex;
     justify-content: space-between;
 }
-
-/* Estilos para a parte esquerda da primeira seção */
-.leftSide {
+.leftSide
+{
+    display: flex;
     flex-direction: column;
-    margin-left: 5vh;
-    width: 70%;
+    width: 40vh;
+
 }
 
-.leftSide h1 {
-    margin-top: 100px;
-    margin-left: 3.5vh;
-    padding: 1.5vh 3vh;
-    font-size: 2.5vh;
+.contentTree
+{
+    width: 100%;
+    background: #000;
+}
+
+.section1 h1
+{
+    position: relative;
+    margin-top: 20vh;
+    margin-left: 5vh;
+    font-size: max(25px, 2.5vh);
+    padding: 1vh 5vh;
     width: fit-content;
-    background: #0819b8;
+    background: #0c0479;
     border-radius: 1vh;
 }
 
-.leftSide p {
-    position: relative;
-    margin-top: 5vh;
-    left: -5vh;
-    font-size: 22px;
-    line-height: 3.5vh;
-    width: 100%;
-    padding: 3vh 4vh 3vh 3vh;
-    text-align: justify;
-    border-radius: 0 4vh 4vh 0;
-    background: #00000090;
+.section1 p
+{
+    margin-left: 3.5vh;
+    margin-top: 10vh;
+    font-size: min(24px, 2.5vh);
+    width: 100vh;
+    padding: 3vh;
+    border-radius: 3vh;
+    background: #00000086;
 }
-
-/* Estilos para a parte direita da primeira seção */
-.rightSide {
+.rightSide
+{
     align-items: center;
     justify-content: center;
     display: flex;
     width: 40%;
 }
-
-.imgRightSide {
+.imgRightSide
+{
     padding-left: 5vh;
-    width: 70%;
+    width:  70%;
     margin-top: -5vh;
 }
 
-/* Estilo da segunda seção */
-.section2 {
+.section2
+{
     background-image: url(../images/imgArvores/bg2.png);
     background-size: cover;
     background-position: center;
@@ -75,8 +74,8 @@ body {
     position: relative;
 }
 
-/* Estilo dos botões na segunda seção */
-.btnNode {
+.btnNode
+{
     position: absolute;
     padding: 2vh;
     font-size: max(15px, 2vh);
@@ -88,235 +87,265 @@ body {
     transition: 500ms;
 }
 
-/* Efeito de hover nos botões */
-.btnNode:hover {
+.btnNode:hover
+{
     opacity: .8;
     box-shadow: .5vh .5vh 1vh #0000007e;
     padding: 2.5vh;
+
 }
 
-/* Media queries para diferentes tamanhos de tela */
-@media (max-width: 1440px) {
-    .btnNode {
+@media (max-width: 1440px)
+{
+    .btnNode
+    {
         font-size: 15px;
     }
 }
 
-@media (max-width: 768px) {
-    .btnNode {
+@media (max-width: 768px)
+{
+    .btnNode
+    {
         font-size: 15px;
         padding: 1vh;
     }
 
-    .btnNode:hover {
+    .btnNode:hover
+    {
         opacity: .8;
         box-shadow: .5vh .5vh 1vh #0000007e;
         padding: 1.1vh;
+
     }
 }
 
-/* Estilo do nó principal na segunda seção */
-.mainNode {
+.mainNode
+{
     bottom: 0;
     left: 45%;
     background: #0c0479;
 }
 
-/* Estilos para a primeira subseção (branch1) */
-.branch1 {
+.branch1
+{
     background: #00811C;
-    display: none; /* Inicialmente oculto */
+    display: none;
+
 }
 
-.games {
+.games
+{
     bottom: 15%;
     left: 30%;
 }
 
-.filmes {
+.filmes
+{
     bottom: 15%;
     left: 45%;
 }
 
-.gadgets {
+.gadgets
+{
     bottom: 15%;
     left: 60%;
 }
 
-/* Estilos para a segunda subseção (branch2) */
-.branch2 {
+.branch2
+{
     background: #814500;
-    display: none; /* Inicialmente oculto */
+    display: none;
 }
 
-.rpg {
+.rpg
+{
     bottom: 30%;
     left: 30%;
 }
-
-.fps {
+.fps
+{
     bottom: 15%;
     left: 15%;
 }
 
-.scifi {
+.scifi
+{
     bottom: 60%;
     left: 35%;
 }
 
-.series {
+.series
+{
     bottom: 70%;
     left: 55%;
 }
 
-.smartphones {
+.smartphones
+{
     bottom: 30%;
     left: 60%;
 }
 
-.smartwatches {
+.smartwatches
+{
     bottom: 15%;
     left: 75%;
 }
 
-/* Estilos para a terceira subseção (branch3) */
-.branch3 {
+.branch3
+{
     background: #9E1818;
-    display: none; /* Inicialmente oculto */
+    display: none;
 }
 
-.cs {
+.cs
+{
     bottom: 20%;
     left: 5%;
 }
 
-.cod {
+.cod
+{
     bottom: 35%;
     left: 10%;
 }
 
-.witcher {
+.witcher
+{
     bottom: 47%;
     left: 17%;
 }
 
-.dark {
+.dark
+{
     bottom: 45%;
     left: 30%;
 }
 
-.inter {
+.inter
+{
     bottom: 85%;
     left: 35%;
 }
 
-.matrix {
+.matrix
+{
     bottom: 75%;
     left: 25%;
 }
 
-.mirror {
+.mirror
+{
     bottom: 75%;
     left: 70%;
 }
 
-.robot {
+.robot
+{
     bottom: 90%;
     left: 60%;
 }
 
-.android {
+.android
+{
     bottom: 45%;
     left: 65%;
 }
 
-.iphone {
+.iphone
+{
     bottom: 40%;
     left: 75%;
 }
 
-.tic {
+.tic
+{
     bottom: 20%;
     left: 85%;
 }
 
-.apple {
+.apple
+{
     bottom: 30%;
     left: 80%;
 }
 
-/* Estilos para a quarta subseção (branch4) */
-.branch4 {
+.branch4
+{
     background: #000;
     border: #fff 1px solid;
-    display: none; /* Inicialmente oculto */
+    display: none;
 }
 
-/* Posicionamento dos elementos da quarta subseção */
-.s22 {
+.s22
+{
     bottom: 60%;
     left: 65%;
 }
 
-.redmi {
+.redmi
+{
     bottom: 60%;
     left: 75%;
 }
 
-.se {
+.se
+{
     bottom: 50%;
     left: 85%;
 }
 
-.i2g {
+.i2g
+{
     bottom: 40%;
     left: 85%;
 }
 
-/* Linhas de conexão entre elementos */
-.line {
+.line
+{
     position: absolute;
     background: rgba(107, 80, 80, 0.651);
     z-index: 0;
     transition: 1s ease-in;
 }
 
-/* Linha ativa */
-.activeLine {
+.activeLine
+{
     box-shadow: 1px 1px 1vh rgb(255, 255, 255);
     background: #a89494;
     padding: 1px;
 }
 
-/* Posicionamento e estilo das linhas de conexão */
-.l1H {
+.l1H
+{
     width: 12%;
     height: .01vh;
     bottom: 2.5%;
     left: 33%;
 }
-
-.l1V {
+.l1V
+{
     width: .01vh;
     height: 12.5%;
     bottom: 2.5%;
     left: 33%;
 }
 
-.l2H {
+.l2H
+{
     width: 10.8%;
     height: .01vh;
     bottom: 2.5%;
     left: 52.3%;
 }
-
-.l2V {
+.l2V
+{
     width: .01vh;
     height: 12.5%;
     bottom: 2.5%;
     left: 63%;
 }
-
 
 .l3V
 {
@@ -572,7 +601,7 @@ body {
     bottom: 42%;
     left: 80%;
 }
-/* Estilo para a classe 'show' */
+
 .show
 {
     display: block;

@@ -1,548 +1,558 @@
-
-/* Define que o corpo do documento não terá barras de rolagem visíveis */
-body {
-    overflow: hidden; 
+body
+{
+    overflow: hidden;
+    color: #fff;
 }
 
-/* Estilo para a seção principal do conteúdo */
-.content {
+.section1
+{
+    background-image: url('../images/imgHeaps/bg1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 105vh;
+    display: flex;
+    justify-content: space-between;
+}
+.leftSide
+{
     display: flex;
     flex-direction: column;
-    color: #fff; 
+    width: 40vh;
+
 }
 
-/* Estilos para a primeira seção */
-.section1 {
-    background-image: url('../images/imgHeaps/bg1.png'); 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    height: 105vh; 
-    display: flex;
+.contentTree
+{
     width: 100%;
-    justify-content: space-between; /
-    flex-direction: row; 
+    background: #000;
 }
 
-/* Estilos para o lado esquerdo da primeira seção */
-.leftSide {
-    flex-direction: column;
+.section1 h1
+{
+    position: relative;
+    margin-top: 20vh;
     margin-left: 5vh;
-    width: 60%;
-}
-
-/* Estilos para o título no lado esquerdo */
-.leftSide h1 {
-    position: relative;
-    margin-top: 100px;
-    margin-left: 3.5vh;
-    padding: 1.5vh 3vh;
-    font-size: 2.5vh;
+    font-size: max(25px, 2.5vh);
+    padding: 1vh 5vh;
     width: fit-content;
-    background: #0819b8;
-    border-radius: 1vh; 
+    background: #0c0479;
+    border-radius: 1vh;
 }
 
-/* Estilos para o parágrafo no lado esquerdo */
-.leftSide p {
-    position: relative;
-    margin-top: 5vh;
-    left: -5vh;
-    font-size: 22px;
-    line-height: 3.5vh;
-    width: 100%;
-    padding: 3vh 4vh 3vh 3vh;
-    text-align: justify;
-    border-radius: 0 4vh 4vh 0; 
-    background: #00000090; 
+.section1 p
+{
+    margin-left: 3.5vh;
+    margin-top: 10vh;
+    font-size: min(24px, 2.5vh);
+    width: 100vh;
+    padding: 3vh;
+    border-radius: 3vh;
+    background: #00000079;
 }
-
-/* Estilos para o lado direito da primeira seção */
-.rightSide {
+.rightSide
+{
     align-items: center;
     justify-content: center;
     display: flex;
     width: 40%;
 }
-
-/* Estilos para a imagem no lado direito */
-.imgRightSide {
+.imgRightSide
+{
     padding-left: 5vh;
-    width: 70%;
-    margin-top: -20vh; 
+    width:  70%;
+    margin-top: -5vh;
 }
 
-/* Estilos para a segunda seção */
-.section2 {
-    background-image: url('../images/imgHeaps/bg2.png'); 
-    background-size: cover; 
-    background-position: center; 
+.section2
+{
+    background-image: url('../images/imgHeaps/bg2.png');
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    height: 120vh; 
-    position: relative; 
+    height: 120vh;
+    position: relative;
 }
 
-/* Estilos para o botão Node */
-.btnNode {
-    position: absolute; /
-    padding: 2vh; 
-    font-size: max(15px, 2vh); 
-    border-radius: 5vh; 
+.btnNode
+{
+    position: absolute;
+    padding: 2vh;
+    font-size: max(15px, 2vh);
+    border-radius: 5vh;
     box-shadow: 1vh 1vh 2vh #0000009a;
-    font-weight: 500; 
-    color: #fff; 
-    z-index: 1; 
-    transition: 500ms; 
+    font-weight: 500;
+    color: #fff;
+    z-index: 1;
+    transition: 500ms;
 }
 
-/* Efeito de hover para o botão Node */
-.btnNode:hover {
+.btnNode:hover
+{
     opacity: .8;
-    box-shadow: .5vh .5vh 1vh #0000007e; 
+    box-shadow: .5vh .5vh 1vh #0000007e;
     padding: 2.5vh;
+
 }
 
-/* Estilos para o botão Node em resoluções até 1440px */
-@media (max-width: 1440px) {
-    .btnNode {
-        font-size: 15px; /
-    }
-}
-
-/* Estilos para o botão Node em resoluções até 768px */
-@media (max-width: 768px) {
-    .btnNode {
+@media (max-width: 1440px)
+{
+    .btnNode
+    {
         font-size: 15px;
-        padding: 1vh; 
+    }
+}
+
+@media (max-width: 768px)
+{
+    .btnNode
+    {
+        font-size: 15px;
+        padding: 1vh;
     }
 
-    /* Efeito de hover para o botão Node em resoluções até 768px */
-    .btnNode:hover {
+    .btnNode:hover
+    {
         opacity: .8;
         box-shadow: .5vh .5vh 1vh #0000007e;
         padding: 1.1vh;
+
     }
 }
 
-/* Estilos para o elemento principal Node */
-.mainNode {
-    bottom: 0; 
-    left: 45%; 
-    background: #0c0479; 
+.mainNode
+{
+    bottom: 0;
+    left: 45%;
+    background: #0c0479;
 }
 
-/* Estilos para o primeiro ramo */
-.branch1 {
-    background: #00811C; 
-    display: none; /* Oculta o primeiro ramo por padrão */
+.branch1
+{
+    background: #00811C;
+    display: none;
+
 }
 
-/* Estilos para a versão móvel */
-.mobile {
-    bottom: 15%; 
+.mobile
+{
+    bottom: 15%;
     left: 30%;
 }
 
-/* Estilos para a seção de Front-end */
-.front {
-    bottom: 15%; 
-    left: 45%; 
+.front
+{
+    bottom: 15%;
+    left: 45%;
 }
 
-/* Estilos para a seção de Back-end */
-.backend {
+.backend
+{
     bottom: 15%;
     left: 60%;
 }
 
-/* Estilos para o segundo ramo */
-.branch2 {
-    background: #814500; 
-    display: none; /* Oculta o segundo ramo por padrão */
+.branch2
+{
+    background: #814500;
+    display: none;
 }
 
-/* Estilos para o elemento iPhone */
-.iphone {
+.iphone
+{
     bottom: 30%;
     left: 30%;
 }
-
-/* Estilos para o elemento Android */
-.android {
+.android
+{
     bottom: 15%;
     left: 15%;
 }
 
-/* Estilos para o elemento Design */
-.design {
+.design
+{
     bottom: 60%;
     left: 35%;
 }
 
-/* Estilos para o elemento Web */
-.web {
+.web
+{
     bottom: 70%;
     left: 55%;
 }
 
-/* Estilos para o elemento Lógica de Programação */
-.logica {
+.logica
+{
     bottom: 30%;
     left: 60%;
 }
 
-/* Estilos para o elemento Paradigmas de Programação */
-.paradigmas {
+.paradigmas
+{
     bottom: 15%;
     left: 75%;
 }
 
-/* Estilos para o terceiro ramo */
-.branch3 {
-    background: #9E1818; 
-    display: none; /* Oculta o terceiro ramo por padrão */
+.branch3
+{
+    background: #9E1818;
+    display: none;
 }
 
-/* Estilos para o elemento Native Development */
-.native {
+.native
+{
     bottom: 20%;
     left: 5%;
 }
 
-/* Estilos para o elemento Adaptive Design */
-.adap {
+.adap
+{
     bottom: 35%;
     left: 10%;
 }
 
-/* Estilos para o elemento Adaptive Implementation */
-.adapI {
+.adapI
+{
     bottom: 47%;
     left: 17%;
 }
 
-/* Estilos para o elemento Native Implementation */
-.nativeI {
+.nativeI
+{
     bottom: 45%;
     left: 30%;
 }
 
-/* Estilos para o elemento Jetpack Compose */
-.jet {
+.jet
+{
     bottom: 85%;
     left: 35%;
 }
 
-/* Estilos para o elemento JavaScript */
-.js {
+.js
+{
     bottom: 75%;
     left: 25%;
 }
 
-/* Estilos para o elemento HTML */
-.html {
+.html
+{
     bottom: 75%;
     left: 70%;
 }
 
-/* Estilos para o elemento Figma */
-.figma {
+.figma
+{
     bottom: 90%;
     left: 60%;
 }
 
-/* Estilos para o elemento Backend 1 */
-.backend1 {
+.backend1
+{
     bottom: 45%;
     left: 65%;
 }
 
-/* Estilos para o elemento Backend 2 */
-.backend2 {
+.backend2
+{
     bottom: -2%;
     left: 75%;
 }
 
-/* Estilos para o elemento Tic Tac Toe Game */
-.tic {
+
+.tic
+{
     bottom: 20%;
     left: 85%;
 }
 
-/* Estilos para o elemento Apple */
-.apple {
+.apple
+{
     bottom: 30%;
     left: 80%;
 }
 
-/* Estilos para o quarto ramo */
-.branch4 {
-    background: #000; 
-    border: #fff 1px solid; 
-    display: none; /* Oculta o quarto ramo por padrão */
+.branch4
+{
+    background: #000;
+    border: #fff 1px solid;
+    display: none;
 }
 
-/* Estilos para o elemento Samsung Galaxy S22 */
-.s22 {
+.s22
+{
     bottom: 60%;
     left: 65%;
 }
 
-/* Estilos para o elemento Redmi */
-.redmi {
+.redmi
+{
     bottom: 60%;
     left: 75%;
 }
 
-/* Estilos para o elemento Samsung Galaxy S7 Edge */
-.se {
+.se
+{
     bottom: 50%;
     left: 85%;
 }
 
-/* Estilos para o elemento iPhone 2G */
-.i2g {
+.i2g
+{
     bottom: 40%;
     left: 85%;
 }
 
-/* Estilos para as linhas conectivas */
-.line {
-    position: absolute; 
-    background: rgba(107, 80, 80, 0.651); 
-    z-index: 0; 
-    transition: 1s ease-in; 
-}
-/* Estilos para a linha ativa */
-.activeLine {
-    box-shadow: 1px 1px 1vh rgb(255, 255, 255); 
-    background: #a89494; 
-    padding: 1px; 
+.line
+{
+    position: absolute;
+    background: rgba(107, 80, 80, 0.651);
+    z-index: 0;
+    transition: 1s ease-in;
 }
 
-/* Definição das linhas horizontais e verticais */
+.activeLine
+{
+    box-shadow: 1px 1px 1vh rgb(255, 255, 255);
+    background: #a89494;
+    padding: 1px;
+}
 
-.l1H {
+.l1H
+{
     width: 12%;
     height: .01vh;
     bottom: 2.5%;
     left: 33%;
 }
-
-.l1V {
+.l1V
+{
     width: .01vh;
     height: 12.5%;
     bottom: 2.5%;
     left: 33%;
 }
 
-.l2H {
+.l2H
+{
     width: 10.8%;
     height: .01vh;
     bottom: 2.5%;
     left: 52.3%;
 }
-
-.l2V {
+.l2V
+{
     width: .01vh;
     height: 12.5%;
     bottom: 2.5%;
     left: 63%;
 }
 
-.l3V {
+.l3V
+{
     width: .01vh;
     height: 10%;
     bottom: 5%;
     left: 49%;
 }
 
-.l4H {
+.l4H
+{
     width: 11%;
     height: .01vh;
     bottom: 17.5%;
     left: 19%;
 }
-
-.l5H {
+.l5H
+{
     width: 7%;
     height: .01vh;
     bottom: 17.5%;
     left: 8%;
 }
-
-.l5V {
+.l5V
+{
     width: .01vh;
     height: 2.5%;
     bottom: 17.5%;
     left: 8%;
 }
-
-.l6V {
+.l6V
+{
     width: .01vh;
     height: 15%;
     bottom: 20%;
     left: 17%;
 }
-
-.l7V {
+.l7V
+{
     width: .01vh;
     height: 10%;
     bottom: 20%;
     left: 32.5%;
 }
-
-.l8V {
+.l8V
+{
     width: .01vh;
     height: 10%;
     bottom: 35%;
     left: 33%;
 }
-
-.l9V {
+.l9V
+{
     width: .01vh;
     height: 14%;
     bottom: 33%;
     left: 22%;
 }
-
-.l9H {
+.l9H
+{
     width: 8%;
     height: .01vh;
     bottom: 33%;
     left: 22%;
 }
 
-.l10V {
+.l10V
+{
     width: 4.5%;
     height: .01vh;
     bottom: 62%;
     left: 43.5%;
 }
-
-.l10H {
+.l10H
+{
     width: .01vh;
     height: 42%;
     bottom: 20%;
     left: 48%;
 }
 
-.l11V {
+.l11V
+{
     width: 4%;
     height: .01vh;
     bottom: 72%;
     left: 51%;
 }
-
-.l11H {
+.l11H
+{
     width: .01vh;
     height: 52%;
     bottom: 20%;
     left: 51%;
 }
 
-.l12H {
+.l12H
+{
     width: 7%;
     height: .01vh;
     bottom: 77%;
     left: 30%;
 }
-
-.l12V {
+.l12V
+{
     width: .01vh;
     height: 12%;
     bottom: 65%;
     left: 37%;
 }
-
-.l13V {
+.l13V
+{
     width: .01vh;
     height: 20%;
     bottom: 65%;
     left: 42%;
 }
-
-.l14V {
+.l14V
+{
     width: .01vh;
     height: 10%;
     bottom: 20%;
     left: 62%;
 }
-
-.l15H {
+.l15H
+{
     width: 8.5%;
     height: .01vh;
     bottom: 18%;
     left: 66.4%;
 }
 
-.l16V {
+.l16V
+{
     height: 2%;
     width: .01vh;
     bottom: 18%;
     left: 88%;
 }
-
-.l16H {
+.l16H
+{
     width: 4%;
     height: .01vh;
     bottom: 18%;
     left: 84%;
 }
-
-/* Linha condicionalmente comentada */
 /*
-.l17H {
+.l17H
+{
     width: 18.6%;
     height: .45vh;
     bottom: -10%;
     left: 68.5%;
-}
-*/
-
-.l17V {
+}*/
+.l17V
+{
     height: 7.6%;
     width: .01vh;
     bottom: 8%;
     left: 77.65%;
 }
 
-.l18V {
+.l18V
+{
     height: 10%;
     width: .01vh;
     bottom: 35%;
     left: 67%;
 }
 
-.l20V {
+
+
+
+.l20V
+{
     height: 17%;
     width: .01vh;
     bottom: 75%;
     left: 58%;
 }
 
-.l20H {
+.l20H
+{
     width: 2%;
     height: .01vh;
     bottom: 92%;
     left: 58%;
 }
 
-.l21H {
+.l21H
+{
     width: 14%;
     height: .01vh;
     bottom: 72%;
     left: 60%;
 }
 
-.l22V {
+.l22V
+{
     height: 3%;
     width: .01vh;
     bottom: 72%;
     left: 74%;
 }
 
-/* Exibição do elemento com a classe 'show' */
-.show {
+.show
+{
     display: block;
 }

@@ -1,70 +1,61 @@
-/* Estilo Geral da Página */
-body {
-    overflow: hidden; /* Impede a rolagem da página */
+body
+{
+    overflow: hidden;
+    color: #fff;
 }
 
-/* Conteúdo Principal */
-.content {
-    display: flex;
-    flex-direction: column;
-    color: #fff; /* Cor do texto */
-}
-
-/* Seção 1 */
-.section1 { 
+.section1
+{
     background-image: url('../images/imgPilhas/bg1.png');
     height: 70vh;
     background-position: 0 0;
     background-size: cover;
     background-repeat: no-repeat;
     flex-direction: column;
+    flex-direction: row;
     width: 100%;
 }
 
-/* Lado Esquerdo da Seção 1 */
-.leftSide {
+.leftSide
+{
+    padding-top: 10vh;
     flex-direction: column;
     margin-left: 5vh;
-    width: 55%;
+    width: 50%;
 }
 
-/* Título da Seção 1 */
-.leftSide h1 {  
+.section1 h1
+{
     position: relative;
-    margin-top: 100px;
-    margin-left: 3.5vh;
-    padding: 1.5vh 3vh;
-    font-size: 2.5vh;
+    margin-top: 10vh;
+    font-size: max(25px, 2.5vh);
+    padding: 1vh 5vh;
     width: fit-content;
-    background: #0819b8;
+    background: #0c0479;
     border-radius: 1vh;
 }
 
-/* Parágrafo da Seção 1 */
-.leftSide p {
+.section1 p
+{
     position: relative;
     margin-top: 5vh;
-    left: -5vh;
-    font-size: 22px;
-    line-height: 3.5vh;
+    font-size: min(24px, 3.5vh);
     width: 100%;
-    padding: 3vh 4vh 3vh 3vh;
-    text-align: justify;
-    border-radius: 0 4vh 4vh 0; 
-    background: #00000090;
-    color: white;
+    padding: 3vh;
+    border-radius: 2vh;
+    background: #00000079;
 }
 
-/* Característica 1 */
-.caracter1 {
+.caracter1
+{
     position: relative;
     width: 20%;
     left: 80%;
-    bottom: 60%;
+    bottom: 70%;
 }
 
-/* Seção 2 */
-.section2 {
+.section2
+{
     display: flex;
     position: relative;
     background-image: url('../images/imgPilhas/bg4.png');
@@ -74,97 +65,99 @@ body {
     height: 150vh;
 }
 
-/* Característica 2 */
-.caracter2 {
+.caracter2
+{
     position: absolute;
     width: 40%;
     z-index: 1;
 }
 
-/* Lado Esquerdo da Seção 2 */
-.leftSide2 {
+.leftSide2
+{
     width: 75%;
 }
 
-/* Título da Mensagem */
-.titleMsg {
+.titleMsg
+{
     color: #fff;
-    padding: 1vh;
+    padding: 2vh;
     margin-top: -2vh;
-    font-size: min(40px, 5vh);
-    text-align: start;
+    font-size: min(50px, 5vh);
 }
 
-/* Mensagem Secundária */
-.msgSec {
-    line-height: 4vh;
-    text-align: justify;
-    margin-right: 1vh;
-}
-
-/* Container da Mensagem 2 */
-.containerMsg2 {
+.containerMsg2
+{
     display: flex;
     position: relative;
     flex-direction: column;
     width: fit-content;
-    background: #000000c0;
-    padding: 6vh;
+    background: #000000bd;
+    padding: 10vh;
     color: #fff;
     font-size: 20px;
     width: 70%;
-    font-size: min(30px, 3vh);
-    line-height: 10em;
-    border-radius: 0 4vh 04vh 0;
-    top: 42%;
+    font-size: min(30px, 2vh);
+    border-radius: 1vh;
+    top:30%;
     z-index: 2;
 }
 
-/* Responsividade */
-@media (max-width: 1440px) {
-    .caracter1 {
+@media (max-width: 1440px)
+{
+    .caracter1
+    {
         width: 25%;
         bottom: 70%;
     }
 }
 
-@media (max-width: 1024px) {
-    .caracter1 {
+@media (max-width: 1024px)
+{
+    .caracter1
+    {
         width: 30%;
         bottom: 80%;
     }
-    .containerMsg2 {
+    .containerMsg2
+    {
         top: 10%;
     }
 }
-
-@media (max-width: 1440px) {
-    .leftSide p {
+@media (max-width: 1440px)
+{
+    .leftSide p
+    {
         font-size: 2.2vh;
     }
-    .titleMsg {
+    .titleMsg
+    {
         font-size: min(30px, 4vh);
+
     }
-    .containerMsg2 {
+    .containerMsg2
+    {
         font-size: min(20px, 3vh);
         top: 12%;
+
     }
+
 }
 
-/* Lado Direito da Seção 2 */
-.rightSide2 {
+.rightSide2
+{
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: end;
+
 }
 
-/* Botão 'Ver Livros' */
-.botaoVerLivros {
+.botaoVerLivros
+{
     position: relative;
     background: linear-gradient(135deg, #003a40, #000000);
     color: #fff;
-    font-size: 2.5vh;
+    font-size: min(25px, 2vh);
     padding: 2vh 5vh;
     border-top-left-radius: 10vh;
     border-bottom-left-radius: 10vh;
@@ -172,18 +165,18 @@ body {
     align-items: left;
 }
 
-/* Efeito Hover no Botão 'Ver Livros' */
-.botaoVerLivros:hover {
+.botaoVerLivros:hover
+{
     background: linear-gradient(45deg, #002f33, #000000);
 }
 
-/* Título 'Livros' */
-.titleLivros {
+.titleLivros
+{
     position: relative;
     top: 5%;
     background: #003a40;
     font-size: 20px;
-    padding: 4vh 5vh;
+    padding: 3vh 5vh;
     color: #fff;
     height: 10vh;
     background: linear-gradient(#00000000, #003a40);
@@ -191,15 +184,16 @@ body {
     width: 100%;
 }
 
-/* Estilo do Título dos Livros */
-.titleLivros h2 {
+.titleLivros h2
+{
     position: relative;
     text-align: center;
     font-size: min(30px, 2vh);
+
 }
 
-/* Estante de Livros */
-.shelfDiv {
+.shelfDiv
+{
     display: flex;
     width: 100%;
     position: relative;
@@ -213,8 +207,8 @@ body {
     justify-content: left;
 }
 
-/* Divisão dos Livros */
-.divBooks {
+.divBooks
+{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -227,45 +221,47 @@ body {
     margin-top: 5vh;
 }
 
-/* Livros Individuais */
-.books {
+.books
+{
     display: flex;
     height: 100%;
     box-shadow: 2vh 0.1vh 1.5vh #000;
     transition: 1s ease-in-out;
 }
 
-/* Responsividade */
-@media (max-width: 1440px) {
-    .shelfDiv {
+@media (max-width: 1440px)
+{
+    .shelfDiv
+    {
         width: 120%;
     }
-    .titleLivros {
+    .titleLivros
+    {
         width: 120%;
     }
 }
 
-/* Imagem do Livro */
-.imgBook {
+.imgBook
+{
     display: flex;
     height: 16vh;
     margin-left: -12vh;
     box-shadow: 2vh 0.1vh 1.5vh #000;
     transition: 1s ease-in-out;
-    align-items: flex-end;
+    align-items:flex-end;
     justify-content: end;
 }
 
-/* Efeito Hover nos Livros */
-.booksHover:hover {
+.booksHover:hover
+{
     transition: 1000ms;
     height: 18.5vh;
     cursor: pointer;
     background: linear-gradient(#000000, #0000005b);
 }
 
-/* Zoom ao Clicar no Livro */
-.zoom {
+.zoom
+{
     height: 30vh;
     transition: 500ms ease-in-out;
     z-index: 999;
@@ -273,8 +269,8 @@ body {
     transition: 1s ease-in-out;
 }
 
-/* Menu Oculto de Livros */
-.hiddenMenuBooks {
+.hiddenMenuBooks
+{
     display: flex;
     flex-direction: column;
     background-image: url(../images/imgPilhas/cyberLib.png);
@@ -293,16 +289,16 @@ body {
     z-index: 9;
     transition: 1s ease-in-out;
 }
-
-/* Responsividade do Menu Oculto de Livros */
-@media (max-width: 1440px) {
-    .hiddenMenuBooks {
+@media (max-width: 1440px)
+{
+    .hiddenMenuBooks
+    {
         right: 45%;
     }   
 }
 
-/* Conteúdo do Menu Oculto */
-.contentHiddenMenu {
+.contentHiddenMenu
+{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -312,21 +308,22 @@ body {
     justify-content: start;
 }
 
-/* Livro Individual no Menu Oculto */
-.bookMenu {
+.bookMenu
+{
     height: 17vh;
     cursor: pointer;
     box-shadow: 1vh 1vh 2vh #000;
+
 }
 
-/* Overlay para Efeitos */
-.overlay {
+.overlay
+{
     height: 100vh;
     width: 100vh;
 }
 
-/* Informações sobre os Livros */
-.about {
+.about
+{
     text-align: center;
     font-size: min(30px, 2vh);
     padding: 1vh;
@@ -334,8 +331,8 @@ body {
     background: linear-gradient(90deg, #003a40, #000000);
 }
 
-/* Conteúdo do Livro no Menu Oculto */
-.bookContent {
+.bookContent
+{
     display: flex;
     flex-direction: column;
     background: linear-gradient(#003a4000, #0000008c, #003a40);
@@ -349,8 +346,8 @@ body {
     text-align: center;
 }
 
-/* Título do Livro no Menu Oculto */
-.titleBook {
+.titleBook
+{
     padding: 1vh;
     color: #fff;
     font-size: min(30px, 2vh);
@@ -360,8 +357,8 @@ body {
     margin-top: 2vh;
 }
 
-/* Título do Livro Oculto */
-.titleBookHidden {
+.titleBookHidden
+{
     padding: 1vh;
     color: #fff;
     font-size: min(25px, 1.5vh);
@@ -370,43 +367,68 @@ body {
     font-weight: 600;
 }
 
-/* Botões de Ação */
-.btnAdd,
-.btnRemove,
-.btnClose {
+.btnAdd
+{
     font-size: min(25px, 2vh);
+    background: linear-gradient(90deg,#0f9c85, #014d43);
+    box-shadow: .2vh .2vh 1vh #00000059;
     padding: 1vh;
-    border-radius: 1vh;
     color: #fff;
+    border-radius: 1vh;
 }
 
-/* Botão 'Adicionar' em Hover */
-.btnAdd:hover {
-    background: linear-gradient(45deg, #0b806c, #01332c);
-    box-shadow: .2vh .2vh .1vh #00000059;
+.btnRemove
+{
+    position: relative;
+    font-size: min(30px, 2vh);
+    background: linear-gradient(90deg,#9c370f, #4d0101);
+    box-shadow: .2vh .2vh 2vh #00000059;
+    padding: 1vh;
+    color: #fff;
+    border-radius: 1vh;
+    top: 150%;
+    left: 85%;
+    z-index: 99;
 }
 
-/* Botão 'Remover' em Hover */
-.btnRemove:hover {
+.btnRemove:hover
+{
     background: linear-gradient(90deg, #4d0101, #9c370f);
     box-shadow: .2vh .2vh 1vh #00000059;
 }
 
-/* Botão 'Fechar' em Hover */
-.btnClose:hover {
-    background: linear-gradient(45deg, #0b806c, #01332c);
+.btnClose
+{
+    font-size: min(30px, 2vh);
+    background: linear-gradient(90deg,#0f9c85, #014d43);
+    box-shadow: .2vh .2vh 1vh #00000059;
+    padding: 1vh;
+    color: #fff;
+    border-radius: 1vh;
+    margin-top: 5vh;
+}
+
+.btnAdd:hover
+{
+    background: linear-gradient(45deg,#0b806c, #01332c);
     box-shadow: .2vh .2vh .1vh #00000059;
 }
 
-/* Elementos Ocultos e de Transição */
-.hidden {
+.btnClose:hover
+{
+    background: linear-gradient(45deg,#0b806c, #01332c);
+    box-shadow: .2vh .2vh .1vh #00000059;
+}
+
+.hidden
+{
     transform: translateX(100%);
     transition: 1s linear;
     box-shadow: none;
 }
 
-/* Informações sobre o Livro */
-.info {
+.info
+{
     display: flex;
     height: auto;
     width: 130%;
@@ -424,53 +446,55 @@ body {
     box-shadow: .5vh .5vh 5vh #000;
 }
 
-/* Responsividade do Overlay */
-@media (max-width: 1440px) {
-    .info {
-        transform: translateX(-50%);
+@media (max-width: 1440px)
+{
+    .info
+    {
+            transform: translateX(-50%);
     }
 }
 
-/* Botão de Fechar no Overlay */
-.divClose {
+.divClose
+{
     position: absolute;
     width: fit-content;
     padding: .5vh;
 }
 
-/* Ícone de Fechar */
-.close {
+.close
+{
     box-shadow: .1vh .2vh .5vh #0000009c;
     border-radius: 100vh;
     opacity: .8;
     height: 4vh;
+    
 }
 
-/* Ícone de Fechar em Hover */
-.close:hover {
+.close:hover
+{
     opacity: .7;
     box-shadow: none;
 }
 
-/* Texto Informativo */
-.txtInfo {
+.txtInfo
+{
     display: flex;
     color: #fff;
     font-size: min(30px, 2vh);
 }
 
-/* Elementos Ocultos */
-.hiddenInfo {
+.hiddenInfo
+{
     display: none;
 }
 
-/* Elementos Exibidos */
-.showInfo {
+.showInfo
+{
     display: flex;
 }
 
-/* Conteúdo do Livro para Usuário */
-.bookUser {
+.bookUser
+{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -479,8 +503,8 @@ body {
     border-radius: 1vh;
 }
 
-/* Ícone de Olho para Visualizar Informações */
-.eye {
+.eye
+{
     position: absolute;
     width: 4vh;
     z-index: 999;
@@ -488,17 +512,16 @@ body {
     border-radius: 5vh;
     box-shadow: 1vh 1vh 1vh #000;
 }
-
-/* Ícone de Olho em Hover */
-.eye:hover {
+.eye:hover
+{
     background: linear-gradient(#ffffff, #ffffff5e);
     box-shadow: 1vh 1vh 1vh #00000096;
     cursor: pointer;
-    width: 4.5vh;
+        width: 4.5vh;
 }
 
-/* Lista de Informações do Livro */
-.ulInfo {
+.ulInfo
+{
     display: flex;
     flex-direction: column;
     color: #fff;
@@ -513,41 +536,40 @@ body {
     padding-top: 5vh;
 }
 
-/* Item da Lista - Autor */
-.liAutor {
+.liAutor
+{
     display: flex;
     flex-direction: column;
     font-weight: 600;
 }
 
-/* Item da Lista - Ano */
-.liAno {
+.liAno
+{
     display: flex;
     flex-direction: column;
     font-weight: 600;
 }
 
-/* Item da Lista - Páginas */
-.liPag {
+.liPag
+{
     display: flex;
     flex-direction: column;
     font-weight: 600;
 }
-
-/* Conteúdo Específico - Autor */
-.autorContent {
+.autorContent
+{
     margin-left: 1vh;
     font-weight: 500;
 }
 
-/* Conteúdo Específico - Ano */
-.anoContent {
+.anoContent
+{
     margin-left: 1vh;
     font-weight: 500;
 }
 
-/* Conteúdo Específico - Páginas */
-.pageContent {
+.pageContent
+{
     margin-left: 1vh;
     font-weight: 500;
 }
